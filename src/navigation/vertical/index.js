@@ -1,5 +1,5 @@
 import CompanyForm from './CompanySideForm'
-import DomainForm from './DoaminSideForm'
+import DomainForm from './DomainSideForm'
 import LocationForm from './LocationSideForm'
 
 const navigation = () => {
