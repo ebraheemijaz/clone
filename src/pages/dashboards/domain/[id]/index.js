@@ -26,7 +26,7 @@ import DomainStructureCharts from 'src/pages/components/custom/DomainStructureCh
 
 
 const Images = styled('img')(({ theme }) => ({
-    width: '32px',
+    width: '24px',
 }))
 
 const data = [

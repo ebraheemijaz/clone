@@ -33,9 +33,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>
@@ -74,9 +74,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>
@@ -115,9 +115,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>
@@ -156,9 +156,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>
@@ -197,9 +197,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>
@@ -238,9 +238,9 @@ function Locations() {
                                     <Grid item xs={12} md={12} lg={7}>
                                         <Grid container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, width: '100%' }}>
                                             <Grid item xs={12} md={12} lg={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                                                <Button variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
-                                                <Button variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
-                                                <Button variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='success' startIcon={<Icon icon='tabler:mail' />}>Email</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='warning' startIcon={<Icon icon='tabler:world' />}>Domain</Button>
+                                                <Button sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }} variant='outlined' color='primary' startIcon={<Icon icon='tabler:phone' />}>Call</Button>
                                             </Grid>
                                             <Button variant='tonal' color='secondary'>Address</Button>
                                         </Grid>

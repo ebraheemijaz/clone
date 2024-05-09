@@ -43,22 +43,17 @@ const navigation = () => {
     {
       title: 'My Companies',
       icon: 'tabler:building',
-      path: '/apps/email'
+      path: '#'
     },
     {
       title: 'My Domains',
       icon: 'tabler:world-www',
-      path: '/apps/email'
+      path: '#'
     },
     {
       title: 'Enrichments',
       icon: 'tabler:users',
-      path: '/apps/email'
-    },
-    {
-      title: 'Log Out',
-      icon: 'tabler:logout',
-      path: '/login'
+      path: '#'
     }
   ]
 }

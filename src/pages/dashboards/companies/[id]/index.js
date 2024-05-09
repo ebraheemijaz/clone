@@ -61,7 +61,7 @@ const Illustration = styled('img')(({ theme }) => ({
 }))
 
 const Images = styled('img')(({ theme }) => ({
-    width: '32px',
+    width: '24px',
 }))
 
 const MsgImg = styled('img')(({ theme }) => ({
