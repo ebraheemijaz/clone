@@ -12,10 +12,9 @@ import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRouter } from 'next/router'
 
-const revenuegrowth = ['< -15%', '-15% - 0%', '0% - 25%', '25% - 50%', '> 50%']
-
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
+
 const MenuProps = {
   PaperProps: {
     style: {
@@ -24,6 +23,25 @@ const MenuProps = {
     }
   }
 }
+
+const revenue = [
+  '< 100K EUR',
+  '100 - 500K EUR',
+  '0.5 - 1 Mn. EUR',
+  '1 - 5 Mn. EUR',
+  '5 - 10 Mn. EUR',
+  '10 - 25 Mn. EUR',
+  '25 - 50 Mn. EUR',
+  '50 - 100 Mn. EUR',
+  '100 - 500 Mn. EUR',
+  '> 500 Mn. EUR'
+]
+
+const revenuegrowth = ['< -15%', '-15% - 0%', '0% - 25%', '25% - 50%', '> 50%']
+
+const ebit = ['< 0%', '0% - 10%', '10% - 25%', '25% - 50%', '> 50%']
+
+const noOfEmployees = ['0 - 10', '10 - 50', '50 - 100', '100 - 500', '500 - 1000', '> 1000']
 
 const defaultFilters = {
   country: '',
@@ -39,6 +57,7 @@ const defaultFilters = {
 export default function CompanyForm() {
   const [filter, setFilter] = useState(defaultFilters)
   const router = useRouter()
+
   const handleFilterChange = useCallback(
     e => {
       console.log({ filter })
@@ -49,6 +68,10 @@ export default function CompanyForm() {
     },
     [filter]
   )
+
+  const handleReset = useCallback(e => {
+    setFilter(defaultFilters)
+  }, [])
 
   return (
     <>
@@ -66,9 +89,10 @@ export default function CompanyForm() {
               id='country'
               name='country'
               fullWidth
-              // value={filter.country}
-              // onChange={handleFilterChange}
-            ></CustomTextField>
+              value={filter.country}
+              onChange={handleFilterChange}
+            >
+            </CustomTextField>
           </AccordionDetails>
         </Accordion>
       </div>
@@ -83,12 +107,13 @@ export default function CompanyForm() {
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
-              id='country'
-              name='country'
+              id='company'
+              name='company'
               fullWidth
-              // value={filter.country}
-              // onChange={handleFilterChange}
-            ></CustomTextField>
+              value={filter.company}
+              onChange={handleFilterChange}
+            >
+            </CustomTextField>
           </AccordionDetails>
         </Accordion>
       </div>
@@ -107,16 +132,16 @@ export default function CompanyForm() {
               name='industry'
               select
               fullWidth
-              // defaultValue={filter.industry}
+              defaultValue={filter.industry}
               SelectProps={{
-                // value: filter.industry,
-                displayEmpty: true
-                // onChange: handleFilterChange
+                value: filter.industry,
+                displayEmpty: true,
+                onChange: handleFilterChange
               }}
             >
               <MenuItem value=''>Select Industry</MenuItem>
-              <MenuItem value='industry1'>Industry 1</MenuItem>
-              <MenuItem value='industry2'>Industry 2</MenuItem>
+              <MenuItem value='type1'>Industry 1</MenuItem>
+              <MenuItem value='type2'>Industry 2</MenuItem>
             </CustomTextField>
           </AccordionDetails>
         </Accordion>
@@ -128,7 +153,35 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Industry</Typography>
+            <Typography>Select Revenue</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <CustomTextField
+              id='revenue'
+              name='revenue'
+              select
+              fullWidth
+              SelectProps={{
+                MenuProps, multiple: true, value: filter.revenue, onChange: handleFilterChange
+              }}
+            >
+              {revenue.map(name => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </CustomTextField>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <Accordion>
+          <AccordionSummary
+            id='panel-header-1'
+            aria-controls='panel-content-1'
+            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+          >
+            <Typography>Select Revenue Growth</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -136,14 +189,89 @@ export default function CompanyForm() {
               name='revenueGrowth'
               select
               fullWidth
-              SelectProps={{
-                MenuProps,
-                multiple: true,
-                value: filter.revenueGrowth,
-                onChange: handleFilterChange
-              }}
+              SelectProps={{ MenuProps, multiple: true, value: filter.revenueGrowth, onChange: handleFilterChange }}
             >
-              {revenuegrowth.map(name => (
+              {
+                revenuegrowth.map(name => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))
+              }
+            </CustomTextField>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <Accordion>
+          <AccordionSummary
+            id='panel-header-1'
+            aria-controls='panel-content-1'
+            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+          >
+            <Typography>Select EBIT %</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <CustomTextField
+              id='ebit'
+              name='ebit'
+              select
+              fullWidth
+              SelectProps={{ MenuProps, multiple: true, value: filter.ebit, onChange: handleFilterChange }}
+            >
+              {ebit.map(name => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </CustomTextField>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <Accordion>
+          <AccordionSummary
+            id='panel-header-1'
+            aria-controls='panel-content-1'
+            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+          >
+            <Typography>Select EBITDA %</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <CustomTextField
+              id='ebitda'
+              name='ebitda'
+              select
+              fullWidth
+              SelectProps={{ MenuProps, multiple: true, value: filter.ebitda, onChange: handleFilterChange }}
+            >
+              {ebit.map(name => (
+                <MenuItem key={name} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </CustomTextField>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <Accordion>
+          <AccordionSummary
+            id='panel-header-1'
+            aria-controls='panel-content-1'
+            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+          >
+            <Typography>Select Employees</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <CustomTextField
+              id='employees'
+              name='employees'
+              select
+              fullWidth
+              SelectProps={{ MenuProps, multiple: true, value: filter.employees, onChange: handleFilterChange }}
+            >
+              {noOfEmployees.map(name => (
                 <MenuItem key={name} value={name}>
                   {name}
                 </MenuItem>
@@ -163,10 +291,10 @@ export default function CompanyForm() {
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/companies/')}>
+        <Button variant='contained' onClick={() => router.push('/dashboards/domain/')}>
           Filter
         </Button>
-        <Button variant='contained' color='error'>
+        <Button variant='contained' onClick={handleReset} color='error'>
           Reset
         </Button>
       </div>

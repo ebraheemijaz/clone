@@ -110,4 +110,5 @@ const EstimatedTraffic = () => {
         </Card>
     )
 }
+
 export default EstimatedTraffic

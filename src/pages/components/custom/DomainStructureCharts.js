@@ -14,6 +14,7 @@ import Icon from 'src/@core/components/icon'
 import CustomChip from 'src/@core/components/mui/chip'
 import OptionsMenu from 'src/@core/components/option-menu'
 import dynamic from "next/dynamic";
+
 const GaugeChart = dynamic(() => import('react-gauge-chart'), { ssr: false });
 
 

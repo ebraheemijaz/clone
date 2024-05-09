@@ -82,11 +82,11 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
-  password: yup.string().min(5).required()
+  password: yup.string().min(6).required()
 })
 
 const defaultValues = {
-  password: 'admin',
+  password: 'admina',
   email: 'admin@vuexy.com'
 }
 
@@ -116,16 +116,13 @@ const LoginPage = () => {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => {
-    const { email, password } = data
-    console.log("User submite ", data)
-    auth.login({ email, password, rememberMe }, () => {
-      setError('email', {
-        type: 'manual',
-        message: 'Email or Password is invalid aasdfa'
-      })
+  const onSubmit = async data => {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
     })
   }
+  
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (
@@ -197,7 +194,7 @@ const LoginPage = () => {
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='email'
+                  name='identifier'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (

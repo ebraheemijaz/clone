@@ -38,6 +38,7 @@ function ReturnOfAssets() {
             bgColors.errorLight.backgroundColor,
             bgColors.errorLight.backgroundColor,
             bgColors.errorLight.backgroundColor,
+
             // hexToRGBA(theme.palette.primary.main),
             bgColors.errorLight.backgroundColor,
             bgColors.errorLight.backgroundColor

@@ -251,6 +251,7 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
+
           // label={row.status}
 
           // color={userStatusObj[row.status]}

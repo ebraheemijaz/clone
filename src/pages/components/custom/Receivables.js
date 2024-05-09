@@ -37,6 +37,7 @@ function Receivables() {
         colors: [
             bgColors.successLight.backgroundColor,
             bgColors.successLight.backgroundColor,
+
             // hexToRGBA(theme.palette.success.main, 1),
             bgColors.successLight.backgroundColor,
             bgColors.successLight.backgroundColor,

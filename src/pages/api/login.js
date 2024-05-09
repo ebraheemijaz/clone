@@ -2,12 +2,24 @@ import axios from "axios"
 
 export default async function handler(req, res) {
     try {
-        await axios.post('http://localhost:1337/api/auth/local', {})
+        const config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://0.0.0.0:1337/api/auth/local',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: req.body // Use req.body to access form data
+        };
+
+        const response = await axios.request(config)
+        console.log(JSON.stringify(response.data))
+        res.status(200).json({ success: 'Successfully Logged In', response: response.data, })
     } catch (error) {
-        console.log(error)
+        // console.error(error.message);
+        // console.error(error.data);
+        console.error(error.response);
+        res.status(500).json({ error: 'Internal Server Error' })
     }
-    const data = req.body
-    const id = 1;
-    res.status(200).json({ id })
 }
 

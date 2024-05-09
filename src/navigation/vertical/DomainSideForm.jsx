@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
+
 const MenuProps = {
   PaperProps: {
     style: {
@@ -43,7 +44,7 @@ const domainAuthority = [
 
 const defaultFilters = { country: '', domain: '', type: '', category: [], sizes: [], domainAuth: [] }
 
-export default function DomainForm() {
+const DomainForm = () => {
   const [filter, setFilter] = useState(defaultFilters)
   const router = useRouter()
 
@@ -238,3 +239,5 @@ export default function DomainForm() {
     </Fragment>
   )
 }
+
+export default DomainForm

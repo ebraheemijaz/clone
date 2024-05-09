@@ -37,6 +37,7 @@ function Indebtedness() {
         colors: [
             bgColors.warningLight.backgroundColor,
             bgColors.warningLight.backgroundColor,
+
             // hexToRGBA(theme.palette.success.main, 1),
             bgColors.warningLight.backgroundColor,
             bgColors.warningLight.backgroundColor,

@@ -58,7 +58,7 @@ const navigation = () => {
     {
       title: 'Log Out',
       icon: 'tabler:logout',
-      path: '/apps/email'
+      path: '/login'
     }
   ]
 }

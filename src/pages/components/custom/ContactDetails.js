@@ -117,7 +117,8 @@ const ContactDetails = () => {
                 <TabPanel value={value}>
                     {data[value].map((item, index) => {
                         console.log(item.phone1.type);
-                        return (
+                        
+return (
                             <Fragment key={index}>
                                 <DivContainer>
                                     <Div>

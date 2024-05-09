@@ -15,6 +15,7 @@ const revenuegrowth = ['< -15%', '-15% - 0%', '0% - 25%', '25% - 50%', '> 50%']
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
+
 const MenuProps = {
   PaperProps: {
     style: {
@@ -65,6 +66,7 @@ export default function LocationForm() {
               id='country'
               name='country'
               fullWidth
+
               // value={filter.country}
               // onChange={handleFilterChange}
             ></CustomTextField>
@@ -85,6 +87,7 @@ export default function LocationForm() {
               id='country'
               name='country'
               fullWidth
+
               // value={filter.country}
               // onChange={handleFilterChange}
             ></CustomTextField>
@@ -106,10 +109,12 @@ export default function LocationForm() {
               name='industry'
               select
               fullWidth
+
               // defaultValue={filter.industry}
               SelectProps={{
                 // value: filter.industry,
                 displayEmpty: true
+
                 // onChange: handleFilterChange
               }}
             >

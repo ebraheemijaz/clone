@@ -1,5 +1,7 @@
 // ** React Imports
 import { createContext, useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+
 
 // ** Next Import
 import { useRouter } from 'next/router'
@@ -9,6 +11,7 @@ import axios from 'axios'
 
 // ** Config
 import authConfig from 'src/configs/auth'
+
 
 // ** Defaults
 const defaultProvider = {
@@ -81,6 +84,30 @@ const AuthProvider = ({ children }) => {
       })
   }
 
+  const handleSignup = async (params, errorCallback) => {
+    // console.log("These are params", params)
+    // const response = await axios.post('/api/signup', {
+    //   data: JSON.stringify(params),
+    // })
+    // console.log("This is response data", response.data)
+    axios
+      .post(authConfig.signupEndpoint, params)
+      .then(async response => {
+        console.log("This is response data", response.data)
+        setUser({ ...response.data })
+
+        // params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
+        // const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
+
+        router.replace('/dashboards/companies')
+
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error(err?.response?.data?.message || 'Something went wrong')
+      })
+  }
+
   const handleLogout = () => {
     setUser(null)
     window.localStorage.removeItem('userData')
@@ -94,6 +121,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     setLoading,
     login: handleLogin,
+    signup: handleSignup,
     logout: handleLogout
   }
 
