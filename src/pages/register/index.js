@@ -19,12 +19,6 @@ import MuiFormControlLabel from '@mui/material/FormControlLabel'
 // ** Custom Component Import
 import CustomTextField from 'src/@core/components/mui/text-field'
 
-// ** Third Party Imports
-import * as yup from 'yup'
-import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-
-
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
@@ -32,12 +26,10 @@ import Icon from 'src/@core/components/icon'
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Hooks
-import { useAuth } from 'src/hooks/useAuth'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
-import toast from 'react-hot-toast'
 
 // ** Styled Components
 const RegisterIllustration = styled('img')(({ theme }) => ({
@@ -79,38 +71,7 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
   }
 }))
 
-const schema = yup.object().shape({
-  name: yup.string().min(6).required(),
-  email: yup.string().email().required(),
-  password: yup.string().min(6).required()
-})
-
-const defaultValues = {
-  name: 'Ebraheem',
-  password: 'admina',
-  email: 'admin@vuexy.com'
-}
-
 const Register = () => {
-  const auth = useAuth();
-
-  const {
-    control,
-    error,
-    setError,
-    handleSubmit,
-    formState: { errors }
-  } = useForm({
-    defaultValues,
-    mode: 'onBlur',
-    resolver: yupResolver(schema)
-  })
-
-  const onSubmit = async data => {
-    data.username = data.email
-    await auth.signup(data)
-  }
-
   // ** States
   const [showPassword, setShowPassword] = useState(false)
 
@@ -190,80 +151,28 @@ const Register = () => {
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>Make your app management easy and fun!</Typography>
             </Box>
-            <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
-              <Box sx={{ mb: 4 }}>
-                <Controller
-                  name='name'
-                  control={control}
-                  rules={{ required: true }}
-                  render={({ field: { value, onChange, onBlur } }) => (
-                    <CustomTextField
-                      fullWidth
-                      autoFocus
-                      label='Name'
-                      value={value}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      placeholder='John Doe'
-                      error={Boolean(errors.name)}
-                      {...(errors.name && { helperText: errors.name.message })}
-                    />
-                  )}
-                />
-              </Box>
-              <Box sx={{ mb: 4 }}>
-                <Controller
-                  name='email'
-                  control={control}
-                  rules={{ required: true }}
-                  render={({ field: { value, onChange, onBlur } }) => (
-                    <CustomTextField
-                      fullWidth
-                      autoFocus
-                      label='Email'
-                      value={value}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      placeholder='user@email.com'
-                      error={Boolean(errors.email)}
-                      {...(errors.email && { helperText: errors.email.message })}
-                    />
-                  )}
-                />
-              </Box>
-              <Box sx={{ mb: 1.5 }}>
-                <Controller
-                  name='password'
-                  control={control}
-                  rules={{ required: true }}
-                  render={({ field: { value, onChange, onBlur } }) => (
-                    <CustomTextField
-                      fullWidth
-                      value={value}
-                      onBlur={onBlur}
-                      label='Password'
-                      onChange={onChange}
-                      id='auth-login-v2-password'
-                      error={Boolean(errors.password)}
-                      {...(errors.password && { helperText: errors.password.message })}
-                      type={showPassword ? 'text' : 'password'}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position='end'>
-                            <IconButton
-                              edge='end'
-                              onMouseDown={e => e.preventDefault()}
-                              onClick={() => setShowPassword(!showPassword)}
-                            >
-                              <Icon fontSize='1.25rem' icon={showPassword ? 'tabler:eye' : 'tabler:eye-off'} />
-                            </IconButton>
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                  )}
-                />
-              </Box>
+            <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
+              <CustomTextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='johndoe' />
+              <CustomTextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
+              <CustomTextField
+                fullWidth
+                label='Password'
+                id='auth-login-v2-password'
+                type={showPassword ? 'text' : 'password'}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <IconButton
+                        edge='end'
+                        onMouseDown={e => e.preventDefault()}
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        <Icon fontSize='1.25rem' icon={showPassword ? 'tabler:eye' : 'tabler:eye-off'} />
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
               <FormControlLabel
                 control={<Checkbox />}
                 sx={{ mb: 4, mt: 1.5, '& .MuiFormControlLabel-label': { fontSize: theme.typography.body2.fontSize } }}
@@ -296,7 +205,7 @@ const Register = () => {
                 or
               </Divider>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* <IconButton href='/' component={Link} sx={{ color: '#497ce2' }} onClick={e => e.preventDefault()}>
+                <IconButton href='/' component={Link} sx={{ color: '#497ce2' }} onClick={e => e.preventDefault()}>
                   <Icon icon='mdi:facebook' />
                 </IconButton>
                 <IconButton href='/' component={Link} sx={{ color: '#1da1f2' }} onClick={e => e.preventDefault()}>
@@ -309,7 +218,7 @@ const Register = () => {
                   sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : 'grey.300') }}
                 >
                   <Icon icon='mdi:github' />
-                </IconButton> */}
+                </IconButton>
                 <IconButton href='/' component={Link} sx={{ color: '#db4437' }} onClick={e => e.preventDefault()}>
                   <Icon icon='mdi:google' />
                 </IconButton>
