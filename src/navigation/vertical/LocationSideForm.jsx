@@ -206,9 +206,11 @@ export default function LocationForm() {
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/locations/')}>Filter</Button>
+        <Button variant='contained' onClick={() => router.push('/dashboards/locations/')}>
+          <Icon fontSize='1.25rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+        </Button>
         <Button variant='contained' onClick={handleReset} color='error'>
-          Reset
+          <Icon fontSize='1.25rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
         </Button>
       </div>
     </>

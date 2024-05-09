@@ -1,5 +1,5 @@
 // ** React Imports
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Fragment } from 'react'
 
 // ** Country Flags
 import ReactCountryFlag from 'react-country-flag'
@@ -19,12 +19,14 @@ import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import { DataGrid } from '@mui/x-data-grid'
+import Chip from '@mui/material/Chip'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
 // ** Store Imports
 import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 // ** Custom Components Imports
 import CustomChip from 'src/@core/components/mui/chip'
@@ -93,6 +95,7 @@ const renderClient = row => {
 const RowOptions = ({ id }) => {
   // ** Hooks
   const dispatch = useDispatch()
+  const router = useRouter()
 
   // ** State
   const [anchorEl, setAnchorEl] = useState(null)
@@ -108,38 +111,15 @@ const RowOptions = ({ id }) => {
 
   return (
     <>
-      <IconButton size='small' onClick={handleRowOptionsClick}>
+      {/* <IconButton size='small' onClick={handleRowOptionsClick}>
         <Icon icon='tabler:dots-vertical' />
-      </IconButton>
-      <Menu
-        keepMounted
-        anchorEl={anchorEl}
-        open={rowOptionsOpen}
-        onClose={handleRowOptionsClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right'
-        }}
-        PaperProps={{ style: { minWidth: '8rem' } }}
-      >
-        <MenuItem
-          component={Link}
-          sx={{ '& svg': { mr: 2 } }}
-          href='/dashboards/companies/1'
-          onClick={handleRowOptionsClose}
-        >
-          <Icon icon='tabler:eye' fontSize={20} />
-          View
-        </MenuItem>
-        <MenuItem onClick={handleRowOptionsClose} sx={{ '& svg': { mr: 2 } }}>
-          <Icon icon='tabler:bookmark' fontSize={20} />
-          Bookmark
-        </MenuItem>
-      </Menu>
+      </IconButton> */}
+
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+        <Icon onClick={() => router.push('/dashboards/companies/1')} icon='tabler:eye' fontSize={20} style={{ cursor: 'pointer' }} />
+        <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
+      </Box>
+
     </>
   )
 }
@@ -266,11 +246,15 @@ const desktopColumns = [
     minWidth: 80,
     field: 'attributes.nr_sal_an5',
     headerName: 'Employees',
+    align: 'right',
+    sortable: true,
     renderCell: ({ row }) => {
       const { attributes } = row
 
       return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+
+        // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
               noWrap
@@ -303,23 +287,14 @@ const mobileColumns = [
     flex: 0.25,
 
     // minWidth: 280,
-    field: 'attributes.country',
-    headerName: 'Country',
+    field: 'attributes.company',
+    headerName: 'Company',
     renderCell: ({ row }) => {
       const { attributes } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-            <ReactCountryFlag
-              countryCode={getCountryCode(attributes && attributes.country)}
-              svg
-              style={{
-                width: '20px',
-                marginRight: '5px',
-                border: '1px solid #ccc'
-              }}
-            />
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
               noWrap
               href='/apps/user/view/account'
@@ -329,7 +304,7 @@ const mobileColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.country}
+              {attributes?.company}
             </Typography>
           </Box>
         </Box>
@@ -388,9 +363,22 @@ const defaultFilters = {
   employees: []
 }
 
+const defaultChipData = {
+  country: 'US',
+  company: 'FTS',
+  industry: 'Industry 1',
+  revenue: ['< 100K EUR', '100 - 500K EUR',],
+  revenueGrowth: ['< -15%', '-15% - 0%'],
+
+  // ebit: ['< 0%', '0% - 10%'],
+  // ebitda: ['< 0%', '0% - 10%'],
+  // employees: ['0 - 10', '10 - 50']
+}
+
 const Dashboard = ({ apiData }) => {
   // ** State
   const [filter, setFilter] = useState(defaultFilters)
+  const [chipData, setChipData] = useState(defaultChipData)
   const [role, setRole] = useState('')
   const [plan, setPlan] = useState('')
   const [value, setValue] = useState('')
@@ -8550,8 +8538,34 @@ const Dashboard = ({ apiData }) => {
   )
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
 
+  console.log('Filter available are : ', filter)
+
+  const handleDelete = keyToDelete => () => {
+    const updatedChipData = { ...chipData };
+    delete updatedChipData[keyToDelete];
+    setChipData(updatedChipData);
+  }
+
   return (
     <Grid container spacing={6.5}>
+      <Grid item xs={12}>
+        <Card>
+          <CardContent>
+            {Object.entries(chipData).map(([key, value]) => (
+              <Fragment key={key}>
+                <span style={{ marginRight: '0.5rem' }}>{key}</span>
+                {Array.isArray(value) ? (
+                  value.map((item, index) => (
+                    <Chip style={{ marginRight: '0.5rem' }} key={index} label={item} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
+                  ))
+                ) : (
+                  <Chip style={{ marginRight: '0.5rem' }} label={value} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
+                )}
+              </Fragment>
+            ))}
+          </CardContent>
+        </Card>
+      </Grid>
       {/* <Grid item xs={12}>
         <Accordion>
           <AccordionSummary
@@ -8743,16 +8757,16 @@ const Dashboard = ({ apiData }) => {
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await axios.get('/cards/statistics')
-  const apiData = res.data
+// export const getStaticProps = async () => {
+//   const res = await axios.get('/cards/statistics')
+//   const apiData = res.data
 
-  return {
-    props: {
-      apiData
-    }
-  }
-}
+//   return {
+//     props: {
+//       apiData
+//     }
+//   }
+// }
 
 const getRevenueColor = filterValue => {
   switch (filterValue) {
@@ -8779,4 +8793,4 @@ const getRevenueColor = filterValue => {
   }
 }
 
-export default Dashboard
+export default Dashboard 
