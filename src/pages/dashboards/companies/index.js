@@ -252,6 +252,7 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
+
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -368,6 +369,7 @@ const defaultChipData = {
   industry: 'Industry 1',
   revenue: ['< 100K EUR', '100 - 500K EUR',],
   revenueGrowth: ['< -15%', '-15% - 0%'],
+
   // ebit: ['< 0%', '0% - 10%'],
   // ebitda: ['< 0%', '0% - 10%'],
   // employees: ['0 - 10', '10 - 50']
