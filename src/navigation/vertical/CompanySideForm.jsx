@@ -291,7 +291,7 @@ export default function CompanyForm() {
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/domain/')}>
+        <Button variant='contained' onClick={() => router.push('/dashboards/companies/')}>
           Filter
         </Button>
         <Button variant='contained' onClick={handleReset} color='error'>

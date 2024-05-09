@@ -23,19 +23,9 @@ const users = [
     fullName: 'Jane Doe',
     username: 'janedoe',
     email: 'client@vuexy.com'
-  },
-  {
-    id: 3,
-    role: 'developer',
-    password: 'developer',
-    fullName: 'Jane developer',
-    username: 'janedoe',
-    email: 'developer@vuexy.com'
   }
 ]
 
-
-// jwt.sign({id: 1}, 'dd5f3089-40c3-403d-af14-d0c228b05cb4', {expiresIn: '5m'})
 // ! These two secrets should be in .env file and not in any other file
 const jwtConfig = {
   secret: process.env.NEXT_PUBLIC_JWT_SECRET,
@@ -50,7 +40,6 @@ mock.onPost('/jwt/login').reply(request => {
   }
   const user = users.find(u => u.email === email && u.password === password)
   if (user) {
-    console.log({ id: user.id }, jwtConfig.secret, { expiresIn: jwtConfig.expirationTime })
     const accessToken = jwt.sign({ id: user.id }, jwtConfig.secret, { expiresIn: jwtConfig.expirationTime })
 
     const response = {
