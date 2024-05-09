@@ -26,6 +26,7 @@ import Icon from 'src/@core/components/icon'
 
 // ** Store Imports
 import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 // ** Custom Components Imports
 import CustomChip from 'src/@core/components/mui/chip'
@@ -94,6 +95,7 @@ const renderClient = row => {
 const RowOptions = ({ id }) => {
     // ** Hooks
     const dispatch = useDispatch()
+    const router = useRouter()
 
     // ** State
     const [anchorEl, setAnchorEl] = useState(null)
@@ -107,45 +109,13 @@ const RowOptions = ({ id }) => {
         setAnchorEl(null)
     }
 
-    const handleDelete = () => {
-        dispatch(deleteUser(id))
-        handleRowOptionsClose()
-    }
-
     return (
         <>
-            <IconButton size='small' onClick={handleRowOptionsClick}>
-                <Icon icon='tabler:dots-vertical' />
-            </IconButton>
-            <Menu
-                keepMounted
-                anchorEl={anchorEl}
-                open={rowOptionsOpen}
-                onClose={handleRowOptionsClose}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right'
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right'
-                }}
-                PaperProps={{ style: { minWidth: '8rem' } }}
-            >
-                <MenuItem
-                    component={Link}
-                    sx={{ '& svg': { mr: 2 } }}
-                    href='/dashboards/domain/1'
-                    onClick={handleRowOptionsClose}
-                >
-                    <Icon icon='tabler:eye' fontSize={20} />
-                    View
-                </MenuItem>
-                <MenuItem onClick={handleRowOptionsClose} sx={{ '& svg': { mr: 2 } }}>
-                    <Icon icon='tabler:bookmark' fontSize={20} />
-                    Bookmark
-                </MenuItem>
-            </Menu>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                <Icon onClick={() => router.push('/dashboards/domain/1')} icon='tabler:eye' fontSize={20} style={{ cursor: 'pointer' }} />
+                <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
+            </Box>
+
         </>
     )
 }
@@ -310,6 +280,7 @@ const desktopColumns = [
         // minWidth: 280,
         field: 'attributes.backlinks',
         headerName: 'Backlinks',
+        align: 'right',
         renderCell: ({ row }) => {
             const { attributes } = row
 
