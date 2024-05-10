@@ -1,13 +1,83 @@
-import { Avatar, Button, Card, CardContent, CardHeader, Divider, Grid, Typography } from '@mui/material'
+import { Avatar, Button, Card, CardContent, CardHeader, Chip, Divider, Grid, Typography } from '@mui/material'
 import { Box, width } from '@mui/system'
 import React from 'react'
+import { useState } from 'react'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
+const defaultChipData = {
+  country: 'US',
+  city: 'Washington',
+  business: 'IT',
+  category: ['category 1', 'category 5'],
+  subCategory: ['subcategory 1', 'subcategory 3'],
+  radioFilter: 'domain',
+  search: 'Odorest'
+}
+
 function Locations() {
+  const [chipData, setChipData] = useState(defaultChipData)
+
+  const handleDelete = (key, chipIndex) => () => {
+    setChipData(prevChipData => {
+      const newData = { ...prevChipData }
+      if (Array.isArray(newData[key])) {
+        newData[key] = newData[key].filter((item, index) => index !== chipIndex)
+      } else {
+        delete newData[key]
+      }
+      return newData
+    })
+    // console.log('Chips available are : ', chipData)
+  }
+
   return (
     <Grid container spacing={6}>
+      <Grid item xs={12}>
+        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
+        Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
+          <Card>
+            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+              {Object.entries(chipData).map(([key, value]) => (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
+                  {Array.isArray(value)
+                    ? value.length > 0 && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
+                            {key}
+                          </Typography>
+                          {value.map((item, index) => (
+                            <Chip
+                              key={index}
+                              label={item}
+                              color='primary'
+                              onDelete={handleDelete(key, index)}
+                              deleteIcon={<Icon icon='tabler:trash' />}
+                            />
+                          ))}
+                        </Box>
+                      )
+                    : typeof value === 'string' &&
+                      value.trim() !== '' && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
+                            {key}
+                          </Typography>
+                          <Chip
+                            label={value}
+                            color='primary'
+                            onDelete={handleDelete(key)}
+                            deleteIcon={<Icon icon='tabler:trash' />}
+                          />
+                        </Box>
+                      )}
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
+        ) : null}
+      </Grid>
       <Grid item xs={12} md={12} lg={6}>
         <Card>
           <CardContent>
