@@ -47,51 +47,15 @@ import axios from 'axios'
 import TableHeader from 'src/views/apps/user/list/TableHeader'
 import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
 import getCountryCode from 'src/utils/iso-countries'
-import { Accordion, AccordionDetails, AccordionSummary, Button, InputLabel, useMediaQuery } from '@mui/material'
-import { useTheme } from '@emotion/react'
-import DataTable from './Table'
-
-// ** renders client column
-const userRoleObj = {
-  admin: { icon: 'tabler:device-laptop', color: 'secondary' },
-  author: { icon: 'tabler:circle-check', color: 'success' },
-  editor: { icon: 'tabler:edit', color: 'info' },
-  maintainer: { icon: 'tabler:chart-pie-2', color: 'primary' },
-  subscriber: { icon: 'tabler:user', color: 'warning' }
-}
-
-function formatNumber(number) {
-  const parts = number.toString().split('.')
-  const integerPart = parts[0]
-  const decimalPart = parts[1] || ''
-
-  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-
-  return `${formattedInteger}${decimalPart ? `.${decimalPart}` : ''}`
-}
-
-const userStatusObj = {
-  active: 'success',
-  pending: 'warning',
-  inactive: 'secondary'
-}
-
-// ** renders client column
-const renderClient = row => {
-  if (row.avatar.length) {
-    return <CustomAvatar src={row.avatar} sx={{ mr: 2.5, width: 38, height: 38 }} />
-  } else {
-    return (
-      <CustomAvatar
-        skin='light'
-        color={row.avatarColor}
-        sx={{ mr: 2.5, width: 38, height: 38, fontWeight: 500, fontSize: theme => theme.typography.body1.fontSize }}
-      >
-        {getInitials(row.fullName ? row.fullName : 'John Doe')}
-      </CustomAvatar>
-    )
-  }
-}
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  InputLabel,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 
 const RowOptions = ({ id }) => {
   // ** Hooks
@@ -113,8 +77,8 @@ const RowOptions = ({ id }) => {
   return (
     <>
       {/* <IconButton size='small' onClick={handleRowOptionsClick}>
-        <Icon icon='tabler:dots-vertical' />
-      </IconButton> */}
+          <Icon icon='tabler:dots-vertical' />
+        </IconButton> */}
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
         <Icon
@@ -133,16 +97,15 @@ const desktopColumns = [
   {
     flex: 0.1,
     minWidth: 100,
-    field: 'attributes.country',
+    field: 'country',
     headerName: 'Country',
     renderCell: ({ row }) => {
-      const { attributes } = row
-
+      const { country } = row
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
             <ReactCountryFlag
-              countryCode={getCountryCode(attributes && attributes.country)}
+              countryCode={getCountryCode(country)}
               svg
               style={{
                 width: '20px',
@@ -159,7 +122,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {getCountryCode(attributes && attributes.country)}
+              {getCountryCode(country)}
             </Typography>
           </Box>
         </Box>
@@ -169,10 +132,10 @@ const desktopColumns = [
   {
     flex: 0.15,
     minWidth: 100,
-    field: 'attributes.name_industry',
+    field: 'name_industry',
     headerName: 'Industry',
     renderCell: ({ row }) => {
-      const { attributes } = row
+      const { name_industry } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -186,7 +149,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.name_industry}
+              {name_industry}
             </Typography>
           </Box>
         </Box>
@@ -197,10 +160,10 @@ const desktopColumns = [
     flex: 0.5,
 
     // minWidth: 180,
-    field: 'attributes.company',
+    field: 'company',
     headerName: 'Company',
     renderCell: ({ row }) => {
-      const { attributes } = row
+      const { company } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -214,7 +177,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.company}
+              {company}
             </Typography>
           </Box>
         </Box>
@@ -224,21 +187,19 @@ const desktopColumns = [
   {
     flex: 0.15,
     align: 'right',
-
-    // minWidth: 280,
-    field: 'attributes.websites',
+    field: 'websites',
+    sortable: false,
+    filterable: false,
     headerName: 'Revenue',
     renderCell: ({ row }) => {
+      console.log(row.tunover_level_filter)
       return (
         <CustomChip
           rounded
           skin='light'
           size='small'
-          label={row.attributes.tunover_level_filter}
-          // label={row.status}
-
-          // color={userStatusObj[row.status]}
-          color={getRevenueColor(row.attributes.tunover_level_filter)}
+          label={row.tunover_level_filter}
+          color={getRevenueColor(row.tunover_level_filter)}
           sx={{ textTransform: 'capitalize' }}
         />
       )
@@ -247,12 +208,12 @@ const desktopColumns = [
   {
     flex: 0.1,
     minWidth: 80,
-    field: 'attributes.nr_sal_an5',
+    field: 'nr_sal_an5',
     headerName: 'Employees',
     align: 'right',
     sortable: true,
     renderCell: ({ row }) => {
-      const { attributes } = row
+      const { nr_sal_an5 } = row
 
       return (
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
@@ -267,7 +228,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes && formatNumber(attributes.nr_sal_an5)}
+              {formatNumber(nr_sal_an5)}
             </Typography>
           </Box>
         </Box>
@@ -278,6 +239,7 @@ const desktopColumns = [
     flex: 0.1,
     minWidth: 100,
     sortable: false,
+    filterable: false,
     field: 'actions',
     headerName: 'Actions',
     renderCell: ({ row }) => <RowOptions id={row.id} />
@@ -286,13 +248,13 @@ const desktopColumns = [
 
 const mobileColumns = [
   {
-    flex: 0.25,
+    flex: 0.5,
 
-    // minWidth: 280,
-    field: 'attributes.company',
+    // minWidth: 180,
+    field: 'company',
     headerName: 'Company',
     renderCell: ({ row }) => {
-      const { attributes } = row
+      const { company } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -306,7 +268,7 @@ const mobileColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.company}
+              {company}
             </Typography>
           </Box>
         </Box>
@@ -317,84 +279,30 @@ const mobileColumns = [
     flex: 0.1,
     minWidth: 100,
     sortable: false,
+    filterable: false,
     field: 'actions',
     headerName: 'Actions',
     renderCell: ({ row }) => <RowOptions id={row.id} />
   }
 ]
 
-const ITEM_HEIGHT = 48
-const ITEM_PADDING_TOP = 8
-
-const MenuProps = {
-  PaperProps: {
-    style: {
-      width: 250,
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP
-    }
-  }
-}
-
-const revenue = [
-  '< 100K EUR',
-  '100 - 500K EUR',
-  '0.5 - 1 Mn. EUR',
-  '1 - 5 Mn. EUR',
-  '5 - 10 Mn. EUR',
-  '10 - 25 Mn. EUR',
-  '25 - 50 Mn. EUR',
-  '50 - 100 Mn. EUR',
-  '100 - 500 Mn. EUR',
-  '> 500 Mn. EUR'
+const rows = [
+  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 }
 ]
 
-const revenuegrowth = ['< -15%', '-15% - 0%', '0% - 25%', '25% - 50%', '> 50%']
-
-const ebit = ['< 0%', '0% - 10%', '10% - 25%', '25% - 50%', '> 50%']
-
-const noOfEmployees = ['0 - 10', '10 - 50', '50 - 100', '100 - 500', '500 - 1000', '> 1000']
-
-const defaultFilters = {
-  country: '',
-  company: '',
-  industry: '',
-  revenue: [],
-  revenueGrowth: [],
-  ebit: [],
-  ebitda: [],
-  employees: []
-}
-
-const defaultChipData = {
-  Country: 'US',
-  Company: 'FTS',
-  Industry: 'Industry 1',
-  Revenue: ['< 100K EUR', '100 - 500K EUR'],
-  'Revenue Growth': ['< -15%', '-15% - 0%'],
-  Ebit: ['< 0%', '0% - 10%'],
-  Ebitda: ['< 0%', '0% - 10%'],
-  Employees: ['0 - 10', '10 - 50']
-}
-
-const Dashboard = ({ apiData }) => {
-  // ** State
-  const [filter, setFilter] = useState(defaultFilters)
-  const [chipData, setChipData] = useState(defaultChipData)
-  const [role, setRole] = useState('')
-  const [plan, setPlan] = useState('')
-  const [value, setValue] = useState('')
-  const [status, setStatus] = useState('')
-  const [addUserOpen, setAddUserOpen] = useState(false)
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
-
-  // ** Hooks
-  const dispatch = useDispatch()
-
+export default function DataTable() {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
-  // const store = useSelector(state => state.user)
-  const store = [
+  let store = [
     {
       id: 133322,
       attributes: {
@@ -550,7 +458,7 @@ const Dashboard = ({ apiData }) => {
         risk_label: 'Grey',
         turnover_filter: '-15% - 0%',
         tunover_level_filter: '100 - 500K EUR',
-        country: 'Romania',
+        country: 'Armenia',
         createdAt: '2024-03-20T10:23:05.356Z',
         updatedAt: '2024-03-20T10:23:05.356Z',
         locale: 'en',
@@ -8500,140 +8408,34 @@ const Dashboard = ({ apiData }) => {
       }
     }
   ]
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
 
-  const handleSearch = () => {
-    console.log('handleSearch', filter)
-  }
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        role,
-        status,
-        q: value,
-        currentPlan: plan
-      })
-    )
-  }, [dispatch, plan, role, status, value])
-
-  const handleFilter = useCallback(val => {
-    setValue(val)
-  }, [])
-
-  const handleReset = useCallback(e => {
-    setFilter(defaultFilters)
-  }, [])
-
-  const handlePlanChange = useCallback(e => {
-    setPlan(e.target.value)
-  }, [])
-
-  const handleFilterChange = useCallback(
-    e => {
-      setFilter({
-        ...filter,
-        [e.target.name]: e.target.value
-      })
-    },
-    [filter]
-  )
-  const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
-
-  const handleDelete = (key, chipIndex) => () => {
-    setChipData(prevChipData => {
-      const newData = { ...prevChipData }
-      if (Array.isArray(newData[key])) {
-        newData[key] = newData[key].filter((item, index) => index !== chipIndex)
-      } else {
-        delete newData[key]
-      }
-
-      return newData
-    })
-
-    // console.log('Chips available are : ', chipData)
-  }
+  const data = store.map((e, index) => ({
+    country: e?.attributes?.country || '',
+    id: e.id,
+    name_industry: e.attributes?.name_industry || '',
+    company: e.attributes?.company || '',
+    websites: e.attributes?.websites || '',
+    tunover_level_filter: e.attributes?.tunover_level_filter || '',
+    nr_sal_an5: e.attributes?.nr_sal_an5 || ''
+  }))
 
   return (
-    <Grid container spacing={6.5}>
-      <Grid item xs={12}>
-        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
-        Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card>
-            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
-              {Object.entries(chipData).map(([key, value]) => (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
-                  {Array.isArray(value)
-                    ? value.length > 0 && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
-                            {key}:
-                          </Typography>
-                          {value.map((item, index) => (
-                            <CustomChip
-                              key={index}
-                              label={item}
-                              skin='light'
-                              color='primary'
-                              onDelete={handleDelete(key, index)}
-                              deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
-                            />
-                          ))}
-                        </Box>
-                      )
-                    : typeof value === 'string' &&
-                      value.trim() !== '' && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
-                            {key}:
-                          </Typography>
-                          <CustomChip
-                            label={value}
-                            skin='light'
-                            color='primary'
-                            onDelete={handleDelete(key)}
-                            deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
-                          />
-                        </Box>
-                      )}
-                </Box>
-              ))}
-            </CardContent>
-          </Card>
-        ) : null}
-      </Grid>
-      <Grid item xs={12}>
-        <Card>
-          <DataTable />
-          {/* <DataGrid
-            density='compact'
-            autoHeight
-            rowHeight={62}
-            rows={store}
-            columns={isMobile ? mobileColumns : desktopColumns}
-            disableRowSelectionOnClick
-            pageSizeOptions={[10, 25, 50]}
-            paginationModel={paginationModel}
-            onPaginationModelChange={setPaginationModel}
-          /> */}
-        </Card>
-      </Grid>
-
-      <AddUserDrawer open={addUserOpen} toggle={toggleAddUserDrawer} />
-    </Grid>
+    <div>
+      <DataGrid
+        rows={data}
+        density='compact'
+        autoHeight
+        rowHeight={62}
+        columns={isMobile ? mobileColumns : desktopColumns}
+        disableRowSelectionOnClick
+        pageSizeOptions={[10, 25, 50]}
+        paginationModel={paginationModel}
+        onPaginationModelChange={setPaginationModel}
+      />
+    </div>
   )
 }
-
-// export const getStaticProps = async () => {
-//   const res = await axios.get('/cards/statistics')
-//   const apiData = res.data
-
-//   return {
-//     props: {
-//       apiData
-//     }
-//   }
-// }
 
 const getRevenueColor = filterValue => {
   switch (filterValue) {
@@ -8660,4 +8462,12 @@ const getRevenueColor = filterValue => {
   }
 }
 
-export default Dashboard
+function formatNumber(number) {
+  const parts = number.toString().split('.')
+  const integerPart = parts[0]
+  const decimalPart = parts[1] || ''
+
+  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+  return `${formattedInteger}${decimalPart ? `.${decimalPart}` : ''}`
+}
