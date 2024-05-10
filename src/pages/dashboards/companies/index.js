@@ -116,10 +116,14 @@ const RowOptions = ({ id }) => {
       </IconButton> */}
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <Icon onClick={() => router.push('/dashboards/companies/1')} icon='tabler:eye' fontSize={20} style={{ cursor: 'pointer' }} />
+        <Icon
+          onClick={() => router.push('/dashboards/companies/1')}
+          icon='tabler:eye'
+          fontSize={20}
+          style={{ cursor: 'pointer' }}
+        />
         <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
       </Box>
-
     </>
   )
 }
@@ -231,7 +235,6 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
-
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -252,7 +255,6 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -367,12 +369,11 @@ const defaultChipData = {
   country: 'US',
   company: 'FTS',
   industry: 'Industry 1',
-  revenue: ['< 100K EUR', '100 - 500K EUR',],
+  revenue: ['< 100K EUR', '100 - 500K EUR'],
   revenueGrowth: ['< -15%', '-15% - 0%'],
-
-  // ebit: ['< 0%', '0% - 10%'],
-  // ebitda: ['< 0%', '0% - 10%'],
-  // employees: ['0 - 10', '10 - 50']
+  ebit: ['< 0%', '0% - 10%'],
+  ebitda: ['< 0%', '0% - 10%'],
+  employees: ['0 - 10', '10 - 50']
 }
 
 const Dashboard = ({ apiData }) => {
@@ -8538,59 +8539,60 @@ const Dashboard = ({ apiData }) => {
   )
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
 
-
   const handleDelete = (key, chipIndex) => () => {
     setChipData(prevChipData => {
-      const newData = { ...prevChipData };
+      const newData = { ...prevChipData }
       if (Array.isArray(newData[key])) {
-        newData[key] = newData[key].filter((item, index) => index !== chipIndex);
+        newData[key] = newData[key].filter((item, index) => index !== chipIndex)
       } else {
-        delete newData[key];
+        delete newData[key]
       }
-      return newData;
-    });
-    console.log('Chips available are : ', chipData)
-  };
+      return newData
+    })
+    // console.log('Chips available are : ', chipData)
+  }
 
   return (
     <Grid container spacing={6.5}>
       <Grid item xs={12}>
-        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) || Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
+        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
+        Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
           <Card>
-            <CardContent>
+            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
               {Object.entries(chipData).map(([key, value]) => (
-                <Fragment key={key}>
-                  {Array.isArray(value) ? (
-                    value.length > 0 && (
-                      <Fragment>
-                        <span style={{ marginRight: '0.5rem' }}>{key}</span>
-                        {value.map((item, index) => (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
+                  {Array.isArray(value)
+                    ? value.length > 0 && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
+                            {key}
+                          </Typography>
+                          {value.map((item, index) => (
+                            <Chip
+                              key={index}
+                              label={item}
+                              color='primary'
+                              onDelete={handleDelete(key, index)}
+                              deleteIcon={<Icon icon='tabler:trash' />}
+                            />
+                          ))}
+                        </Box>
+                      )
+                    : typeof value === 'string' &&
+                      value.trim() !== '' && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
+                            {key}
+                          </Typography>
                           <Chip
-                            style={{ marginRight: '0.5rem' }}
-                            key={index}
-                            label={item}
+                            label={value}
                             color='primary'
-                            onDelete={handleDelete(key, index)}
+                            onDelete={handleDelete(key)}
                             deleteIcon={<Icon icon='tabler:trash' />}
                           />
-                        ))}
-                      </Fragment>
-                    )
-                  ) : (
-                    typeof value === 'string' && value.trim() !== '' && (
-                      <Fragment>
-                        <span style={{ marginRight: '0.5rem' }}>{key}</span>
-                        <Chip
-                          style={{ marginRight: '0.5rem' }}
-                          label={value}
-                          color='primary'
-                          onDelete={handleDelete(key)}
-                          deleteIcon={<Icon icon='tabler:trash' />}
-                        />
-                      </Fragment>
-                    )
-                  )}
-                </Fragment>
+                        </Box>
+                      )}
+                </Box>
               ))}
             </CardContent>
           </Card>
@@ -8653,4 +8655,4 @@ const getRevenueColor = filterValue => {
   }
 }
 
-export default Dashboard 
+export default Dashboard
