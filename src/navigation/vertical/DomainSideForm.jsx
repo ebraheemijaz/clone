@@ -72,7 +72,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Country</Typography>
+            <Typography>Country</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -93,7 +93,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Domain</Typography>
+            <Typography>Domain</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -114,7 +114,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Type</Typography>
+            <Typography>Type</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -129,7 +129,7 @@ const DomainForm = () => {
                 onChange: handleFilterChange
               }}
             >
-              <MenuItem value=''>Select Type</MenuItem>
+              <MenuItem value=''>Type</MenuItem>
               <MenuItem value='type1'>type 1</MenuItem>
               <MenuItem value='type2'>type 2</MenuItem>
             </CustomTextField>
@@ -143,7 +143,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Category</Typography>
+            <Typography>Category</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -171,7 +171,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Sizes</Typography>
+            <Typography>Sizes</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -199,7 +199,7 @@ const DomainForm = () => {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Domain Authority</Typography>
+            <Typography>Domain Authority</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
