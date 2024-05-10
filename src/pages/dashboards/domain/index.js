@@ -48,6 +48,7 @@ import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
 import getCountryCode from 'src/utils/iso-countries'
 import { Accordion, AccordionDetails, AccordionSummary, Button, Chip, InputLabel, useMediaQuery } from '@mui/material'
 import { useTheme } from '@emotion/react'
+import { minWidth } from '@mui/system'
 
 // ** renders client column
 const userRoleObj = {
@@ -126,7 +127,6 @@ const RowOptions = ({ id }) => {
 const desktopColumns = [
   {
     flex: 0.25,
-
     // minWidth: 280,
     field: 'attributes.web',
     headerName: 'Domain',
@@ -154,13 +154,11 @@ const desktopColumns = [
   },
   {
     flex: 0.25,
-
     // minWidth: 280,
     field: 'attributes.category',
     headerName: 'Category',
     renderCell: ({ row }) => {
       const { attributes } = row
-
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -181,9 +179,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.5,
+    minWidth: 280,
     field: 'attributes.title',
     headerName: 'Title',
     renderCell: ({ row }) => {
@@ -209,9 +206,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.15,
+    minWidth: 100,
     field: 'attributes.country',
     headerName: 'Country',
     renderCell: ({ row }) => {
@@ -245,48 +241,43 @@ const desktopColumns = [
       )
     }
   },
-
-  // {
-  //     flex: 0.25,
-
-  //     // minWidth: 280,
-  //     field: 'attributes.crawled_pages',
-  //     headerName: 'Size',
-  //     renderCell: ({ row }) => {
-  //         const { attributes } = row
-
-  //         return (
-  //             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-  //                 <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-  //                     <Typography
-  //                         noWrap
-  //                         href='/apps/user/view/account'
-  //                         sx={{
-  //                             fontWeight: 500,
-  //                             textDecoration: 'none',
-  //                             color: 'text.secondary',
-  //                         }}
-  //                     >
-  //                         {attributes?.crawled_pages}
-  //                     </Typography>
-  //                 </Box>
-  //             </Box>
-  //         )
-  //     }
-  // },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.15,
+    minWidth: 100,
+    field: 'attributes.crawled_pages',
+    headerName: 'Size',
+    renderCell: ({ row }) => {
+      const { attributes } = row
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {attributes?.crawled_pages}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.14,
+    minWidth: 100,
     field: 'attributes.backlinks',
     headerName: 'Backlinks',
     align: 'right',
     renderCell: ({ row }) => {
       const { attributes } = row
-
       return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+        <Box>
+          <Box>
             <Typography
               noWrap
               href='/apps/user/view/account'

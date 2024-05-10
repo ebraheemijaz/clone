@@ -130,9 +130,8 @@ const RowOptions = ({ id }) => {
 
 const desktopColumns = [
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.15,
+    minWidth: 100,
     field: 'attributes.country',
     headerName: 'Country',
     renderCell: ({ row }) => {
@@ -167,9 +166,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.15,
+    minWidth: 100,
     field: 'attributes.name_industry',
     headerName: 'Industry',
     renderCell: ({ row }) => {
@@ -195,9 +193,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.5,
+    // minWidth: 180,
     field: 'attributes.company',
     headerName: 'Company',
     renderCell: ({ row }) => {
@@ -224,7 +221,7 @@ const desktopColumns = [
   },
   {
     flex: 0.25,
-
+    align: 'right',
     // minWidth: 280,
     field: 'attributes.websites',
     headerName: 'Revenue',
