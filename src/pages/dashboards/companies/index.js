@@ -234,7 +234,6 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
-
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -255,7 +254,6 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -367,14 +365,14 @@ const defaultFilters = {
 }
 
 const defaultChipData = {
-  country: 'US',
-  company: 'FTS',
-  industry: 'Industry 1',
-  revenue: ['< 100K EUR', '100 - 500K EUR'],
-  revenueGrowth: ['< -15%', '-15% - 0%'],
-  ebit: ['< 0%', '0% - 10%'],
-  ebitda: ['< 0%', '0% - 10%'],
-  employees: ['0 - 10', '10 - 50']
+  Country: 'US',
+  Company: 'FTS',
+  Industry: 'Industry 1',
+  Revenue: ['< 100K EUR', '100 - 500K EUR'],
+  'Revenue Growth': ['< -15%', '-15% - 0%'],
+  Ebit: ['< 0%', '0% - 10%'],
+  Ebitda: ['< 0%', '0% - 10%'],
+  Employees: ['0 - 10', '10 - 50']
 }
 
 const Dashboard = ({ apiData }) => {
@@ -8548,8 +8546,8 @@ const Dashboard = ({ apiData }) => {
       } else {
         delete newData[key]
       }
-      
-return newData
+
+      return newData
     })
 
     // console.log('Chips available are : ', chipData)
@@ -8567,16 +8565,17 @@ return newData
                   {Array.isArray(value)
                     ? value.length > 0 && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
                           {value.map((item, index) => (
-                            <Chip
+                            <CustomChip
                               key={index}
                               label={item}
+                              skin='light'
                               color='primary'
                               onDelete={handleDelete(key, index)}
-                              deleteIcon={<Icon icon='tabler:trash' />}
+                              deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                             />
                           ))}
                         </Box>
@@ -8584,14 +8583,15 @@ return newData
                     : typeof value === 'string' &&
                       value.trim() !== '' && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
-                          <Chip
+                          <CustomChip
                             label={value}
+                            skin='light'
                             color='primary'
                             onDelete={handleDelete(key)}
-                            deleteIcon={<Icon icon='tabler:trash' />}
+                            deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                           />
                         </Box>
                       )}

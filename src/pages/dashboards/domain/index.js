@@ -161,8 +161,8 @@ const desktopColumns = [
     headerName: 'Category',
     renderCell: ({ row }) => {
       const { attributes } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -251,8 +251,8 @@ return (
     headerName: 'Size',
     renderCell: ({ row }) => {
       const { attributes } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -279,8 +279,8 @@ return (
     align: 'right',
     renderCell: ({ row }) => {
       const { attributes } = row
-      
-return (
+
+      return (
         <Box>
           <Box>
             <Typography
@@ -367,12 +367,12 @@ const domainAuthority = ['Low', 'Moderate', 'Intermediate', 'High', 'Very high']
 const defaultFilters = { country: '', domain: '', type: '', category: [], sizes: [], domainAuth: [] }
 
 const defaultChipData = {
-  country: 'US',
-  domain: 'fts.com',
-  type: 'business',
-  category: ['category 1', 'category 5'],
-  sizes: ['Small', 'Medium Sized', 'Large'],
-  domainAuth: ['Low', 'Moderate', 'Intermediate']
+  Country: 'US',
+  Domain: 'fts.com',
+  Type: 'business',
+  Category: ['category 1', 'category 5'],
+  Sizes: ['Small', 'Medium Sized', 'Large'],
+  'Domain Authority': ['Low', 'Moderate', 'Intermediate']
 }
 
 const Domain = ({ apiData }) => {
@@ -8063,8 +8063,8 @@ const Domain = ({ apiData }) => {
       } else {
         delete newData[key]
       }
-      
-return newData
+
+      return newData
     })
 
     // console.log('Chips available are : ', chipData)
@@ -8082,16 +8082,17 @@ return newData
                   {Array.isArray(value)
                     ? value.length > 0 && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
                           {value.map((item, index) => (
-                            <Chip
+                            <CustomChip
                               key={index}
                               label={item}
+                              skin='light'
                               color='primary'
                               onDelete={handleDelete(key, index)}
-                              deleteIcon={<Icon icon='tabler:trash' />}
+                              deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                             />
                           ))}
                         </Box>
@@ -8099,14 +8100,15 @@ return newData
                     : typeof value === 'string' &&
                       value.trim() !== '' && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
-                          <Chip
+                          <CustomChip
                             label={value}
+                            skin='light'
                             color='primary'
                             onDelete={handleDelete(key)}
-                            deleteIcon={<Icon icon='tabler:trash' />}
+                            deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                           />
                         </Box>
                       )}

@@ -5,15 +5,16 @@ import { useState } from 'react'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+import CustomChip from 'src/@core/components/mui/chip'
 
 const defaultChipData = {
-  country: 'US',
-  city: 'Washington',
-  business: 'IT',
-  category: ['category 1', 'category 5'],
-  subCategory: ['subcategory 1', 'subcategory 3'],
-  radioFilter: 'domain',
-  search: 'Odorest'
+  Country: 'US',
+  City: 'Washington',
+  Business: 'IT',
+  Category: ['category 1', 'category 5'],
+  'Sub Category': ['subcategory 1', 'subcategory 3'],
+  'Radio Filter': 'domain',
+  Search: 'Odorest'
 }
 
 function Locations() {
@@ -27,8 +28,8 @@ function Locations() {
       } else {
         delete newData[key]
       }
-      
-return newData
+
+      return newData
     })
 
     // console.log('Chips available are : ', chipData)
@@ -46,16 +47,17 @@ return newData
                   {Array.isArray(value)
                     ? value.length > 0 && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
                           {value.map((item, index) => (
-                            <Chip
+                            <CustomChip
                               key={index}
                               label={item}
+                              skin='light'
                               color='primary'
                               onDelete={handleDelete(key, index)}
-                              deleteIcon={<Icon icon='tabler:trash' />}
+                              deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                             />
                           ))}
                         </Box>
@@ -63,14 +65,15 @@ return newData
                     : typeof value === 'string' &&
                       value.trim() !== '' && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium' }}>
-                            {key}
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
                           </Typography>
-                          <Chip
+                          <CustomChip
                             label={value}
+                            skin='light'
                             color='primary'
                             onDelete={handleDelete(key)}
-                            deleteIcon={<Icon icon='tabler:trash' />}
+                            deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
                           />
                         </Box>
                       )}

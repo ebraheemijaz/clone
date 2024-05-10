@@ -38,7 +38,6 @@ function FinancialHealth() {
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
-
       // hexToRGBA(theme.palette.primary.main),
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor
@@ -115,7 +114,7 @@ function FinancialHealth() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={'100%'} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
+        <ReactApexcharts type='bar' height={285} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
       </CardContent>
     </Card>
   )
