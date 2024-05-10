@@ -131,7 +131,6 @@ const desktopColumns = [
     headerName: 'Domain',
     renderCell: ({ row }) => {
       const { web } = row
-
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -150,173 +149,40 @@ const desktopColumns = [
         </Box>
       )
     }
-  }
-
-  // {
-  //   flex: 0.25,
-
-  //   // minWidth: 280,
-  //   field: 'attributes.category',
-  //   headerName: 'Category',
-  //   renderCell: ({ row }) => {
-  //     const { attributes } = row
-
-  //     return (
-  //       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-  //         <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-  //           <Typography
-  //             noWrap
-  //             href='/apps/user/view/account'
-  //             sx={{
-  //               fontWeight: 500,
-  //               textDecoration: 'none',
-  //               color: 'text.secondary'
-  //             }}
-  //           >
-  //             {attributes?.category}
-  //           </Typography>
-  //         </Box>
-  //       </Box>
-  //     )
-  //   }
-  // },
-  // {
-  //   flex: 0.5,
-  //   minWidth: 280,
-  //   field: 'attributes.title',
-  //   headerName: 'Title',
-  //   renderCell: ({ row }) => {
-  //     const { attributes } = row
-
-  //     return (
-  //       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-  //         <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-  //           <Typography
-  //             noWrap
-  //             href='/apps/user/view/account'
-  //             sx={{
-  //               fontWeight: 500,
-  //               textDecoration: 'none',
-  //               color: 'text.secondary'
-  //             }}
-  //           >
-  //             {attributes?.title}
-  //           </Typography>
-  //         </Box>
-  //       </Box>
-  //     )
-  //   }
-  // },
-  // {
-  //   flex: 0.15,
-  //   minWidth: 100,
-  //   field: 'attributes.country',
-  //   headerName: 'Country',
-  //   renderCell: ({ row }) => {
-  //     const { attributes } = row
-
-  //     return (
-  //       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-  //         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-  //           <ReactCountryFlag
-  //             countryCode={getCountryCode(attributes && attributes.country)}
-  //             svg
-  //             style={{
-  //               width: '20px',
-  //               marginRight: '5px',
-  //               border: '1px solid #ccc'
-  //             }}
-  //           />
-  //           <Typography
-  //             noWrap
-  //             href='/apps/user/view/account'
-  //             sx={{
-  //               fontWeight: 500,
-  //               textDecoration: 'none',
-  //               color: 'text.secondary'
-  //             }}
-  //           >
-  //             {attributes?.country}
-  //           </Typography>
-  //         </Box>
-  //       </Box>
-  //     )
-  //   }
-  // },
-  // {
-  //   flex: 0.15,
-  //   minWidth: 100,
-  //   field: 'attributes.crawled_pages',
-  //   headerName: 'Size',
-  //   renderCell: ({ row }) => {
-  //     const { attributes } = row
-
-  //     return (
-  //       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-  //         <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-  //           <Typography
-  //             noWrap
-  //             href='/apps/user/view/account'
-  //             sx={{
-  //               fontWeight: 500,
-  //               textDecoration: 'none',
-  //               color: 'text.secondary'
-  //             }}
-  //           >
-  //             {attributes?.crawled_pages}
-  //           </Typography>
-  //         </Box>
-  //       </Box>
-  //     )
-  //   }
-  // },
-  // {
-  //   flex: 0.14,
-  //   minWidth: 100,
-  //   field: 'attributes.backlinks',
-  //   headerName: 'Backlinks',
-  //   align: 'right',
-  //   renderCell: ({ row }) => {
-  //     const { attributes } = row
-
-  //     return (
-  //       <Box>
-  //         <Box>
-  //           <Typography
-  //             noWrap
-  //             href='/apps/user/view/account'
-  //             sx={{
-  //               fontWeight: 500,
-  //               textDecoration: 'none',
-  //               color: 'text.secondary'
-  //             }}
-  //           >
-  //             {attributes?.backlinks}
-  //           </Typography>
-  //         </Box>
-  //       </Box>
-  //     )
-  //   }
-  // },
-  // {
-  //   flex: 0.1,
-  //   minWidth: 100,
-  //   sortable: false,
-  //   field: 'actions',
-  //   headerName: 'Actions',
-  //   renderCell: ({ row }) => <RowOptions id={row.id} />
-  // }
-]
-
-const mobileColumns = [
+  },
   {
     flex: 0.25,
-
     // minWidth: 280,
-    field: 'attributes.web',
-    headerName: 'Domain',
+    field: 'category',
+    headerName: 'Category',
     renderCell: ({ row }) => {
-      const { attributes } = row
+      const { category } = row
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {category}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.5,
+    minWidth: 280,
+    field: 'title',
+    headerName: 'Title',
+    renderCell: ({ row }) => {
+      const { title } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -330,7 +196,131 @@ const mobileColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.web}
+              {title}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.15,
+    minWidth: 100,
+    field: 'country',
+    headerName: 'Country',
+    renderCell: ({ row }) => {
+      const { country } = row
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+            <ReactCountryFlag
+              countryCode={getCountryCode(country)}
+              svg
+              style={{
+                width: '20px',
+                marginRight: '5px',
+                border: '1px solid #ccc'
+              }}
+            />
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {getCountryCode(country)}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.15,
+    minWidth: 100,
+    field: 'crawled_pages',
+    headerName: 'Size',
+    renderCell: ({ row }) => {
+      const { crawled_pages } = row
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {crawled_pages}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.14,
+    minWidth: 100,
+    field: 'backlinks',
+    headerName: 'Backlinks',
+    align: 'right',
+    renderCell: ({ row }) => {
+      const { backlinks } = row
+      return (
+        <Box>
+          <Box>
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {backlinks}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.1,
+    minWidth: 100,
+    sortable: false,
+    field: 'actions',
+    headerName: 'Actions',
+    renderCell: ({ row }) => <RowOptions id={row.id} />
+  }
+]
+
+const mobileColumns = [
+  {
+    flex: 0.25,
+    field: 'web',
+    headerName: 'Domain',
+    renderCell: ({ row }) => {
+      const { web } = row
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Typography
+              noWrap
+              href='/apps/user/view/account'
+              sx={{
+                fontWeight: 500,
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              {web}
             </Typography>
           </Box>
         </Box>
@@ -8018,10 +8008,15 @@ const Domain = ({ apiData }) => {
 
   const data = store.map(e => ({
     id: e.id,
-    web: e?.attributes?.web || ''
+    web: e?.attributes?.web || '',
+    category: e?.attributes?.category || '',
+    title: e?.attributes?.title || '',
+    country: e?.attributes?.country || '',
+    crawled_pages: e?.attributes?.crawled_pages || '',
+    backlinks: e?.attributes?.backlinks || ''
   }))
 
-  console.log({ data })
+  // console.log({ data })
 
   const handleSearch = () => {
     console.log('handleSearch', filter)
@@ -8126,17 +8121,6 @@ const Domain = ({ apiData }) => {
       </Grid>
       <Grid item xs={12}>
         <Card>
-          {/* <DataGrid
-            density='compact'
-            autoHeight
-            rowHeight={62}
-            rows={store}
-            columns={isMobile ? mobileColumns : desktopColumns}
-            disableRowSelectionOnClick
-            pageSizeOptions={[10, 25, 50]}
-            paginationModel={paginationModel}
-            onPaginationModelChange={setPaginationModel}
-          /> */}
           <DataGrid
             density='compact'
             autoHeight
