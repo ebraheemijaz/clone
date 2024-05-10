@@ -151,6 +151,7 @@ const desktopColumns = [
       )
     }
   }
+
   // {
   //   flex: 0.25,
 
