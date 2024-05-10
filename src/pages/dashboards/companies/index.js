@@ -130,7 +130,7 @@ const RowOptions = ({ id }) => {
 
 const desktopColumns = [
   {
-    flex: 0.15,
+    flex: 0.1,
     minWidth: 100,
     field: 'attributes.country',
     headerName: 'Country',
@@ -158,7 +158,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.country}
+              {getCountryCode(attributes && attributes.country)}
             </Typography>
           </Box>
         </Box>
@@ -221,7 +221,7 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
+    flex: 0.15,
     align: 'right',
 
     // minWidth: 280,
@@ -234,7 +234,6 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
-
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -245,7 +244,7 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.15,
+    flex: 0.1,
     minWidth: 80,
     field: 'attributes.nr_sal_an5',
     headerName: 'Employees',
@@ -255,7 +254,6 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>

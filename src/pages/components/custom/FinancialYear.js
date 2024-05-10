@@ -17,7 +17,7 @@ import { Box } from '@mui/system'
 const data = [
   {
     avatarIcon: 'tabler:trending-up',
-    title: 'Revenue',
+    title: 'Revenue (Mn. EUR)',
     subtitle: 'Total Users',
     chipColor: '#7367F0',
     stats: '193.1',
