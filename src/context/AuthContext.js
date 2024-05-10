@@ -95,7 +95,6 @@ const AuthProvider = ({ children }) => {
       .then(async response => {
         console.log("This is response data", response.data)
         setUser({ ...response.data })
-
         // params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
         // const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
 
