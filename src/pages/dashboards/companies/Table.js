@@ -218,6 +218,7 @@ const desktopColumns = [
       const { nr_sal_an5 } = row
 
       return (
+
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>

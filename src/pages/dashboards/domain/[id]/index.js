@@ -82,7 +82,8 @@ function DomainInfo() {
       setParallelDivHeight(height)
     }
   }, [])
-  return (
+  
+return (
     <>
       <BoxCustom
         sx={{

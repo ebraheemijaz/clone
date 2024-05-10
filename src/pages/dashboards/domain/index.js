@@ -131,7 +131,8 @@ const desktopColumns = [
     headerName: 'Domain',
     renderCell: ({ row }) => {
       const { web } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -152,12 +153,14 @@ const desktopColumns = [
   },
   {
     flex: 0.25,
+
     // minWidth: 280,
     field: 'category',
     headerName: 'Category',
     renderCell: ({ row }) => {
       const { category } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -210,7 +213,8 @@ const desktopColumns = [
     headerName: 'Country',
     renderCell: ({ row }) => {
       const { country } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
             <ReactCountryFlag
@@ -245,7 +249,8 @@ const desktopColumns = [
     headerName: 'Size',
     renderCell: ({ row }) => {
       const { crawled_pages } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -272,7 +277,8 @@ const desktopColumns = [
     align: 'right',
     renderCell: ({ row }) => {
       const { backlinks } = row
-      return (
+      
+return (
         <Box>
           <Box>
             <Typography
@@ -308,7 +314,8 @@ const mobileColumns = [
     headerName: 'Domain',
     renderCell: ({ row }) => {
       const { web } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
