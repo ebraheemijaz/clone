@@ -116,19 +116,22 @@ const RowOptions = ({ id }) => {
       </IconButton> */}
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-        <Icon onClick={() => router.push('/dashboards/companies/1')} icon='tabler:eye' fontSize={20} style={{ cursor: 'pointer' }} />
+        <Icon
+          onClick={() => router.push('/dashboards/companies/1')}
+          icon='tabler:eye'
+          fontSize={20}
+          style={{ cursor: 'pointer' }}
+        />
         <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
       </Box>
-
     </>
   )
 }
 
 const desktopColumns = [
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.1,
+    minWidth: 100,
     field: 'attributes.country',
     headerName: 'Country',
     renderCell: ({ row }) => {
@@ -155,7 +158,7 @@ const desktopColumns = [
                 color: 'text.secondary'
               }}
             >
-              {attributes?.country}
+              {getCountryCode(attributes && attributes.country)}
             </Typography>
           </Box>
         </Box>
@@ -163,9 +166,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
-
-    // minWidth: 280,
+    flex: 0.15,
+    minWidth: 100,
     field: 'attributes.name_industry',
     headerName: 'Industry',
     renderCell: ({ row }) => {
@@ -191,9 +193,9 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
+    flex: 0.5,
 
-    // minWidth: 280,
+    // minWidth: 180,
     field: 'attributes.company',
     headerName: 'Company',
     renderCell: ({ row }) => {
@@ -219,7 +221,8 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.25,
+    flex: 0.15,
+    align: 'right',
 
     // minWidth: 280,
     field: 'attributes.websites',
@@ -242,7 +245,7 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.15,
+    flex: 0.1,
     minWidth: 80,
     field: 'attributes.nr_sal_an5',
     headerName: 'Employees',
@@ -364,15 +367,14 @@ const defaultFilters = {
 }
 
 const defaultChipData = {
-  country: 'US',
-  company: 'FTS',
-  industry: 'Industry 1',
-  revenue: ['< 100K EUR', '100 - 500K EUR',],
-  revenueGrowth: ['< -15%', '-15% - 0%'],
-
-  // ebit: ['< 0%', '0% - 10%'],
-  // ebitda: ['< 0%', '0% - 10%'],
-  // employees: ['0 - 10', '10 - 50']
+  Country: 'US',
+  Company: 'FTS',
+  Industry: 'Industry 1',
+  Revenue: ['< 100K EUR', '100 - 500K EUR'],
+  'Revenue Growth': ['< -15%', '-15% - 0%'],
+  Ebit: ['< 0%', '0% - 10%'],
+  Ebitda: ['< 0%', '0% - 10%'],
+  Employees: ['0 - 10', '10 - 50']
 }
 
 const Dashboard = ({ apiData }) => {
@@ -8538,204 +8540,69 @@ const Dashboard = ({ apiData }) => {
   )
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
 
-  console.log('Filter available are : ', filter)
+  const handleDelete = (key, chipIndex) => () => {
+    setChipData(prevChipData => {
+      const newData = { ...prevChipData }
+      if (Array.isArray(newData[key])) {
+        newData[key] = newData[key].filter((item, index) => index !== chipIndex)
+      } else {
+        delete newData[key]
+      }
 
-  const handleDelete = keyToDelete => () => {
-    const updatedChipData = { ...chipData };
-    delete updatedChipData[keyToDelete];
-    setChipData(updatedChipData);
+      return newData
+    })
+
+    // console.log('Chips available are : ', chipData)
   }
 
   return (
     <Grid container spacing={6.5}>
       <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            {Object.entries(chipData).map(([key, value]) => (
-              <Fragment key={key}>
-                <span style={{ marginRight: '0.5rem' }}>{key}</span>
-                {Array.isArray(value) ? (
-                  value.map((item, index) => (
-                    <Chip style={{ marginRight: '0.5rem' }} key={index} label={item} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
-                  ))
-                ) : (
-                  <Chip style={{ marginRight: '0.5rem' }} label={value} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
-                )}
-              </Fragment>
-            ))}
-          </CardContent>
-        </Card>
+        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
+        Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
+          <Card>
+            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+              {Object.entries(chipData).map(([key, value]) => (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
+                  {Array.isArray(value)
+                    ? value.length > 0 && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
+                          </Typography>
+                          {value.map((item, index) => (
+                            <CustomChip
+                              key={index}
+                              label={item}
+                              skin='light'
+                              color='primary'
+                              onDelete={handleDelete(key, index)}
+                              deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
+                            />
+                          ))}
+                        </Box>
+                      )
+                    : typeof value === 'string' &&
+                      value.trim() !== '' && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                            {key}:
+                          </Typography>
+                          <CustomChip
+                            label={value}
+                            skin='light'
+                            color='primary'
+                            onDelete={handleDelete(key)}
+                            deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
+                          />
+                        </Box>
+                      )}
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
+        ) : null}
       </Grid>
-      {/* <Grid item xs={12}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>Filters</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Card>
-              <CardHeader title='Search Filters' />
-              <CardContent>
-                <Grid container spacing={6}>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='country'>Select Country</InputLabel>
-                    <CustomTextField
-                      id='country'
-                      name='country'
-                      fullWidth
-                      value={filter.country}
-                      onChange={handleFilterChange}
-                    ></CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='company'>Select Company</InputLabel>
-                    <CustomTextField
-                      id='company'
-                      name='company'
-                      fullWidth
-                      value={filter.company}
-                      onChange={handleFilterChange}
-                    ></CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='industry'>Select Industry</InputLabel>
-                    <CustomTextField
-                      id='industry'
-                      name='industry'
-                      select
-                      fullWidth
-                      defaultValue={filter.industry}
-                      SelectProps={{
-                        value: filter.industry,
-                        displayEmpty: true,
-                        onChange: handleFilterChange
-                      }}
-                    >
-                      <MenuItem value=''>Select Industry</MenuItem>
-                      <MenuItem value='industry1'>Industry 1</MenuItem>
-                      <MenuItem value='industry2'>Industry 2</MenuItem>
-                    </CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='revenue'>Select Revenue</InputLabel>
-                    <CustomTextField
-                      id='revenue'
-                      name='revenue'
-                      select
-                      fullWidth
-                      SelectProps={{
-                        MenuProps,
-                        multiple: true,
-                        value: filter.revenue,
-                        onChange: handleFilterChange
-                      }}
-                    >
-                      {revenue.map(name => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='revenue-growth'>Select Revenue Growth %</InputLabel>
-                    <CustomTextField
-                      id='revenue-growth'
-                      name='revenueGrowth'
-                      select
-                      fullWidth
-                      SelectProps={{
-                        MenuProps,
-                        multiple: true,
-                        value: filter.revenueGrowth,
-                        onChange: handleFilterChange
-                      }}
-                    >
-                      {revenuegrowth.map(name => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='ebit'>Select EBIT %</InputLabel>
-                    <CustomTextField
-                      id='ebit'
-                      name='ebit'
-                      select
-                      fullWidth
-                      SelectProps={{ MenuProps, multiple: true, value: filter.ebit, onChange: handleFilterChange }}
-                    >
-                      {ebit.map(name => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='ebitda'>Select EBITDA %</InputLabel>
-                    <CustomTextField
-                      id='ebitda'
-                      name='ebitda'
-                      select
-                      fullWidth
-                      SelectProps={{ MenuProps, multiple: true, value: filter.ebitda, onChange: handleFilterChange }}
-                    >
-                      {ebit.map(name => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </CustomTextField>
-                  </Grid>
-                  <Grid item sm={4} xs={12}>
-                    <InputLabel htmlFor='employees'>Select Employees</InputLabel>
-                    <CustomTextField
-                      id='employees'
-                      name='employees'
-                      select
-                      fullWidth
-                      SelectProps={{ MenuProps, multiple: true, value: filter.employees, onChange: handleFilterChange }}
-                    >
-                      {noOfEmployees.map(name => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </CustomTextField>
-                  </Grid>
-                </Grid>
-                <Grid container flex justifyContent={'flex-end'}>
-                  <Grid item mt={4} rowSpacing={4}>
-                    <Button
-                      variant='contained'
-                      onClick={handleSearch}
-                      sx={{ marginRight: 2 }}
-                      endIcon={<Icon icon='tabler:search' />}
-                    >
-                      Search
-                    </Button>
-                    <Button
-                      onClick={handleReset}
-                      variant='contained'
-                      color='error'
-                      startIcon={<Icon icon='tabler:restore' />}
-                    >
-                      Reset
-                    </Button>
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <Divider sx={{ m: '0 !important' }} />
-            </Card>
-          </AccordionDetails>
-        </Accordion>
-      </Grid> */}
       <Grid item xs={12}>
         <Card>
           <DataGrid
@@ -8793,4 +8660,4 @@ const getRevenueColor = filterValue => {
   }
 }
 
-export default Dashboard 
+export default Dashboard

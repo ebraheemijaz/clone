@@ -82,7 +82,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Country</Typography>
+            <Typography>Country</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -103,7 +103,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Company</Typography>
+            <Typography>Company</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -124,7 +124,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Industry</Typography>
+            <Typography>Industry</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -139,7 +139,7 @@ export default function CompanyForm() {
                 onChange: handleFilterChange
               }}
             >
-              <MenuItem value=''>Select Industry</MenuItem>
+              <MenuItem value=''>Industry</MenuItem>
               <MenuItem value='type1'>Industry 1</MenuItem>
               <MenuItem value='type2'>Industry 2</MenuItem>
             </CustomTextField>
@@ -153,7 +153,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Revenue</Typography>
+            <Typography>Revenue</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -181,7 +181,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Revenue Growth</Typography>
+            <Typography>Revenue Growth</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -209,7 +209,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select EBIT %</Typography>
+            <Typography>EBIT %</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -235,7 +235,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select EBITDA %</Typography>
+            <Typography>EBITDA %</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
@@ -261,7 +261,7 @@ export default function CompanyForm() {
             aria-controls='panel-content-1'
             expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
           >
-            <Typography>Select Employees</Typography>
+            <Typography>Employees</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <CustomTextField
