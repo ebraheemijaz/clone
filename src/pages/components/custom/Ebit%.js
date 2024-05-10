@@ -36,6 +36,7 @@ function Ebit() {
     colors: [
       bgColors.successFilled.backgroundColor,
       bgColors.successFilled.backgroundColor,
+
       // hexToRGBA(theme.palette.success.main, 1),
       bgColors.successFilled.backgroundColor,
       bgColors.successFilled.backgroundColor

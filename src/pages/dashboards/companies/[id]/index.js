@@ -246,6 +246,9 @@ function Company() {
         <Grid item xs={12} md={6} lg={4}>
           <NumberOfEmployees />
         </Grid>
+        <Grid item xs={12} md={12} lg={12}>
+          <Footer />
+        </Grid>
       </Grid>
     </>
   )

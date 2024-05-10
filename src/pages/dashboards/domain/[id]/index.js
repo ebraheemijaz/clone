@@ -22,6 +22,7 @@ import DomainStructure from 'src/pages/components/custom/DomainStructure'
 import DomainReferral from 'src/pages/components/custom/DomainReferral'
 import LFZPCharts from 'src/pages/components/custom/LFZPCharts'
 import DomainStructureCharts from 'src/pages/components/custom/DomainStructureCharts'
+import Footer from 'src/pages/components/custom/Footer'
 
 const Images = styled('img')(({ theme }) => ({
   width: '24px'
@@ -277,6 +278,9 @@ function DomainInfo() {
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
           <DomainStructureCharts />
+        </Grid>
+        <Grid item xs={12} md={12} lg={12}>
+          <Footer />
         </Grid>
       </Grid>
     </>

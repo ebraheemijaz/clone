@@ -79,7 +79,6 @@ const UserLayout = ({ children, contentHeightFixed }) => {
       })}
     >
       {children}
-      <Footer />
     </Layout>
   )
 }

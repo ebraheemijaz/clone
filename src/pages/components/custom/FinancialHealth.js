@@ -38,6 +38,7 @@ function FinancialHealth() {
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
+
       // hexToRGBA(theme.palette.primary.main),
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor
