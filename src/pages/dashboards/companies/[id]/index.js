@@ -31,7 +31,7 @@ import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import { Box, display } from '@mui/system'
-import { Alert, AlertTitle, Divider, IconButton } from '@mui/material'
+import { Alert, AlertTitle, CardHeader, Divider, IconButton } from '@mui/material'
 import ContactDetails from 'src/pages/components/custom/ContactDetails'
 import FinancialYear from 'src/pages/components/custom/FinancialYear'
 import FinancialHealth from 'src/pages/components/custom/FinancialHealth'
@@ -44,6 +44,7 @@ import ReturnOfAssets from 'src/pages/components/custom/ReturnOfAssets'
 import ReturnOfEquity from 'src/pages/components/custom/ReturnOfEquity'
 import NumberOfEmployees from 'src/pages/components/custom/NumberOfEmployees'
 import Footer from 'src/pages/components/custom/Footer'
+import FinancialYearCard from 'src/pages/components/custom/FinancialYear'
 
 const Illustration = styled('img')(({ theme }) => ({
   right: 15,
@@ -72,8 +73,7 @@ const MsgImg = styled('img')(({ theme }) => ({
 const Div = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '100%'
+  justifyContent: 'space-between'
 }))
 
 function Company() {
@@ -115,7 +115,8 @@ function Company() {
                 height: '48px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-evenly'
+                justifyContent: 'space-evenly',
+                flexWrap: 'wrap'
               }}
             >
               <Images alt='fb-icon' src='/images/icons/project-icons/sm-icons/fb.svg' />
@@ -197,7 +198,18 @@ function Company() {
           <ContactDetails />
         </Grid>
         <Grid item xs={12} md={12} lg={5}>
-          <FinancialYear />
+          <Card>
+            <CardHeader
+              title={
+                <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
+                  Financial Year (2023)
+                </Typography>
+              }
+            />
+            <CardContent>
+              <FinancialYearCard />
+            </CardContent>
+          </Card>
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <FinancialHealth />
