@@ -31,7 +31,7 @@ function NumberOfEmployees() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
       bgColors.primaryLight.backgroundColor,

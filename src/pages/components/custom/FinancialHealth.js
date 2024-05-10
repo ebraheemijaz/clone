@@ -31,14 +31,13 @@ function FinancialHealth() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor,
-
       // hexToRGBA(theme.palette.primary.main),
       bgColors.primaryLight.backgroundColor,
       bgColors.primaryLight.backgroundColor
@@ -82,7 +81,7 @@ function FinancialHealth() {
       {
         breakpoint: 1500,
         options: {
-          chart: { height: 285 }
+          chart: { height: 265 }
         }
       },
       {
@@ -115,7 +114,7 @@ function FinancialHealth() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={285} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
+        <ReactApexcharts type='bar' height={265} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
       </CardContent>
     </Card>
   )

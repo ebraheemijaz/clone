@@ -18,38 +18,38 @@ const data = [
   {
     avatarIcon: 'tabler:trending-up',
     title: 'Revenue (Mn. EUR)',
-    subtitle: 'Total Users',
+    subtitle: 'Increasing',
     chipColor: '#7367F0',
     stats: '193.1',
     avatarColor: 'primary',
-    chipText: 'than last week'
+    chipIcon: 'tabler:arrow-up'
   },
   {
     avatarIcon: 'tabler:trending-up',
     title: 'Employees',
-    subtitle: 'Total Users',
+    subtitle: 'Decreasing',
     chipColor: '#28C76F',
     stats: '1818',
     avatarColor: 'success',
-    chipText: 'than last week'
+    chipIcon: 'tabler:arrow-down'
   },
   {
     avatarIcon: 'tabler:trending-up',
     title: 'Return of Sales (ROS)',
-    subtitle: 'Total Users',
+    subtitle: 'Decreasing',
     chipColor: '#00CFE8',
     stats: '9.50%',
     avatarColor: 'info',
-    chipText: 'than last week'
+    chipIcon: 'tabler:arrow-down'
   },
   {
     avatarIcon: 'tabler:trending-up',
     title: 'Return of Assets (ROA)',
-    subtitle: 'Total Users',
+    subtitle: 'Increasing',
     chipColor: '#FF9F43',
     stats: '11.80%',
     avatarColor: 'warning',
-    chipText: 'than last week'
+    chipIcon: 'tabler:arrow-up'
   }
 ]
 
@@ -61,7 +61,7 @@ const TechCard = props => {
     sx,
     stats,
     title,
-    chipText,
+    chipIcon,
     subtitle,
     avatarIcon,
     avatarSize = 30,
@@ -77,14 +77,14 @@ const TechCard = props => {
           <Typography variant='body2' sx={{ fontWeight: 'bold' }}>
             {title}
           </Typography>
-          <CustomAvatar
+          {/* <CustomAvatar
             skin='light'
             variant='rounded'
             color={avatarColor}
             sx={{ width: avatarSize, height: avatarSize }}
           >
             <Icon icon={avatarIcon} fontSize={iconSize} />
-          </CustomAvatar>
+          </CustomAvatar> */}
         </Box>
         <Typography variant='body2' sx={{ mb: 0.5, fontSize: 'x-large' }}>
           {stats}
@@ -93,7 +93,7 @@ const TechCard = props => {
           <Typography variant='body2' sx={{ fontSize: '1rem' }}>
             {subtitle}
           </Typography>
-          <Icon icon='tabler:exclamation-circle' color='#E64449' fontSize={25} />
+          <Icon icon={chipIcon} color={subtitle === 'Increasing' ? '#24B364' : '#E64449'} fontSize={25} />
         </Box>
       </CardContent>
     </Card>

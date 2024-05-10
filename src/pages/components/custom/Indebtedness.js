@@ -31,7 +31,7 @@ function Indebtedness() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
       bgColors.warningLight.backgroundColor,

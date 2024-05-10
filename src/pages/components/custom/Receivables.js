@@ -31,7 +31,7 @@ function Receivables() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
       bgColors.successLight.backgroundColor,

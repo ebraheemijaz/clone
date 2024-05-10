@@ -31,14 +31,14 @@ function Ebit() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.successLight.backgroundColor,
-      bgColors.successLight.backgroundColor,
-      hexToRGBA(theme.palette.success.main, 1),
-      bgColors.successLight.backgroundColor,
-      bgColors.successLight.backgroundColor
+      bgColors.successFilled.backgroundColor,
+      bgColors.successFilled.backgroundColor,
+      // hexToRGBA(theme.palette.success.main, 1),
+      bgColors.successFilled.backgroundColor,
+      bgColors.successFilled.backgroundColor
     ],
     states: {
       hover: {

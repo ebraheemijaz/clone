@@ -31,14 +31,14 @@ function Turnover() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.errorLight.backgroundColor,
-      bgColors.errorLight.backgroundColor,
-      hexToRGBA(theme.palette.error.main, 1),
-      bgColors.errorLight.backgroundColor,
-      bgColors.errorLight.backgroundColor
+      bgColors.successFilled.backgroundColor,
+      bgColors.successFilled.backgroundColor,
+      // hexToRGBA(theme.palette.error.main, 1),
+      bgColors.successFilled.backgroundColor,
+      bgColors.successFilled.backgroundColor
     ],
     states: {
       hover: {

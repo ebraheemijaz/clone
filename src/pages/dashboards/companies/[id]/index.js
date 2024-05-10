@@ -92,8 +92,16 @@ function Company() {
         >
           <CardContent>
             <Typography
-              variant='h4'
-              sx={{ mb: 0.5, color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              variant='body2'
+              sx={{
+                mb: 0.5,
+                color: 'white',
+                display: 'flex',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                gap: '0.5rem',
+                fontSize: '1.25rem'
+              }}
             >
               <Images alt='fav-icon' src='/images/icons/project-icons/fav-icon.png' />
               Renault Technologie Roumanie S.R.L
@@ -214,10 +222,10 @@ function Company() {
         <Grid item xs={12} md={6} lg={4}>
           <FinancialHealth />
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={6} lg={6}>
           <Turnover />
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={6} lg={6}>
           <Ebit />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
@@ -232,10 +240,10 @@ function Company() {
         <Grid item xs={12} md={6} lg={4}>
           <ReturnOfAssets />
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={6} lg={4}>
           <ReturnOfEquity />
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={6} lg={4}>
           <NumberOfEmployees />
         </Grid>
       </Grid>

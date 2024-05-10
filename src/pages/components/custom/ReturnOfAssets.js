@@ -31,13 +31,12 @@ function ReturnOfAssets() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: true },
+    tooltip: { enabled: false },
     dataLabels: { enabled: false },
     colors: [
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor,
-
       // hexToRGBA(theme.palette.primary.main),
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor
