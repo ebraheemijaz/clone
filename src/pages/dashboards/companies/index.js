@@ -8538,33 +8538,63 @@ const Dashboard = ({ apiData }) => {
   )
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
 
-  console.log('Filter available are : ', filter)
 
-  const handleDelete = keyToDelete => () => {
-    const updatedChipData = { ...chipData };
-    delete updatedChipData[keyToDelete];
-    setChipData(updatedChipData);
-  }
+  const handleDelete = (key, chipIndex) => () => {
+    setChipData(prevChipData => {
+      const newData = { ...prevChipData };
+      if (Array.isArray(newData[key])) {
+        newData[key] = newData[key].filter((item, index) => index !== chipIndex);
+      } else {
+        delete newData[key];
+      }
+      return newData;
+    });
+    console.log('Chips available are : ', chipData)
+  };
 
   return (
     <Grid container spacing={6.5}>
       <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            {Object.entries(chipData).map(([key, value]) => (
-              <Fragment key={key}>
-                <span style={{ marginRight: '0.5rem' }}>{key}</span>
-                {Array.isArray(value) ? (
-                  value.map((item, index) => (
-                    <Chip style={{ marginRight: '0.5rem' }} key={index} label={item} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
-                  ))
-                ) : (
-                  <Chip style={{ marginRight: '0.5rem' }} label={value} color='primary' onDelete={handleDelete(key)} deleteIcon={<Icon icon='tabler:trash' style={{ color: '' }} />} />
-                )}
-              </Fragment>
-            ))}
-          </CardContent>
-        </Card>
+        {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) || Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
+          <Card>
+            <CardContent>
+              {Object.entries(chipData).map(([key, value]) => (
+                <Fragment key={key}>
+                  {Array.isArray(value) ? (
+                    value.length > 0 && (
+                      <Fragment>
+                        <span style={{ marginRight: '0.5rem' }}>{key}</span>
+                        {value.map((item, index) => (
+                          <Chip
+                            style={{ marginRight: '0.5rem' }}
+                            key={index}
+                            label={item}
+                            color='primary'
+                            onDelete={handleDelete(key, index)}
+                            deleteIcon={<Icon icon='tabler:trash' />}
+                          />
+                        ))}
+                      </Fragment>
+                    )
+                  ) : (
+                    typeof value === 'string' && value.trim() !== '' && (
+                      <Fragment>
+                        <span style={{ marginRight: '0.5rem' }}>{key}</span>
+                        <Chip
+                          style={{ marginRight: '0.5rem' }}
+                          label={value}
+                          color='primary'
+                          onDelete={handleDelete(key)}
+                          deleteIcon={<Icon icon='tabler:trash' />}
+                        />
+                      </Fragment>
+                    )
+                  )}
+                </Fragment>
+              ))}
+            </CardContent>
+          </Card>
+        ) : null}
       </Grid>
       <Grid item xs={12}>
         <Card>
