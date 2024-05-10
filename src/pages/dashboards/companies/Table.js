@@ -101,7 +101,8 @@ const desktopColumns = [
     headerName: 'Country',
     renderCell: ({ row }) => {
       const { country } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
             <ReactCountryFlag
@@ -193,7 +194,8 @@ const desktopColumns = [
     headerName: 'Revenue',
     renderCell: ({ row }) => {
       console.log(row.tunover_level_filter)
-      return (
+      
+return (
         <CustomChip
           rounded
           skin='light'
@@ -216,6 +218,7 @@ const desktopColumns = [
       const { nr_sal_an5 } = row
 
       return (
+
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
