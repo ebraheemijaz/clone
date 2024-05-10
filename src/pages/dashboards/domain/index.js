@@ -127,6 +127,7 @@ const RowOptions = ({ id }) => {
 const desktopColumns = [
   {
     flex: 0.25,
+
     // minWidth: 280,
     field: 'attributes.web',
     headerName: 'Domain',
@@ -154,12 +155,14 @@ const desktopColumns = [
   },
   {
     flex: 0.25,
+
     // minWidth: 280,
     field: 'attributes.category',
     headerName: 'Category',
     renderCell: ({ row }) => {
       const { attributes } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -248,7 +251,8 @@ const desktopColumns = [
     headerName: 'Size',
     renderCell: ({ row }) => {
       const { attributes } = row
-      return (
+      
+return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -275,7 +279,8 @@ const desktopColumns = [
     align: 'right',
     renderCell: ({ row }) => {
       const { attributes } = row
-      return (
+      
+return (
         <Box>
           <Box>
             <Typography
@@ -8058,8 +8063,10 @@ const Domain = ({ apiData }) => {
       } else {
         delete newData[key]
       }
-      return newData
+      
+return newData
     })
+
     // console.log('Chips available are : ', chipData)
   }
 

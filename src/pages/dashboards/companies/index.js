@@ -194,6 +194,7 @@ const desktopColumns = [
   },
   {
     flex: 0.5,
+
     // minWidth: 180,
     field: 'attributes.company',
     headerName: 'Company',
@@ -222,6 +223,7 @@ const desktopColumns = [
   {
     flex: 0.25,
     align: 'right',
+
     // minWidth: 280,
     field: 'attributes.websites',
     headerName: 'Revenue',
@@ -232,6 +234,7 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
+
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -252,6 +255,7 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
+
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -8544,8 +8548,10 @@ const Dashboard = ({ apiData }) => {
       } else {
         delete newData[key]
       }
-      return newData
+      
+return newData
     })
+
     // console.log('Chips available are : ', chipData)
   }
 

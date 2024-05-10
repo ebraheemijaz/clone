@@ -27,8 +27,10 @@ function Locations() {
       } else {
         delete newData[key]
       }
-      return newData
+      
+return newData
     })
+
     // console.log('Chips available are : ', chipData)
   }
 
