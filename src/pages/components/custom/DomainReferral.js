@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
@@ -5,6 +7,7 @@ import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
+import Popover from '@mui/material/Popover'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
@@ -14,110 +17,160 @@ import CustomChip from 'src/@core/components/mui/chip'
 import OptionsMenu from 'src/@core/components/option-menu'
 
 const data = [
-    {
-        icon: 'tabler:shadow',
-        title: 'Ongoing Link',
-        amount: '61',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:globe',
-        title: 'Referral Link',
-        amount: '60',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:mail',
-        title: 'External Link',
-        amount: '1',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:external-link',
-        title: 'Total Image',
-        amount: 'Minimal',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:star',
-        title: 'Image on Page',
-        amount: 'Minimal',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:star',
-        title: 'HTML Site',
-        amount: 'Extensive',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:star',
-        title: 'Text/HTML',
-        amount: 'Minimal',
-        alertIcon: 'tabler:exclamation-circle',
-    },
-    {
-        icon: 'tabler:discount-2',
-        title: 'Watch on Page',
-        amount: 'Extensive',
-        alertIcon: 'tabler:exclamation-circle',
-    },
+  {
+    icon: 'tabler:shadow',
+    title: 'Domain Authority',
+    amount: '0',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Domain Authority is a metric developed by Moz that predicts a website's 
+    ranking potential on search engine results pages based on various factors like 
+    link profile and quality. In general, the closer the indicator is to 100, the more 
+    likely the domain has a good domain authority.`
+  },
+  {
+    icon: 'tabler:globe',
+    title: 'Content Volume',
+    amount: 'Giant',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Content Volume refer to the number of individual web pages within a website 
+    that have been discovered and indexed by search engine bots during the 
+    crawling process.`
+  },
+  {
+    icon: 'tabler:mail',
+    title: 'Backlinks',
+    amount: '2,625,468',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Backlinks are hyperlinks from external websites that direct users to a specific 
+    webpage, serving as an endorsement and influencing search engine rankings and
+    website authority.`
+  },
+  {
+    icon: 'tabler:external-link',
+    title: 'Spam Score',
+    amount: '1',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Spam Score is a metric used to assess the likelihood of backlinks 
+    being from spammy or low-quality sources, helping to evaluate the credibility and
+    impact of inbound links.`
+  },
+  {
+    icon: 'tabler:star',
+    title: 'Ref Subdomains',
+    amount: '11,773',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Referring Subdomains represent the number of unique subdomains from which
+    backlinks originate, indicating the diversity of sources linking to a specific 
+    webpage or website.`
+  },
+  {
+    icon: 'tabler:star',
+    title: 'Referring Domains',
+    amount: '9415',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Referring Domains indicates the number of unique websites or domains that 
+    contain at least one "nofollow" backlink, which instructs search engines not to 
+    pass authority to the linked webpage.`
+  },
+  {
+    icon: 'tabler:star',
+    title: 'Referring Ips',
+    amount: '4893',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Referring  IPs represent the number of unique IP addresses from which 
+    backlinks originate, indicating the diversity of individual sources linking to a 
+    specific webpage or website.`
+  },
+  {
+    icon: 'tabler:discount-2',
+    title: 'Referring Subnets',
+    amount: '2572',
+    alertIcon: 'tabler:exclamation-circle',
+    tooltipText: `Referring Subnets refer to the number of unique IP address ranges or subnets 
+    from which backlinks originate, providing insights into the geographic distribution
+    and network diversity of referring sources. Google will give significantly more link
+    power if inbound links are on different C-class IP addresses.`
+  }
 ]
 
 function DomainReferral() {
-    return (
-        <Card>
-            <CardHeader
-                title='Domain Referrals'
-                action={
-                    <OptionsMenu
-                        options={['Last Week', 'Last Month', 'Last Year']}
-                        iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-                    />
-                }
-            />
-            <CardContent>
-                {data.map((item, index) => {
-                    return (
-                        <Box
-                            key={index}
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                width: '100%',
-                                mb: index !== data.length - 1 ? 4.5 : undefined
-                            }}
-                        >
-                            <Avatar variant='rounded' sx={{ mr: 4, width: 34, height: 34 }}>
-                                <Icon icon={item.icon} />
-                            </Avatar>
-                            <Box
-                                sx={{
-                                    rowGap: 1,
-                                    columnGap: 4,
-                                    width: '100%',
-                                    display: 'flex',
-                                    flexWrap: 'wrap',
-                                    alignItems: 'center',
-                                    justifyContent: 'space-between'
-                                }}
-                            >
-                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                                    <Typography variant='h6'>{item.title}</Typography>
-                                </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <Typography sx={{ mr: 4, color: 'text.secondary' }}>{item.amount}</Typography>
-                                    <Icon icon={item.alertIcon} />
-                                </Box>
-                            </Box>
-                        </Box>
-                    )
-                })}
-            </CardContent>
-        </Card>
-    )
-}
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const open = Boolean(anchorEl)
+  const id = open ? 'simple-popover' : undefined
+
+  return (
+    <Card>
+      <CardHeader
+        title='Domain Referrals'
+        action={
+          <OptionsMenu
+            options={['Last Week', 'Last Month', 'Last Year']}
+            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+          />
+        }
+      />
+      <CardContent>
+        {data.map((item, index) => {
+          return (
+            <Box
+              key={index}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: '100%',
+                mb: index !== data.length - 1 ? 4.5 : undefined
+              }}
+            >
+              <Avatar variant='rounded' sx={{ mr: 4, width: 34, height: 34 }}>
+                <Icon icon={item.icon} />
+              </Avatar>
+              <Box
+                sx={{
+                  rowGap: 1,
+                  columnGap: 4,
+                  width: '100%',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                  <Typography variant='h6'>{item.title}</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Typography sx={{ mr: 4, color: 'text.secondary' }}>{item.amount}</Typography>
+                  <Icon icon={item.alertIcon} aria-describedby={id} onClick={handleClick} />
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right'
+                    }}
+                  >
+                    <Typography sx={{ p: 1 }}>{item.tooltipText}</Typography>
+                  </Popover>
+                </Box>
+              </Box>
+            </Box>
+          )
+        })}
+      </CardContent>
+    </Card>
+  )
+}
 
 export default DomainReferral
