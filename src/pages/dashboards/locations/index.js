@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardContent, CardHeader, Chip, Divider, Grid, Typography } from '@mui/material'
+import { Avatar, Button, Card, CardContent, CardHeader, Chip, Divider, Grid, Tooltip, Typography } from '@mui/material'
 import { Box, width } from '@mui/system'
 import React from 'react'
 import { useState } from 'react'
@@ -15,6 +15,38 @@ const defaultChipData = {
   'Sub Category': ['subcategory 1', 'subcategory 3'],
   'Radio Filter': 'domain',
   Search: 'Odorest'
+}
+
+const CustomCardText = ({ subtitle }) => {
+  const [showMore, setShowMore] = useState(false)
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore)
+  }
+
+  const truncatedSubtitle = subtitle.split(' ').slice(0, 7).join(' ')
+
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      {showMore ? (
+        <Typography>
+          {subtitle}
+          <Button onClick={toggleShowMore} variant='text'>
+            See less
+          </Button>
+        </Typography>
+      ) : (
+        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {truncatedSubtitle}
+          {subtitle.split(' ').length > 7 && (
+            <Button onClick={toggleShowMore} variant='text'>
+              See more
+            </Button>
+          )}
+        </Typography>
+      )}
+    </Box>
+  )
 }
 
 function Locations() {
@@ -34,6 +66,10 @@ function Locations() {
 
     // console.log('Chips available are : ', chipData)
   }
+
+  const cardText = `Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+  deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+  deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod`
 
   return (
     <Grid container spacing={6}>
@@ -133,30 +169,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -164,10 +206,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -225,30 +264,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -256,10 +301,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -317,30 +359,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -348,10 +396,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -409,30 +454,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -440,10 +491,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -501,30 +549,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -532,10 +586,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -593,30 +644,36 @@ function Locations() {
                         lg={12}
                         sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
                       >
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='success'
-                          startIcon={<Icon icon='tabler:mail' />}
-                        >
-                          Email
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='warning'
-                          startIcon={<Icon icon='tabler:world' />}
-                        >
-                          Domain
-                        </Button>
-                        <Button
-                          sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
-                          variant='outlined'
-                          color='primary'
-                          startIcon={<Icon icon='tabler:phone' />}
-                        >
-                          Call
-                        </Button>
+                        <Tooltip title='user@email.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='success'
+                            startIcon={<Icon icon='tabler:mail' />}
+                          >
+                            Email
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='www.user-domain.com' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='warning'
+                            startIcon={<Icon icon='tabler:world' />}
+                          >
+                            Domain
+                          </Button>
+                        </Tooltip>
+                        <Tooltip title='+1-234-567-890' placement='top' arrow>
+                          <Button
+                            sx={{ '& .MuiButton-startIcon': { marginRight: '0px' } }}
+                            variant='outlined'
+                            color='primary'
+                            startIcon={<Icon icon='tabler:phone' />}
+                          >
+                            Call
+                          </Button>
+                        </Tooltip>
                       </Grid>
                       <Button variant='tonal' color='secondary'>
                         Address
@@ -624,10 +681,7 @@ function Locations() {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} md={12} lg={12}>
-                    <Box sx={{ textAlign: 'justify' }}>
-                      Lorem ipsum dolor sodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      deserunt mollit anim id est laborum.adipiscing elit, sed do eiusmod
-                    </Box>
+                    <CustomCardText subtitle={cardText} />
                   </Grid>
                 </Grid>
               </Grid>

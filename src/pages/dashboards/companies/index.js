@@ -8620,7 +8620,6 @@ const Dashboard = ({ apiData }) => {
           /> */}
         </Card>
       </Grid>
-
       <AddUserDrawer open={addUserOpen} toggle={toggleAddUserDrawer} />
     </Grid>
   )

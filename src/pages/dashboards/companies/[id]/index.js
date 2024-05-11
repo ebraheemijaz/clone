@@ -106,12 +106,12 @@ function Company() {
               <Images alt='fav-icon' src='/images/icons/project-icons/fav-icon.png' />
               Renault Technologie Roumanie S.R.L
             </Typography>
-            <Typography sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
+            <Typography variant='body1' sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
               <Icon fontSize='1.25rem' icon='tabler:building-skyscraper' />
               Industrial Activities
             </Typography>
-            <Typography sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
-              <Icon fontSize='1.25rem' icon='tabler:map-pin' />
+            <Typography variant='body2' sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
+              <Icon fontSize='1rem' icon='tabler:map-pin' />
               Engineering and related technical consultancy activities
             </Typography>
             <Card

@@ -2,7 +2,7 @@
 import Grid from '@mui/material/Grid'
 
 // ** React Import
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
@@ -73,7 +73,17 @@ const data = [
 ]
 
 function DomainInfo() {
-  return (
+  const [parallelDivHeight, setParallelDivHeight] = useState(0)
+
+  useEffect(() => {
+    const parallelDiv = document.getElementById('parallelDiv')
+    if (parallelDiv) {
+      const height = parallelDiv.getBoundingClientRect().height
+      setParallelDivHeight(height)
+    }
+  }, [])
+  
+return (
     <>
       <BoxCustom
         sx={{
@@ -128,7 +138,7 @@ function DomainInfo() {
         </Card>
       </BoxCustom>
       <Grid container spacing={6}>
-        <Grid item sm={12} lg={6}>
+        <Grid id='parallelDiv' item sm={12} lg={6}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={12}>
               <Card>
@@ -251,7 +261,7 @@ function DomainInfo() {
         <Grid item xs={12} sm={12} md={12} lg={6}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={12}>
-              <Card sx={{ height: '182vh' }}>
+              <Card sx={{ height: `${parallelDivHeight + 15}px` }}>
                 <CardContent>
                   <Typography variant='body2' fontSize={28} fontWeight={'bold'}>
                     Main Screenshot Here
