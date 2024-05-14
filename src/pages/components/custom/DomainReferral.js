@@ -161,7 +161,9 @@ function DomainReferral() {
                       horizontal: 'right'
                     }}
                   >
-                    <Typography sx={{ p: 1 }}>{item.tooltipText}</Typography>
+                    <Typography sx={{ p: 2, width: '400px', maxHeight: '100px', overflow: 'scroll' }}>
+                      {item.tooltipText}
+                    </Typography>
                   </Popover>
                 </Box>
               </Box>
