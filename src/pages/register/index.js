@@ -31,6 +31,9 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import axios from 'axios'
+
 // ** Styled Components
 const RegisterIllustration = styled('img')(({ theme }) => ({
   zIndex: 2,
@@ -74,15 +77,29 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
 const Register = () => {
   // ** States
   const [showPassword, setShowPassword] = useState(false)
+  const [submit, setSubmit] = useState('')
 
   // ** Hooks
   const theme = useTheme()
   const { settings } = useSettings()
   const hidden = useMediaQuery(theme.breakpoints.down('md'))
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   // ** Vars
   const { skin } = settings
   const imageSource = skin === 'bordered' ? 'auth-v2-register-illustration-bordered' : 'auth-v2-register-illustration'
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+
+    if (!executeRecaptcha) {
+      console.log('not available to execute recaptcha')
+      return
+    }
+
+    const gRecaptchaToken = await executeRecaptcha('inquirySubmit')
+    // send this to backend
+  }
 
   return (
     <Box className='content-right' sx={{ backgroundColor: 'background.paper' }}>
@@ -151,9 +168,9 @@ const Register = () => {
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>Make your app management easy and fun!</Typography>
             </Box>
-            <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-              <CustomTextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='johndoe' />
-              <CustomTextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
+            <form noValidate autoComplete='off' onSubmit={handleSubmit}>
+              <CustomTextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='johndoe' required />
+              <CustomTextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' required />
               <CustomTextField
                 fullWidth
                 label='Password'
