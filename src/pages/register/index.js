@@ -92,6 +92,7 @@ const defaultValues = {
 
 const Register = () => {
   const auth = useAuth()
+
   const {
     control,
     error,
