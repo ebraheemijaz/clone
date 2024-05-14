@@ -85,7 +85,7 @@ function DomainInfo() {
 
   return (
     <>
-      {/* <BoxCustom
+      <BoxCustom
         sx={{
           my: 4,
           padding: 6,
@@ -136,9 +136,9 @@ function DomainInfo() {
           <Images alt='linkedin-icon' src='/images/icons/project-icons/sm-icons/linkedin.svg' />
           <Images alt='insta-icon' src='/images/icons/project-icons/sm-icons/insta.svg' />
         </Card>
-      </BoxCustom> */}
+      </BoxCustom>
       <Grid container spacing={6}>
-        {/* <Grid id='parallelDiv' item sm={12} lg={6}>
+        <Grid id='parallelDiv' item sm={12} lg={6}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={12}>
               <Card>
@@ -261,7 +261,7 @@ function DomainInfo() {
         <Grid item xs={12} sm={12} md={12} lg={6}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={12}>
-              <Card sx={{ height: `${parallelDivHeight + 15}px` }}>
+              <Card sx={{ height: `${parallelDivHeight}px` }}>
                 <CardContent>
                   <Typography variant='body2' fontSize={28} fontWeight={'bold'}>
                     Main Screenshot Here
@@ -270,7 +270,7 @@ function DomainInfo() {
               </Card>
             </Grid>
           </Grid>
-        </Grid> */}
+        </Grid>
         <Grid item xs={12} md={12} lg={6}>
           <EstimatedTraffic />
         </Grid>
