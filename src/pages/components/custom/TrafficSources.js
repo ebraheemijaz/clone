@@ -93,11 +93,14 @@ const GoodChart = () => {
         <Box
           sx={{
             display: 'flex',
+
             // flex:1,
             flexDirection: 'column',
+
             // alignItems: 'stretch',
             // justifyContent: 'space-between',
             width: '100%',
+
             // height: '100%',
             padding: '0px'
           }}
@@ -114,6 +117,7 @@ const GoodChart = () => {
           {/* </Box> */}
         </Box>
         <Box
+
         // style={{
         //   // height: '100%',
         //   // marginTop: '10px',
@@ -123,6 +127,7 @@ const GoodChart = () => {
         >
           <Typography variant='h4'>Good</Typography>
           <div
+
           // style={{
           //   // maxHeight: '100%',
           //   backgroundColor: 'blue',
@@ -216,6 +221,7 @@ const TrafficSources = () => {
         sx={{
           width: '100%',
           height: '100%',
+
           // background: 'gray',
           padding: '1rem'
         }}
@@ -252,6 +258,7 @@ const TrafficSources = () => {
               flex: 6,
               width: '100%',
               height: '100%',
+
               // backgroundColor: 'wheat',
               display: 'flex',
               flexDirection: 'column',
