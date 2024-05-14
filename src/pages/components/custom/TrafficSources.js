@@ -17,6 +17,7 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 import { CardHeader, Grid } from '@mui/material'
+import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGeneratedLeads'
 
 const seriesGood = [100, 80]
 const seriesBad = [100, 20]
@@ -33,6 +34,12 @@ const GoodChart = () => {
       //   hexToRGBA(theme.palette.success.main, 0.5),
       //   hexToRGBA(theme.palette.success.main, 0.16)
     ],
+    padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    },
     stroke: { width: 0 },
     legend: { show: false },
     tooltip: { enabled: false },
@@ -44,12 +51,6 @@ const GoodChart = () => {
       },
       active: {
         filter: { type: 'none' }
-      }
-    },
-    grid: {
-      padding: {
-        top: -22,
-        bottom: -18
       }
     },
     plotOptions: {
@@ -87,30 +88,60 @@ const GoodChart = () => {
   }
 
   return (
-    <Card>
-      <CardContent sx={{ padding: '0.5rem' }}>
+    <Card sx={{ height: '100%' }}>
+      <CardContent sx={{ padding: 3, height: '100%', paddingBottom: '0 !important' }} id='jkn'>
         <Box
           sx={{
-            gap: 2,
             display: 'flex',
-            alignItems: 'stretch',
-            justifyContent: 'space-between',
+
+            // flex:1,
+            flexDirection: 'column',
+
+            // alignItems: 'stretch',
+            // justifyContent: 'space-between',
             width: '100%',
+
+            // height: '100%',
             padding: '0px'
           }}
         >
-          <Box sx={{ gap: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          {/* <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}> */}
+          {/* <div> */}
+          <Typography variant='h5' sx={{ mb: 0.75 }}>
+            Domain Authority
+          </Typography>
+          <Typography variant='body2'>Monthly Report</Typography>
+          {/* </div> */}
+          {/* <div> */}
+          {/* </div> */}
+          {/* </Box> */}
+        </Box>
+        <Box
+
+        // style={{
+        //   // height: '100%',
+        //   // marginTop: '10px',
+        //   display: 'flex',
+        //   flexDirection: 'row'
+        // }}
+        >
+          <Typography variant='h4'>Good</Typography>
+          <div
+
+          // style={{
+          //   // maxHeight: '100%',
+          //   backgroundColor: 'blue',
+          //   // width: '100%',
+          //   display: 'flex',
+          //   justifyContent: 'center',
+          //   alignItems: 'center',
+          //   flex: '1'
+          // }}
+          >
             <div>
-              <Typography variant='h5' sx={{ mb: 0.75 }}>
-                Domain Authority
-              </Typography>
-              <Typography variant='body2'>Monthly Report</Typography>
+              <ReactApexcharts type='donut' series={seriesGood} options={options} />
             </div>
-            <div>
-              <Typography variant='h3'>Good</Typography>
-            </div>
-          </Box>
-          <ReactApexcharts type='donut' series={seriesGood} options={options} />
+          </div>
         </Box>
       </CardContent>
     </Card>
@@ -173,7 +204,7 @@ const MainCard = () => {
   }
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
     </Box>
   )
@@ -181,14 +212,75 @@ const MainCard = () => {
 
 const TrafficSources = () => {
   return (
-    <Card>
-      <CardContent>
+    <Card
+      sx={{
+        height: { lg: '350px' }
+      }}
+    >
+      <CardContent
+        sx={{
+          width: '100%',
+          height: '100%',
+
+          // background: 'gray',
+          padding: '1rem'
+        }}
+      >
         <Typography variant='h5' sx={{ mb: 0.75 }}>
           Traffic Sources
         </Typography>
-        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-          <Grid item xs={12} md={12} lg={5}>
+        <Box
+          sx={{
+            display: 'flex',
+            height: '100%',
+            paddingBottom: '1rem',
+            flexDirection: {
+              xs: 'column', // Change to column for small screens (xs breakpoint)
+              lg: 'row' // Change to row for large screens (lg breakpoint)
+            }
+          }}
+        >
+          <div
+            style={{
+              // backgroundColor: 'green',
+              flex: 4,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <MainCard />
+          </div>
+          <div
+            style={{
+              flex: 6,
+              width: '100%',
+              height: '100%',
+
+              // backgroundColor: 'wheat',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: 5,
+              padding: '0.25rem'
+            }}
+          >
+            <EcommerceGeneratedLeads />
+            <EcommerceGeneratedLeads />
+            {/* <div style={{ flex: 1 }}>
+              <GoodChart />
+            </div>
+            <div style={{ flex: 1 }}>
+              <GoodChart />
+            </div> */}
+          </div>
+        </Box>
+        {/* 
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={12} lg={5}>
+            
           </Grid>
           <Grid item xs={12} md={12} lg={7}>
             <Grid
@@ -197,14 +289,12 @@ const TrafficSources = () => {
               sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start' }}
             >
               <Grid item xs={12} md={12} lg={12}>
-                <GoodChart />
               </Grid>
               <Grid item xs={12} md={12} lg={12}>
-                <GoodChart />
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </CardContent>
     </Card>
   )
