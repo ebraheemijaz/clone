@@ -261,7 +261,7 @@ function DomainInfo() {
         <Grid item xs={12} sm={12} md={12} lg={6}>
           <Grid container spacing={6}>
             <Grid item xs={12} sm={12}>
-              <Card sx={{ height: `${parallelDivHeight}px` }}>
+              <Card sx={{ height: `${parallelDivHeight + 15}px` }}>
                 <CardContent>
                   <Typography variant='body2' fontSize={28} fontWeight={'bold'}>
                     Main Screenshot Here
