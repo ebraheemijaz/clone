@@ -25,6 +25,7 @@ const DomainStructureCharts = () => {
         <Grid container spacing={6}>
           <Grid item xs={12} md={6} lg={4}>
             <Card sx={{ cursor: 'pointer' }}>
+              <CardHeader title='Alexa Rank' />
               <CardContent>
                 <GaugeComponent
                   id='gauge-component4'
@@ -100,6 +101,7 @@ const DomainStructureCharts = () => {
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <Card sx={{ cursor: 'pointer' }}>
+              <CardHeader title='One Page Rank' />
               <CardContent>
                 <GaugeComponent
                   id='gauge-component5'
@@ -175,6 +177,7 @@ const DomainStructureCharts = () => {
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <Card sx={{ cursor: 'not-allowed' }}>
+              <CardHeader title='Majestic Rank' />
               <CardContent>
                 <GaugeComponent
                   id='gauge-component4'
