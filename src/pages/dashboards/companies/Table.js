@@ -80,7 +80,7 @@ const RowOptions = ({ id }) => {
           <Icon icon='tabler:dots-vertical' />
         </IconButton> */}
 
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%', gap: 4 }}>
         <Icon
           onClick={() => router.push('/dashboards/companies/1')}
           icon='tabler:eye'
@@ -189,7 +189,7 @@ const desktopColumns = [
     flex: 0.15,
     align: 'right',
     field: 'websites',
-    sortable: false,
+    sortable: true,
     filterable: false,
     headerName: 'Revenue',
     renderCell: ({ row }) => {
@@ -218,7 +218,6 @@ const desktopColumns = [
       const { nr_sal_an5 } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
