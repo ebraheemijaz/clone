@@ -34,6 +34,9 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 import { useAuth } from 'src/hooks/useAuth'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import axios from 'axios'
+
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 import toast from 'react-hot-toast'
@@ -92,6 +95,7 @@ const defaultValues = {
 
 const Register = () => {
   const auth = useAuth()
+  const [submit, setSubmit] = useState('')
 
   const {
     control,
@@ -106,6 +110,13 @@ const Register = () => {
   })
 
   const onSubmit = async data => {
+    if (!executeRecaptcha) {
+      console.log('not available to execute recaptcha')
+      return
+    }
+
+    const gRecaptchaToken = await executeRecaptcha('inquirySubmit')
+    // send this to backend
     data.username = data.email
     await auth.signup(data)
   }
@@ -117,6 +128,8 @@ const Register = () => {
   const theme = useTheme()
   const { settings } = useSettings()
   const hidden = useMediaQuery(theme.breakpoints.down('md'))
+
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   // ** Vars
   const { skin } = settings

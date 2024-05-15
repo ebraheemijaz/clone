@@ -1,6 +1,8 @@
 import axios from "axios"
 
 export default async function handler(req, res) {
+  if (validateRecaptcha) {
+  }
     try {
         const config = {
             method: 'post',
