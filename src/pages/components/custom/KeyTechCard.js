@@ -22,26 +22,28 @@ const CustomSubtitle = ({ subtitle }) => {
     setShowMore(!showMore)
   }
 
-  const truncatedSubtitle = subtitle.split(' ').slice(0, 2).join(' ')
+  const truncatedSubtitle = subtitle.slice(0, 50) // Limit to 50 characters
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
       {showMore ? (
-        <Typography>
-          {subtitle}
+        <>
+          <Typography>{subtitle}</Typography>
           <Button onClick={toggleShowMore} variant='text'>
             See less
           </Button>
-        </Typography>
+        </>
       ) : (
-        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {truncatedSubtitle}
-          {subtitle.split(' ').length > 3 && (
+        <>
+          <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {truncatedSubtitle}
+          </Typography>
+          {subtitle.length > 50 && ( // Check if characters exceed 50
             <Button onClick={toggleShowMore} variant='text'>
               See more
             </Button>
           )}
-        </Typography>
+        </>
       )}
     </Box>
   )
@@ -122,7 +124,16 @@ const TechCard = props => {
   } = props
 
   return (
-    <Card sx={{ ...sx, borderBottom: `5px solid ${chipColor}` }}>
+    <Card
+      sx={{
+        ...sx,
+        borderBottom: `2px solid ${chipColor}`,
+        transition: 'background-color 0.4s', // Smooth transition effect
+        '&:hover': {
+          borderBottom: `5px solid ${chipColor}`
+        }
+      }}
+    >
       <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 8 }}>
           <CustomAvatar

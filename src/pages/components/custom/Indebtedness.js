@@ -31,13 +31,11 @@ function Indebtedness() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
       bgColors.warningLight.backgroundColor,
       bgColors.warningLight.backgroundColor,
-
-      // hexToRGBA(theme.palette.success.main, 1),
       bgColors.warningLight.backgroundColor,
       bgColors.warningLight.backgroundColor
     ],
@@ -113,7 +111,7 @@ function Indebtedness() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [2, 4, 7, 9, 10] }]} />
+        <ReactApexcharts type='bar' height={213} options={options} series={[{ name: 'Indebtedness', data: [2, 4, 7, 9, 10] }]} />
       </CardContent>
     </Card>
   )

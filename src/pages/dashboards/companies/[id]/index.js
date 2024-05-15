@@ -47,14 +47,14 @@ import Footer from 'src/pages/components/custom/Footer'
 import FinancialYearCard from 'src/pages/components/custom/FinancialYear'
 
 const Illustration = styled('img')(({ theme }) => ({
-  right: 15,
-  top: -38,
+  right: 12,
+  top: -25,
   position: 'absolute',
-  width: '300px',
+  width: '245px',
   [theme.breakpoints.down('xl')]: {
     right: 15,
     top: -20,
-    width: '280px'
+    width: '225px'
   },
   [theme.breakpoints.down('md')]: {
     display: 'none'
@@ -79,13 +79,13 @@ const Div = styled('div')(({ theme }) => ({
 function Company() {
   return (
     <>
-      <Box sx={{ position: 'relative', mt: 8, mb: 8, padding: 2, borderRadius: '1rem', backgroundColor: '#d4f4e2' }}>
+      <Box sx={{ position: 'relative', mt: 4, mb: 4, padding: 2, borderRadius: '1rem', backgroundColor: '#d4f4e2' }}>
         <Card
           sx={{
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 2,
-            margin: 2,
+            padding: 1,
+            margin: 1,
             backgroundColor: '#28c76f',
             borderRadius: '1rem'
           }}
@@ -94,7 +94,6 @@ function Company() {
             <Typography
               variant='body2'
               sx={{
-                mb: 0.5,
                 color: 'white',
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -106,18 +105,18 @@ function Company() {
               <Images alt='fav-icon' src='/images/icons/project-icons/fav-icon.png' />
               Renault Technologie Roumanie S.R.L
             </Typography>
-            <Typography variant='body1' sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
-              <Icon fontSize='1.25rem' icon='tabler:building-skyscraper' />
+            <Typography variant='body1' sx={{ color: 'white', display: 'flex', gap: 2, fontSize: '1rem' }}>
+              <Icon fontSize='1rem' icon='tabler:building-skyscraper' />
               Industrial Activities
             </Typography>
-            <Typography variant='body2' sx={{ mb: 2, color: 'white', display: 'flex', gap: 2 }}>
+            <Typography variant='body2' sx={{ color: 'white', display: 'flex', gap: 2 }}>
               <Icon fontSize='1rem' icon='tabler:map-pin' />
               Engineering and related technical consultancy activities
             </Typography>
             <Card
               container
               sx={{
-                mt: 4,
+                mt: 2,
                 backgroundColor: 'white',
                 width: '224px',
                 height: '48px',
@@ -226,10 +225,10 @@ function Company() {
           <Turnover />
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
-          <Ebit />
+          <Ebitda />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <Ebitda />
+          <Ebit />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <Receivables />

@@ -31,15 +31,13 @@ function Ebit() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.successFilled.backgroundColor,
-      bgColors.successFilled.backgroundColor,
-
-      // hexToRGBA(theme.palette.success.main, 1),
-      bgColors.successFilled.backgroundColor,
-      bgColors.successFilled.backgroundColor
+      bgColors.successLight.backgroundColor,
+      bgColors.successLight.backgroundColor,
+      bgColors.successLight.backgroundColor,
+      bgColors.successLight.backgroundColor
     ],
     states: {
       hover: {
@@ -106,14 +104,19 @@ function Ebit() {
         title={
           <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
-              Ebit (%)
+              EBIT (%)
             </Typography>
             <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
           </div>
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [3, 8, 10, 6, 4] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'EBIT', data: [3, 8, 10, 6, 4] }]}
+        />
       </CardContent>
     </Card>
   )

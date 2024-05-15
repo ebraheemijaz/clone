@@ -71,12 +71,22 @@ const TechCard = props => {
   } = props
 
   return (
-    <Card sx={{ ...sx, borderBottom: `5px solid ${chipColor}` }}>
+    <Card
+      sx={{
+        ...sx,
+        borderBottom: `2px solid ${chipColor}`,
+        transition: 'background-color 0.4s', // Smooth transition effect
+        '&:hover': {
+          borderBottom: `5px solid ${chipColor}`
+        }
+      }}
+    >
       <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'space-between', padding: '0.5rem' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
           <Typography variant='body2' sx={{ fontWeight: 'bold' }}>
             {title}
           </Typography>
+          <Icon icon='tabler:exclamation-circle' color='#E64449' fontSize={24} style={{ cursor: 'pointer' }} />
           {/* <CustomAvatar
             skin='light'
             variant='rounded'

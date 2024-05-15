@@ -66,15 +66,15 @@ const DomainForm = () => {
 
   return (
     <Fragment>
-      <Box sx={{ px: 3 }}>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+      <Box sx={{ px: 6 }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:world-pin' /> Country</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -82,7 +82,7 @@ const DomainForm = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1.25rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -96,14 +96,14 @@ const DomainForm = () => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:world-www' /> Domain</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-www' /> Domain</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -111,7 +111,7 @@ const DomainForm = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1.25rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -125,14 +125,14 @@ const DomainForm = () => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:cell' /> Type</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:cell' /> Type</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -154,14 +154,14 @@ const DomainForm = () => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:category-plus' /> Category</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category-plus' /> Category</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -182,14 +182,14 @@ const DomainForm = () => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:resize' /> Sizes</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:resize' /> Sizes</Typography>
               <Typography></Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -211,14 +211,14 @@ const DomainForm = () => {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:lock-access' /> Domain Authority</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:lock-access' /> Domain Authority</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -250,10 +250,10 @@ const DomainForm = () => {
         }}
       >
         <Button variant='contained' onClick={() => router.push('/dashboards/domain/')}>
-          <Icon fontSize='1.25rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
         </Button>
         <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='1.25rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
         </Button>
       </div>
     </Fragment>

@@ -59,15 +59,15 @@ export default function LocationForm() {
 
   return (
     <>
-      <Box sx={{ px: 3 }}>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+      <Box sx={{ px: 6 }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:world-pin' /> Country</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -75,7 +75,7 @@ export default function LocationForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -89,14 +89,14 @@ export default function LocationForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:building-community' /> City</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-community' /> City</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -104,7 +104,7 @@ export default function LocationForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -118,14 +118,14 @@ export default function LocationForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:businessplan' /> Business</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:businessplan' /> Business</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -133,7 +133,7 @@ export default function LocationForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -147,14 +147,14 @@ export default function LocationForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:category' /> Category</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category' /> Category</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -198,14 +198,14 @@ export default function LocationForm() {
             </AccordionDetails>
           </Accordion>
         </div >
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:file-search' /> Search</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:file-search' /> Search</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -213,7 +213,7 @@ export default function LocationForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -240,10 +240,10 @@ export default function LocationForm() {
         }}
       >
         <Button variant='contained' onClick={() => router.push('/dashboards/locations/')}>
-          <Icon fontSize='1.25rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
         </Button>
         <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='1.25rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
         </Button>
       </div>
     </>

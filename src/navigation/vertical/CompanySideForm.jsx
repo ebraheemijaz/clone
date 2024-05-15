@@ -76,15 +76,15 @@ export default function CompanyForm() {
 
   return (
     <>
-      <Box sx={{ px: 3 }}>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+      <Box sx={{ px: 6 }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:world-pin' /> Country</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -92,7 +92,7 @@ export default function CompanyForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1.25rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -106,14 +106,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:building-skyscraper' /> Company</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-skyscraper' /> Company</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -121,7 +121,7 @@ export default function CompanyForm() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position='start'>
-                      <Icon fontSize='1.25rem' icon='tabler:search' />
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
                     </InputAdornment>
                   )
                 }}
@@ -135,14 +135,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:building-factory-2' /> Industry</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-factory-2' /> Industry</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -164,14 +164,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:trending-up-2' /> Revenue</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up-2' /> Revenue</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -192,14 +192,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:trending-up' /> Revenue Growth</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up' /> Revenue Growth</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -220,14 +220,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:wallet' /> EBIT %</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBIT %</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -246,14 +246,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:wallet' /> EBITDA %</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBITDA %</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -272,14 +272,14 @@ export default function CompanyForm() {
             </AccordionDetails>
           </Accordion>
         </div>
-        <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
+        <div >
           <Accordion>
             <AccordionSummary
               id='panel-header-1'
               aria-controls='panel-content-1'
-              expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2 }}><Icon fontSize='1rem' icon='tabler:users' /> Employees</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:users' /> Employees</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <CustomTextField
@@ -301,20 +301,20 @@ export default function CompanyForm() {
       </Box>
       <div
         style={{
-          paddingLeft: '15px',
-          paddingRight: '15px',
-          marginTop: '15px',
-          marginBottom: '15px',
+          paddingLeft: '10px',
+          paddingRight: '10px',
+          marginTop: '10px',
+          marginBottom: '10px',
           width: '100%',
           display: 'flex',
           justifyContent: 'space-evenly'
         }}
       >
         <Button variant='contained' onClick={() => router.push('/dashboards/companies/')}>
-          <Icon fontSize='1.25rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
         </Button>
         <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='1.25rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
         </Button>
       </div>
     </>

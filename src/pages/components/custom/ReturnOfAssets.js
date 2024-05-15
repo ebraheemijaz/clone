@@ -31,14 +31,12 @@ function ReturnOfAssets() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor,
-
-      // hexToRGBA(theme.palette.primary.main),
       bgColors.errorLight.backgroundColor,
       bgColors.errorLight.backgroundColor
     ],
@@ -114,7 +112,12 @@ function ReturnOfAssets() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [110, 206, 136, 146, 300] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'Return Of Assets', data: [110, 206, 136, 146, 300] }]}
+        />
       </CardContent>
     </Card>
   )
