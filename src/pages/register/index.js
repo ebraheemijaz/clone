@@ -117,7 +117,7 @@ const Register = () => {
 
     const gRecaptchaToken = await executeRecaptcha('inquirySubmit')
     // send this to backend
-    data.username = data.email
+    data.code = gRecaptchaToken
     await auth.signup(data)
   }
 
