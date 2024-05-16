@@ -31,7 +31,7 @@ function NumberOfEmployees() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
       bgColors.primaryLight.backgroundColor,
@@ -112,7 +112,12 @@ function NumberOfEmployees() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [100, 210, 115, 120, 300] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'Number Of Employees', data: [100, 210, 115, 120, 300] }]}
+        />
       </CardContent>
     </Card>
   )

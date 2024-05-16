@@ -150,7 +150,12 @@ function DomainReferral() {
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Typography sx={{ mr: 4, color: 'text.secondary' }}>{item.amount}</Typography>
-                  <Icon icon={item.alertIcon} aria-describedby={id} onClick={handleClick} />
+                  <Icon
+                    icon={item.alertIcon}
+                    aria-describedby={id}
+                    onClick={handleClick}
+                    style={{ cursor: 'pointer' }}
+                  />
                   <Popover
                     id={id}
                     open={open}
@@ -161,9 +166,7 @@ function DomainReferral() {
                       horizontal: 'right'
                     }}
                   >
-                    <Typography sx={{ p: 2, width: '400px', maxHeight: '100px', overflow: 'scroll' }}>
-                      {item.tooltipText}
-                    </Typography>
+                    <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>{item.tooltipText}</Typography>
                   </Popover>
                 </Box>
               </Box>

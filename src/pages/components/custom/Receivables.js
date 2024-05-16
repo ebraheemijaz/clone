@@ -31,15 +31,13 @@ function Receivables() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.successLight.backgroundColor,
-      bgColors.successLight.backgroundColor,
-
-      // hexToRGBA(theme.palette.success.main, 1),
-      bgColors.successLight.backgroundColor,
-      bgColors.successLight.backgroundColor
+      bgColors.infoLight.backgroundColor,
+      bgColors.infoLight.backgroundColor,
+      bgColors.infoLight.backgroundColor,
+      bgColors.infoLight.backgroundColor
     ],
     states: {
       hover: {
@@ -113,7 +111,7 @@ function Receivables() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [55, 32, 98, 78, 130] }]} />
+        <ReactApexcharts type='bar' height={213} options={options} series={[{ name: 'Receivables Turnovers', data: [55, 32, 98, 78, 130] }]} />
       </CardContent>
     </Card>
   )

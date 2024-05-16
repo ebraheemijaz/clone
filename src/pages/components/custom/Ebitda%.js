@@ -31,15 +31,13 @@ function Ebitda() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.warningLight.backgroundColor,
-      bgColors.warningLight.backgroundColor,
-
-      // hexToRGBA(theme.palette.success.main, 1),
-      bgColors.warningLight.backgroundColor,
-      bgColors.warningLight.backgroundColor
+      bgColors.warningFilled.backgroundColor,
+      bgColors.warningFilled.backgroundColor,
+      bgColors.warningFilled.backgroundColor,
+      bgColors.warningFilled.backgroundColor
     ],
     states: {
       hover: {
@@ -106,14 +104,19 @@ function Ebitda() {
         title={
           <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
-              Ebitda (%)
+              EBITDA (%)
             </Typography>
             <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
           </div>
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [2, 4, 7, 9, 10] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'EBITDA', data: [2, 4, 7, 9, 10] }]}
+        />
       </CardContent>
     </Card>
   )

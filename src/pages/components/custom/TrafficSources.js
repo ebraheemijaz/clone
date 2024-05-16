@@ -221,8 +221,6 @@ const TrafficSources = () => {
         sx={{
           width: '100%',
           height: '100%',
-
-          // background: 'gray',
           padding: '1rem'
         }}
       >

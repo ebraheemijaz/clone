@@ -71,7 +71,11 @@ const LFZPCharts = () => {
   }
 
   return (
-    <Card>
+    <Card
+      sx={{
+        height: { lg: '500px' }
+      }}
+    >
       <CardContent>
         <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Grid
@@ -87,7 +91,7 @@ const LFZPCharts = () => {
             }}
           >
             <Typography variant='h5'>Links</Typography>
-            <ReactApexcharts type='donut' height={195} options={options} series={[85, 16, 50, 50]} />
+            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
           <Grid
             item
@@ -101,8 +105,10 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Flags</Typography>
-            <ReactApexcharts type='donut' height={195} options={options} series={[85, 16, 50, 50]} />
+            <Typography variant='h5' sx={{ mt: 4 }}>
+              Flags
+            </Typography>
+            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
         <Divider variant='middle' sx={{ my: 8 }} />
@@ -120,7 +126,7 @@ const LFZPCharts = () => {
             }}
           >
             <Typography variant='h5'>Zones</Typography>
-            <ReactApexcharts type='donut' height={195} options={options} series={[85, 16, 50, 50]} />
+            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
           <Grid
             item
@@ -134,8 +140,10 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Platforms</Typography>
-            <ReactApexcharts type='donut' height={195} options={options} series={[85, 16, 50, 50]} />
+            <Typography variant='h5' sx={{ mt: 4 }}>
+              Platforms
+            </Typography>
+            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
       </CardContent>

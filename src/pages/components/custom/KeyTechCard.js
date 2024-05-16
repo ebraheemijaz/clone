@@ -22,7 +22,7 @@ const CustomSubtitle = ({ subtitle }) => {
     setShowMore(!showMore)
   }
 
-  const truncatedSubtitle = subtitle.split(' ').slice(0, 2).join(' ')
+  const truncatedSubtitle = subtitle.slice(0, 50) // Limit to 50 characters
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -34,9 +34,9 @@ const CustomSubtitle = ({ subtitle }) => {
           </Button>
         </Typography>
       ) : (
-        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'wrap' }}>
           {truncatedSubtitle}
-          {subtitle.split(' ').length > 3 && (
+          {subtitle.length > 50 && ( // Check if characters exceed 50
             <Button onClick={toggleShowMore} variant='text'>
               See more
             </Button>
@@ -122,7 +122,16 @@ const TechCard = props => {
   } = props
 
   return (
-    <Card sx={{ ...sx, borderBottom: `5px solid ${chipColor}` }}>
+    <Card
+      sx={{
+        ...sx,
+        borderBottom: `2px solid ${chipColor}`,
+        transition: 'background-color 0.4s', // Smooth transition effect
+        '&:hover': {
+          borderBottom: `5px solid ${chipColor}`
+        }
+      }}
+    >
       <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 8 }}>
           <CustomAvatar
@@ -138,14 +147,6 @@ const TechCard = props => {
           </Typography>
         </Box>
         <CustomSubtitle subtitle={subtitle} />
-        {/* <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', gap: 2 }}>
-                    <Typography variant='body2' sx={{ fontSize: '1rem' }}>
-                        {stats}
-                    </Typography>
-                    <Typography variant='body2' sx={{ color: 'text.disabled' }}>
-                        {chipText}
-                    </Typography>
-                </Box> */}
       </CardContent>
     </Card>
   )

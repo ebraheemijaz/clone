@@ -7,10 +7,11 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Icon from 'src/@core/components/icon'
 import Typography from '@mui/material/Typography'
 import CustomTextField from 'src/@core/components/mui/text-field'
-import { FormControlLabel, MenuItem, Radio, RadioGroup } from '@mui/material'
+import { FormControlLabel, InputAdornment, MenuItem, Radio, RadioGroup } from '@mui/material'
 import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRouter } from 'next/router'
+import { Box } from '@mui/system'
 
 const revenuegrowth = ['< -15%', '-15% - 0%', '0% - 25%', '25% - 50%', '> 50%']
 
@@ -58,143 +59,175 @@ export default function LocationForm() {
 
   return (
     <>
-      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>Country</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomTextField
-              id='country'
-              name='country'
-              fullWidth
-              value={filter.country}
-              placeholder='Country Code'
-              onChange={handleFilterChange}
+      <Box sx={{ px: 6 }}>
+        <div >
+          <Accordion>
+            <AccordionSummary
+              id='panel-header-1'
+              aria-controls='panel-content-1'
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-            </CustomTextField>
-          </AccordionDetails>
-        </Accordion>
-      </div>
-      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>City</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomTextField
-              id='city'
-              name='city'
-              fullWidth
-              value={filter.city}
-              placeholder='Address info city'
-              onChange={handleFilterChange}
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <CustomTextField
+                id='country'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
+                    </InputAdornment>
+                  )
+                }}
+                placeholder='Country Code'
+                name='country'
+                fullWidth
+                value={filter.country}
+                onChange={handleFilterChange}
+              >
+              </CustomTextField>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+        <div >
+          <Accordion>
+            <AccordionSummary
+              id='panel-header-1'
+              aria-controls='panel-content-1'
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-            </CustomTextField>
-          </AccordionDetails>
-        </Accordion>
-      </div>
-      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>Business</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomTextField
-              id='business'
-              name='business'
-              fullWidth
-              defaultValue={filter.business}
-              onChange={handleFilterChange}
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-community' /> City</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <CustomTextField
+                id='city'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
+                    </InputAdornment>
+                  )
+                }}
+                placeholder='Address info city'
+                name='city'
+                fullWidth
+                value={filter.city}
+                onChange={handleFilterChange}
+              >
+              </CustomTextField>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+        <div >
+          <Accordion>
+            <AccordionSummary
+              id='panel-header-1'
+              aria-controls='panel-content-1'
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-            </CustomTextField>
-          </AccordionDetails>
-        </Accordion>
-      </div>
-      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>Category</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomTextField
-              id='category'
-              name='category'
-              label='Category'
-              select
-              fullWidth
-              SelectProps={{
-                MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
-              }}
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:businessplan' /> Business</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <CustomTextField
+                id='business'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
+                    </InputAdornment>
+                  )
+                }}
+                placeholder='Title'
+                name='business'
+                fullWidth
+                defaultValue={filter.business}
+                onChange={handleFilterChange}
+              >
+              </CustomTextField>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+        <div >
+          <Accordion>
+            <AccordionSummary
+              id='panel-header-1'
+              aria-controls='panel-content-1'
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              {['category1', 'category2'].map(name => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))}
-            </CustomTextField>
-            <CustomTextField
-              sx={{ mt: 4 }}
-              id='subcategory'
-              name='subcategory'
-              label='Subcategory'
-              select
-              fullWidth
-              SelectProps={{
-                MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
-              }}
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category' /> Category</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <CustomTextField
+                id='category'
+                name='category'
+                label='Category'
+                select
+                fullWidth
+                SelectProps={{
+                  MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
+                }}
+              >
+                {['category1', 'category2'].map(name => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </CustomTextField>
+              <CustomTextField
+                sx={{ mt: 4 }}
+                id='subcategory'
+                name='subcategory'
+                label='Subcategory'
+                select
+                fullWidth
+                SelectProps={{
+                  MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
+                }}
+              >
+                {['category1', 'category2'].map(name => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </CustomTextField>
+              <RadioGroup sx={{ mt: 4 }} aria-label='quiz' name='radioFilter' value={filter.radioFilter} onChange={handleFilterChange}>
+                <FormControlLabel value='email' control={<Radio />} label='Email' />
+                <FormControlLabel value='phone' control={<Radio />} label='Phone' />
+                <FormControlLabel value='domain' control={<Radio />} label='Domain' />
+              </RadioGroup>
+            </AccordionDetails>
+          </Accordion>
+        </div >
+        <div >
+          <Accordion>
+            <AccordionSummary
+              id='panel-header-1'
+              aria-controls='panel-content-1'
+              expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
             >
-              {['category1', 'category2'].map(name => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))}
-            </CustomTextField>
-            <RadioGroup sx={{ mt: 4 }} aria-label='quiz' name='radioFilter' value={filter.radioFilter} onChange={handleFilterChange}>
-              <FormControlLabel value='email' control={<Radio />} label='Email' />
-              <FormControlLabel value='phone' control={<Radio />} label='Phone' />
-              <FormControlLabel value='domain' control={<Radio />} label='Domain' />
-            </RadioGroup>
-          </AccordionDetails>
-        </Accordion>
-      </div >
-      <div style={{ paddingLeft: '15px', paddingRight: '15px', marginTop: '15px', marginBottom: '15px' }}>
-        <Accordion>
-          <AccordionSummary
-            id='panel-header-1'
-            aria-controls='panel-content-1'
-            expandIcon={<Icon fontSize='1.25rem' icon='tabler:chevron-down' />}
-          >
-            <Typography>Search</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomTextField
-              id='search'
-              name='search'
-              fullWidth
-              defaultValue={filter.search}
-              onChange={handleFilterChange}
-            >
-            </CustomTextField>
-          </AccordionDetails>
-        </Accordion>
-      </div>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:file-search' /> Search</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <CustomTextField
+                id='search'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Icon fontSize='0.85rem' icon='tabler:search' />
+                    </InputAdornment>
+                  )
+                }}
+                placeholder='Search'
+                name='search'
+                fullWidth
+                defaultValue={filter.search}
+                onChange={handleFilterChange}
+              >
+              </CustomTextField>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+      </Box>
       <div
         style={{
           paddingLeft: '15px',
@@ -207,10 +240,10 @@ export default function LocationForm() {
         }}
       >
         <Button variant='contained' onClick={() => router.push('/dashboards/locations/')}>
-          <Icon fontSize='1.25rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
         </Button>
         <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='1.25rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
         </Button>
       </div>
     </>

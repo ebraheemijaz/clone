@@ -31,7 +31,7 @@ function ReturnOfEquity() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
       bgColors.warningLight.backgroundColor,
@@ -112,7 +112,12 @@ function ReturnOfEquity() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [100, 210, 115, 120, 300] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'Return Of Equity', data: [100, 210, 115, 120, 300] }]}
+        />
       </CardContent>
     </Card>
   )

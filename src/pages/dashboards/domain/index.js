@@ -128,11 +128,21 @@ const desktopColumns = [
   {
     flex: 0.25,
     field: 'web',
-    headerName: 'Domain',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Domain
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { web } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -156,11 +166,21 @@ return (
 
     // minWidth: 280,
     field: 'category',
-    headerName: 'Category',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Category
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { category } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -183,7 +203,17 @@ return (
     flex: 0.5,
     minWidth: 280,
     field: 'title',
-    headerName: 'Title',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Title
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { title } = row
 
@@ -210,11 +240,21 @@ return (
     flex: 0.15,
     minWidth: 100,
     field: 'country',
-    headerName: 'Country',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Country
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { country } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
             <ReactCountryFlag
@@ -246,11 +286,21 @@ return (
     flex: 0.15,
     minWidth: 100,
     field: 'crawled_pages',
-    headerName: 'Size',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Size
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { crawled_pages } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -273,12 +323,22 @@ return (
     flex: 0.14,
     minWidth: 100,
     field: 'backlinks',
-    headerName: 'Backlinks',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Backlinks
+      </Typography>
+    ),
     align: 'right',
     renderCell: ({ row }) => {
       const { backlinks } = row
-      
-return (
+
+      return (
         <Box>
           <Box>
             <Typography
@@ -301,8 +361,19 @@ return (
     flex: 0.1,
     minWidth: 100,
     sortable: false,
+    filterable: false,
     field: 'actions',
-    headerName: 'Actions',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Actions
+      </Typography>
+    ),
     renderCell: ({ row }) => <RowOptions id={row.id} />
   }
 ]
@@ -311,11 +382,21 @@ const mobileColumns = [
   {
     flex: 0.25,
     field: 'web',
-    headerName: 'Domain',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Domain
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { web } = row
-      
-return (
+
+      return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <Typography
@@ -338,8 +419,19 @@ return (
     flex: 0.1,
     minWidth: 100,
     sortable: false,
+    filterable: false,
     field: 'actions',
-    headerName: 'Actions',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Actions
+      </Typography>
+    ),
     renderCell: ({ row }) => <RowOptions id={row.id} />
   }
 ]

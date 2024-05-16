@@ -31,15 +31,13 @@ function Turnover() {
       }
     },
     legend: { show: false },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     dataLabels: { enabled: false },
     colors: [
-      bgColors.successFilled.backgroundColor,
-      bgColors.successFilled.backgroundColor,
-
-      // hexToRGBA(theme.palette.error.main, 1),
-      bgColors.successFilled.backgroundColor,
-      bgColors.successFilled.backgroundColor
+      bgColors.errorFilled.backgroundColor,
+      bgColors.errorFilled.backgroundColor,
+      bgColors.errorFilled.backgroundColor,
+      bgColors.errorFilled.backgroundColor
     ],
     states: {
       hover: {
@@ -113,7 +111,12 @@ function Turnover() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ data: [210, 285, 300, 160, 300] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'Turnover', data: [210, 285, 300, 160, 300] }]}
+        />
       </CardContent>
     </Card>
   )

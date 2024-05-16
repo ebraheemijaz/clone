@@ -56,6 +56,7 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material'
+import { fontSize } from '@mui/system'
 
 const RowOptions = ({ id }) => {
   // ** Hooks
@@ -80,7 +81,7 @@ const RowOptions = ({ id }) => {
           <Icon icon='tabler:dots-vertical' />
         </IconButton> */}
 
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%', gap: 4 }}>
         <Icon
           onClick={() => router.push('/dashboards/companies/1')}
           icon='tabler:eye'
@@ -98,7 +99,17 @@ const desktopColumns = [
     flex: 0.1,
     minWidth: 100,
     field: 'country',
-    headerName: 'Country',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Country
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { country } = row
 
@@ -134,7 +145,17 @@ const desktopColumns = [
     flex: 0.15,
     minWidth: 100,
     field: 'name_industry',
-    headerName: 'Industry',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Industry
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { name_industry } = row
 
@@ -162,7 +183,17 @@ const desktopColumns = [
 
     // minWidth: 180,
     field: 'company',
-    headerName: 'Company',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Company
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { company } = row
 
@@ -189,9 +220,19 @@ const desktopColumns = [
     flex: 0.15,
     align: 'right',
     field: 'websites',
-    sortable: false,
+    sortable: true,
     filterable: false,
-    headerName: 'Revenue',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Revenue
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       console.log(row.tunover_level_filter)
 
@@ -208,10 +249,20 @@ const desktopColumns = [
     }
   },
   {
-    flex: 0.1,
+    flex: 0.11,
     minWidth: 80,
     field: 'nr_sal_an5',
-    headerName: 'Employees',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Employees
+      </Typography>
+    ),
     align: 'right',
     sortable: true,
     renderCell: ({ row }) => {
@@ -244,7 +295,17 @@ const desktopColumns = [
     sortable: false,
     filterable: false,
     field: 'actions',
-    headerName: 'Actions',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Actions
+      </Typography>
+    ),
     renderCell: ({ row }) => <RowOptions id={row.id} />
   }
 ]
@@ -255,7 +316,17 @@ const mobileColumns = [
 
     // minWidth: 180,
     field: 'company',
-    headerName: 'Company',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Company
+      </Typography>
+    ),
     renderCell: ({ row }) => {
       const { company } = row
 
@@ -284,7 +355,17 @@ const mobileColumns = [
     sortable: false,
     filterable: false,
     field: 'actions',
-    headerName: 'Actions',
+    headerName: (
+      <Typography
+        variant='subtitle1'
+        sx={{
+          fontWeight: 500,
+          fontSize: '15px' // Adjust the font size as needed
+        }}
+      >
+        Actions
+      </Typography>
+    ),
     renderCell: ({ row }) => <RowOptions id={row.id} />
   }
 ]
@@ -8429,7 +8510,7 @@ export default function DataTable() {
         rows={data}
         density='compact'
         autoHeight
-        rowHeight={62}
+        rowHeight={50}
         columns={isMobile ? mobileColumns : desktopColumns}
         disableRowSelectionOnClick
         pageSizeOptions={[10, 25, 50]}
