@@ -71,7 +71,11 @@ const LFZPCharts = () => {
   }
 
   return (
-    <Card>
+    <Card
+      sx={{
+        height: { lg: '500px' }
+      }}
+    >
       <CardContent>
         <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Grid

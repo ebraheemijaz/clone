@@ -25,25 +25,23 @@ const CustomSubtitle = ({ subtitle }) => {
   const truncatedSubtitle = subtitle.slice(0, 50) // Limit to 50 characters
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
       {showMore ? (
-        <>
-          <Typography>{subtitle}</Typography>
+        <Typography>
+          {subtitle}
           <Button onClick={toggleShowMore} variant='text'>
             See less
           </Button>
-        </>
+        </Typography>
       ) : (
-        <>
-          <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            {truncatedSubtitle}
-          </Typography>
+        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'wrap' }}>
+          {truncatedSubtitle}
           {subtitle.length > 50 && ( // Check if characters exceed 50
             <Button onClick={toggleShowMore} variant='text'>
               See more
             </Button>
           )}
-        </>
+        </Typography>
       )}
     </Box>
   )
@@ -149,14 +147,6 @@ const TechCard = props => {
           </Typography>
         </Box>
         <CustomSubtitle subtitle={subtitle} />
-        {/* <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', gap: 2 }}>
-                    <Typography variant='body2' sx={{ fontSize: '1rem' }}>
-                        {stats}
-                    </Typography>
-                    <Typography variant='body2' sx={{ color: 'text.disabled' }}>
-                        {chipText}
-                    </Typography>
-                </Box> */}
       </CardContent>
     </Card>
   )
