@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       const config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'http://0.0.0.0:1337/api/auth/local/register',
+        url: `${process.env.STRAPI_URL}/api/auth/local/register`,
         headers: {
           'Content-Type': 'application/json'
         },
@@ -17,9 +17,10 @@ export default async function handler(req, res) {
       }
       const response = await axios.request(config)
       res.status(200).json({
+        id: response.data.user.id,
         email: response.data.user.email,
         name: response.data.user.name,
-        token: encrypt(response.data.jwt)
+        jwt: encrypt(response.data.jwt)
       })
     } catch (error) {
       console.log(error)

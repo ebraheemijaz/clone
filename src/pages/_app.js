@@ -72,6 +72,8 @@ if (themeConfig.routingLoader) {
 }
 
 const Guard = ({ children, authGuard, guestGuard }) => {
+  // console.log('Guest', guestGuard)
+  // console.log(authGuard)
   if (guestGuard) {
     return <GuestGuard fallback={<Spinner />}>{children}</GuestGuard>
   } else if (!guestGuard && !authGuard) {
@@ -94,7 +96,6 @@ const App = props => {
   const authGuard = Component.authGuard ?? true
   const guestGuard = Component.guestGuard ?? false
   const aclAbilities = Component.acl ?? defaultACLObj
-
   return (
     <Provider store={store}>
       <GoogleCaptchaWrapper>

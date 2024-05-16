@@ -32,6 +32,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useAuth } from 'src/hooks/useAuth'
 import useBgColor from 'src/@core/hooks/useBgColor'
 import { useSettings } from 'src/@core/hooks/useSettings'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 // ** Configs
 import themeConfig from 'src/configs/themeConfig'
@@ -103,6 +104,7 @@ const LoginPage = () => {
 
   // ** Vars
   const { skin } = settings
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const {
     control,
@@ -117,10 +119,19 @@ const LoginPage = () => {
   })
 
   const onSubmit = async data => {
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify(data)
-    })
+    if (!executeRecaptcha) {
+      console.log('not available to execute recaptcha')
+      return
+    }
+
+    const gRecaptchaToken = await executeRecaptcha('inquirySubmit')
+    // send this to backend
+    data.code = gRecaptchaToken
+    await auth.loginFE({ ...data, rememberMe })
+    // const response = await fetch('/api/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ ...data, rememberMe })
+    // })
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
@@ -194,7 +205,7 @@ const LoginPage = () => {
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='identifier'
+                  name='email'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
