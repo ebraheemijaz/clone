@@ -68,6 +68,7 @@ function Ebit() {
     },
     grid: {
       show: false
+
       // padding: {
       //   left: 0,
       //   right: 0,
