@@ -85,10 +85,10 @@ const RowOptions = ({ id }) => {
         <Icon
           onClick={() => router.push('/dashboards/companies/1')}
           icon='tabler:eye'
-          fontSize={20}
+          fontSize={15}
           style={{ cursor: 'pointer' }}
         />
-        <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
+        <Icon icon='tabler:bookmark' fontSize={15} style={{ cursor: 'pointer' }} />
       </Box>
     </>
   )
@@ -130,6 +130,7 @@ const desktopColumns = [
               href='/apps/user/view/account'
               sx={{
                 fontWeight: 500,
+                fontSize: '13px',
                 textDecoration: 'none',
                 color: 'text.secondary'
               }}
@@ -167,6 +168,7 @@ const desktopColumns = [
               href='/apps/user/view/account'
               sx={{
                 fontWeight: 500,
+                fontSize: '13px',
                 textDecoration: 'none',
                 color: 'text.secondary'
               }}
@@ -205,6 +207,7 @@ const desktopColumns = [
               href='/apps/user/view/account'
               sx={{
                 fontWeight: 500,
+                fontSize: '13px',
                 textDecoration: 'none',
                 color: 'text.secondary'
               }}
@@ -243,7 +246,7 @@ const desktopColumns = [
           size='small'
           label={row.tunover_level_filter}
           color={getRevenueColor(row.tunover_level_filter)}
-          sx={{ textTransform: 'capitalize' }}
+          sx={{ textTransform: 'capitalize', fontSize: '13px' }}
         />
       )
     }
@@ -269,7 +272,6 @@ const desktopColumns = [
       const { nr_sal_an5 } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -278,6 +280,7 @@ const desktopColumns = [
               href='/apps/user/view/account'
               sx={{
                 fontWeight: 500,
+                fontSize: '13px',
                 textDecoration: 'none',
                 color: 'text.secondary'
               }}
@@ -338,6 +341,7 @@ const mobileColumns = [
               href='/apps/user/view/account'
               sx={{
                 fontWeight: 500,
+                fontSize: '13px',
                 textDecoration: 'none',
                 color: 'text.secondary'
               }}
@@ -8510,7 +8514,7 @@ export default function DataTable() {
         rows={data}
         density='compact'
         autoHeight
-        rowHeight={50}
+        rowHeight={45}
         columns={isMobile ? mobileColumns : desktopColumns}
         disableRowSelectionOnClick
         pageSizeOptions={[10, 25, 50]}

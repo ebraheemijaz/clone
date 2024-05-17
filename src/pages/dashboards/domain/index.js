@@ -115,10 +115,10 @@ const RowOptions = ({ id }) => {
         <Icon
           onClick={() => router.push('/dashboards/domain/1')}
           icon='tabler:eye'
-          fontSize={20}
+          fontSize={15}
           style={{ cursor: 'pointer' }}
         />
-        <Icon icon='tabler:bookmark' fontSize={20} style={{ cursor: 'pointer' }} />
+        <Icon icon='tabler:bookmark' fontSize={15} style={{ cursor: 'pointer' }} />
       </Box>
     </>
   )
@@ -149,6 +149,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -187,6 +188,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -224,6 +226,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -270,6 +273,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -307,6 +311,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -345,6 +350,7 @@ const desktopColumns = [
               noWrap
               href='/apps/user/view/account'
               sx={{
+                fontSize: '13px',
                 fontWeight: 500,
                 textDecoration: 'none',
                 color: 'text.secondary'
@@ -8174,14 +8180,22 @@ const Domain = ({ apiData }) => {
       <Grid item xs={12}>
         {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
         Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card sx={{ paddingBottom: '0rem' }}>
-            <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+          <Card sx={{ '& .MuiCardContent-root': { padding: '0.5rem', paddingBottom: '0.5rem' } }}>
+            <CardContent
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.2rem',
+                flexWrap: 'wrap',
+                '& .MuiCardContent-root': { padding: '0.5rem' }
+              }}
+            >
               {Object.entries(chipData).map(([key, value]) => (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} key={key}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }} key={key}>
                   {Array.isArray(value)
                     ? value.length > 0 && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                          <Typography variant='body2' sx={{ fontSize: '13px', fontWeight: 'bold' }}>
                             {key}:
                           </Typography>
                           {value.map((item, index) => (
@@ -8192,14 +8206,19 @@ const Domain = ({ apiData }) => {
                               color='primary'
                               onDelete={handleDelete(key, index)}
                               deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
+                              sx={{
+                                '& .MuiChip-label': { fontSize: '0.7125rem' },
+                                '& .MuiChip-deleteIcon': { height: '15px !important', width: '15px !important' },
+                                height: '20px'
+                              }}
                             />
                           ))}
                         </Box>
                       )
                     : typeof value === 'string' &&
                       value.trim() !== '' && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                          <Typography variant='body2' sx={{ fontSize: 'medium', fontWeight: 'bold' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                          <Typography variant='body2' sx={{ fontSize: '13px', fontWeight: 'bold' }}>
                             {key}:
                           </Typography>
                           <CustomChip
@@ -8208,6 +8227,11 @@ const Domain = ({ apiData }) => {
                             color='primary'
                             onDelete={handleDelete(key)}
                             deleteIcon={<Icon icon='tabler:trash' color={'#E64449'} />}
+                            sx={{
+                              '& .MuiChip-label': { fontSize: '0.7125rem' },
+                              '& .MuiChip-deleteIcon': { height: '15px !important', width: '15px !important' },
+                              height: '20px'
+                            }}
                           />
                         </Box>
                       )}
@@ -8222,7 +8246,7 @@ const Domain = ({ apiData }) => {
           <DataGrid
             density='compact'
             autoHeight
-            rowHeight={62}
+            rowHeight={45}
             rows={data}
             columns={isMobile ? mobileColumns : desktopColumns}
             disableRowSelectionOnClick
