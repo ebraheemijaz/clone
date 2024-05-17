@@ -108,7 +108,11 @@ function DomainReferral() {
   const id = open ? 'simple-popover' : undefined
 
   return (
-    <Card>
+    <Card
+      sx={{
+        height: { md: '500px', lg: '510px', xl: '550px' }
+      }}
+    >
       <CardHeader
         title='Domain Referrals'
         action={
