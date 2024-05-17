@@ -91,6 +91,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
+
               // alignItems: 'center',
               justifyContent: 'center'
             }}
@@ -106,6 +107,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
+
               // alignItems: 'center',
               justifyContent: 'center'
             }}
@@ -124,6 +126,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
+
               // alignItems: 'center',
               justifyContent: 'center'
             }}
@@ -139,6 +142,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
+
               // alignItems: 'center',
               justifyContent: 'center'
             }}
