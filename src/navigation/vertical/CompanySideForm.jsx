@@ -11,7 +11,7 @@ import { InputAdornment, MenuItem } from '@mui/material'
 import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRouter } from 'next/router'
-import { Box } from '@mui/system'
+import { Box, width } from '@mui/system'
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
@@ -78,15 +78,16 @@ export default function CompanyForm() {
     <>
       <Box sx={{ px: 6 }}>
         <div >
-          <Accordion>
+          <Accordion >
             <AccordionSummary
-              id='panel-header-1'
+              id='hbjhbjhb-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='country'
                 InputProps={{
@@ -100,7 +101,7 @@ export default function CompanyForm() {
                 name='country'
                 fullWidth
                 value={filter.country}
-                onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -112,10 +113,11 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-skyscraper' /> Company</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='company'
                 InputProps={{
@@ -130,6 +132,7 @@ export default function CompanyForm() {
                 fullWidth
                 value={filter.company}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -141,10 +144,11 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-factory-2' /> Industry</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='industry'
                 name='industry'
@@ -156,10 +160,11 @@ export default function CompanyForm() {
                   displayEmpty: true,
                   onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
-                <MenuItem value=''>Industry</MenuItem>
-                <MenuItem value='type1'>Industry 1</MenuItem>
-                <MenuItem value='type2'>Industry 2</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value=''>Industry</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type1'>Industry 1</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type2'>Industry 2</MenuItem>
               </CustomTextField>
             </AccordionDetails>
           </Accordion>
@@ -170,10 +175,11 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up-2' /> Revenue</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='revenue'
                 name='revenue'
@@ -182,9 +188,10 @@ export default function CompanyForm() {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.revenue, onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {revenue.map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -198,20 +205,22 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up' /> Revenue Growth</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='revenueGrowth'
                 name='revenueGrowth'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.revenueGrowth, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {
                   revenuegrowth.map(name => (
-                    <MenuItem key={name} value={name}>
+                    <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                       {name}
                     </MenuItem>
                   ))
@@ -226,19 +235,21 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBIT %</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='ebit'
                 name='ebit'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.ebit, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {ebit.map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -252,19 +263,21 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBITDA %</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='ebitda'
                 name='ebitda'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.ebitda, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {ebit.map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -278,19 +291,21 @@ export default function CompanyForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:users' /> Employees</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='employees'
                 name='employees'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.employees, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {noOfEmployees.map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -306,15 +321,16 @@ export default function CompanyForm() {
           marginTop: '10px',
           marginBottom: '10px',
           width: '100%',
+          height: '28px',
           display: 'flex',
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/companies/')}>
-          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={() => router.push('/dashboards/companies/')}>
+          <Icon icon='tabler:filter' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} />Filter
         </Button>
-        <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={handleReset} color='error'>
+          <Icon icon='tabler:restore' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} /> Reset
         </Button>
       </div>
     </>

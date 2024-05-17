@@ -66,10 +66,11 @@ export default function LocationForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='country'
                 InputProps={{
@@ -84,6 +85,7 @@ export default function LocationForm() {
                 fullWidth
                 value={filter.country}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -95,10 +97,11 @@ export default function LocationForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-community' /> City</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='city'
                 InputProps={{
@@ -113,6 +116,7 @@ export default function LocationForm() {
                 fullWidth
                 value={filter.city}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -124,10 +128,11 @@ export default function LocationForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:businessplan' /> Business</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='business'
                 InputProps={{
@@ -142,6 +147,7 @@ export default function LocationForm() {
                 fullWidth
                 defaultValue={filter.business}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -153,10 +159,11 @@ export default function LocationForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category' /> Category</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='category'
                 name='category'
@@ -166,15 +173,15 @@ export default function LocationForm() {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {['category1', 'category2'].map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
               </CustomTextField>
               <CustomTextField
-                sx={{ mt: 4 }}
                 id='subcategory'
                 name='subcategory'
                 label='Subcategory'
@@ -183,17 +190,18 @@ export default function LocationForm() {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {['category1', 'category2'].map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
               </CustomTextField>
-              <RadioGroup sx={{ mt: 4 }} aria-label='quiz' name='radioFilter' value={filter.radioFilter} onChange={handleFilterChange}>
-                <FormControlLabel value='email' control={<Radio />} label='Email' />
-                <FormControlLabel value='phone' control={<Radio />} label='Phone' />
-                <FormControlLabel value='domain' control={<Radio />} label='Domain' />
+              <RadioGroup sx={{ fontSize: '0.7375rem !important', lineHeight: '0', padding: '0', margin: '0' }} aria-label='quiz' name='radioFilter' value={filter.radioFilter} onChange={handleFilterChange}>
+                <FormControlLabel sx={{ height: '1.5rem', fontSize: '0.7375rem !important', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', '& .MuiTypography-root': { fontSize: '0.7375rem !important' } }} value='email' control={<Radio />} label='Email' />
+                <FormControlLabel sx={{ height: '1.5rem', fontSize: '0.7375rem !important', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', '& .MuiTypography-root': { fontSize: '0.7375rem !important' } }} value='phone' control={<Radio />} label='Phone' />
+                <FormControlLabel sx={{ height: '1.5rem', fontSize: '0.7375rem !important', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', '& .MuiTypography-root': { fontSize: '0.7375rem !important' } }} value='domain' control={<Radio />} label='Domain' />
               </RadioGroup>
             </AccordionDetails>
           </Accordion>
@@ -204,10 +212,11 @@ export default function LocationForm() {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:file-search' /> Search</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='search'
                 InputProps={{
@@ -222,6 +231,7 @@ export default function LocationForm() {
                 fullWidth
                 defaultValue={filter.search}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -235,15 +245,16 @@ export default function LocationForm() {
           marginTop: '15px',
           marginBottom: '15px',
           width: '100%',
+          height: '28px',
           display: 'flex',
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/locations/')}>
-          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={() => router.push('/dashboards/locations/')}>
+          <Icon icon='tabler:filter' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} />Filter
         </Button>
-        <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={handleReset} color='error'>
+          <Icon icon='tabler:restore' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} /> Reset
         </Button>
       </div>
     </>

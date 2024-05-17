@@ -73,10 +73,11 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='country'
                 InputProps={{
@@ -91,6 +92,7 @@ const DomainForm = () => {
                 fullWidth
                 value={filter.country}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -102,10 +104,11 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-www' /> Domain</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='domain'
                 InputProps={{
@@ -120,6 +123,7 @@ const DomainForm = () => {
                 fullWidth
                 value={filter.domain}
                 onChange={handleFilterChange}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
               </CustomTextField>
             </AccordionDetails>
@@ -131,10 +135,11 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:cell' /> Type</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='type'
                 name='type'
@@ -146,10 +151,11 @@ const DomainForm = () => {
                   displayEmpty: true,
                   onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
-                <MenuItem value=''>Type</MenuItem>
-                <MenuItem value='type1'>type 1</MenuItem>
-                <MenuItem value='type2'>type 2</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value=''>Type</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type1'>type 1</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type2'>type 2</MenuItem>
               </CustomTextField>
             </AccordionDetails>
           </Accordion>
@@ -160,10 +166,11 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category-plus' /> Category</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='category'
                 name='category'
@@ -172,9 +179,10 @@ const DomainForm = () => {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
                 }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {['category1', 'category2'].map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -188,21 +196,23 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:resize' /> Sizes</Typography>
               <Typography></Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='sizes'
                 name='sizes'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.sizes, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {
                   sizes.map(name => (
-                    <MenuItem key={name} value={name}>
+                    <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                       {name}
                     </MenuItem>
                   ))
@@ -217,19 +227,21 @@ const DomainForm = () => {
               id='panel-header-1'
               aria-controls='panel-content-1'
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
+              sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:lock-access' /> Domain Authority</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
                 id='domainAuth'
                 name='domainAuth'
                 select
                 fullWidth
                 SelectProps={{ MenuProps, multiple: true, value: filter.domainAuth, onChange: handleFilterChange }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {domainAuthority.map(name => (
-                  <MenuItem key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -245,15 +257,16 @@ const DomainForm = () => {
           marginTop: '15px',
           marginBottom: '15px',
           width: '100%',
+          height: '28px',
           display: 'flex',
           justifyContent: 'space-evenly'
         }}
       >
-        <Button variant='contained' onClick={() => router.push('/dashboards/domain/')}>
-          <Icon fontSize='0.85rem' icon='tabler:filter' style={{ marginRight: '0.3rem' }} />Filter
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={() => router.push('/dashboards/domain/')}>
+          <Icon icon='tabler:filter' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} />Filter
         </Button>
-        <Button variant='contained' onClick={handleReset} color='error'>
-          <Icon fontSize='0.85rem' icon='tabler:restore' style={{ marginRight: '0.3rem' }} /> Reset
+        <Button variant='contained' sx={{ fontSize: '0.7375rem !important' }} onClick={handleReset} color='error'>
+          <Icon icon='tabler:restore' style={{ marginRight: '0.3rem', fontSize: '0.7375rem' }} /> Reset
         </Button>
       </div>
     </Fragment>

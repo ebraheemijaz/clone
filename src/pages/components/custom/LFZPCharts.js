@@ -14,6 +14,7 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 import { CardHeader, Divider, Grid } from '@mui/material'
+import { width } from '@mui/system'
 
 const donutColors = {
   series1: '#fdd835',
@@ -33,11 +34,15 @@ const LFZPCharts = () => {
     colors: [donutColors.series1, donutColors.series5, donutColors.series3, donutColors.series2],
     dataLabels: {
       enabled: true,
-      formatter: val => `${parseInt(val, 10)}%`
+      formatter: val => `${parseInt(val, 10)}%`,
+      style: {
+        fontSize: '9px'
+      }
     },
     legend: {
       position: 'bottom',
-      markers: { offsetX: -3 },
+      fontSize: '9px',
+      markers: { offsetX: -3, width: 8, height: 8, radius: 8 },
       labels: { colors: theme.palette.text.secondary },
       itemMargin: {
         vertical: 3,
@@ -86,7 +91,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -101,13 +106,11 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5' sx={{ mt: 4 }}>
-              Flags
-            </Typography>
+            <Typography variant='h5'>Flags</Typography>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
@@ -121,7 +124,7 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -136,13 +139,11 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5' sx={{ mt: 4 }}>
-              Platforms
-            </Typography>
+            <Typography variant='h5'>Platforms</Typography>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
