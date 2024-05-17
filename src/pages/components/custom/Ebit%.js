@@ -48,7 +48,7 @@ function Ebit() {
       }
     },
     xaxis: {
-      categories: [ '2018', '2019', '2020', '2021', '2022'],
+      categories: ['2018', '2019', '2020', '2021', '2022'],
       axisTicks: { show: true },
       axisBorder: { show: true },
       tickPlacement: 'on',
@@ -67,8 +67,7 @@ function Ebit() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
-
+      show: false
       // padding: {
       //   left: 0,
       //   right: 0,

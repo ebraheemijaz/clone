@@ -68,8 +68,7 @@ function ReturnOfAssets() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
-
+      show: false
       // padding: {
       //   left: 0,
       //   right: 0,
