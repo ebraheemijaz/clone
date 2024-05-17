@@ -456,7 +456,6 @@ const defaultFilters = { country: '', domain: '', type: '', category: [], sizes:
 
 const defaultChipData = {
   Country: 'US',
-  Domain: 'fts.com',
   Type: 'business',
   Category: ['category 1', 'category 5'],
   Sizes: ['Small', 'Medium Sized', 'Large'],
@@ -8175,10 +8174,10 @@ const Domain = ({ apiData }) => {
       <Grid item xs={12}>
         {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
         Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card>
+          <Card sx={{ paddingBottom: '0rem' }}>
             <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
               {Object.entries(chipData).map(([key, value]) => (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} key={key}>
                   {Array.isArray(value)
                     ? value.length > 0 && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
