@@ -72,6 +72,7 @@ function FinancialHealth() {
     },
     grid: {
       show: false
+
       // padding: {
       //   left: 5,
       //   right: 0,
