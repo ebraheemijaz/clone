@@ -89,7 +89,6 @@ const ContactDetails = () => {
   const Div = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
     marginTop: 4,
     marginBottom: 4
   }))
@@ -123,36 +122,36 @@ const ContactDetails = () => {
               <Fragment key={index}>
                 <DivContainer>
                   <Div>
-                    <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
+                    {/* <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
                       {item.phone1.type}
-                    </Typography>
+                    </Typography> */}
                     <Typography sx={{ color: 'text.disabled' }}>{item.phone1.number}</Typography>
                   </Div>
                   <Divider sx={{ borderStyle: 'dashed' }} />
                 </DivContainer>
                 <DivContainer>
                   <Div>
-                    <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
+                    {/* <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
                       {item.phone2.type}
-                    </Typography>
+                    </Typography> */}
                     <Typography sx={{ color: 'text.disabled' }}>{item.phone1.number}</Typography>
                   </Div>
                   <Divider sx={{ borderStyle: 'dashed' }} />
                 </DivContainer>
                 <DivContainer>
                   <Div>
-                    <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
+                    {/* <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
                       {item.mobile.type}
-                    </Typography>
+                    </Typography> */}
                     <Typography sx={{ color: 'text.disabled' }}>{item.phone1.number}</Typography>
                   </Div>
                   <Divider sx={{ borderStyle: 'dashed' }} />
                 </DivContainer>
                 <DivContainer>
                   <Div>
-                    <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
+                    {/* <Typography fontSize={14} sx={{ mb: 0.5 }} variant='p'>
                       {item.fax.type}
-                    </Typography>
+                    </Typography> */}
                     <Typography sx={{ color: 'text.disabled' }}>{item.phone1.number}</Typography>
                   </Div>
                 </DivContainer>

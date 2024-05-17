@@ -235,7 +235,6 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
-
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -256,7 +255,6 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -369,12 +367,11 @@ const defaultFilters = {
 
 const defaultChipData = {
   Country: 'US',
-  Company: 'FTS',
   Industry: 'Industry 1',
   Revenue: ['< 100K EUR', '100 - 500K EUR'],
   'Revenue Growth': ['< -15%', '-15% - 0%'],
-  Ebit: ['< 0%', '0% - 10%'],
-  Ebitda: ['< 0%', '0% - 10%'],
+  EBIT: ['< 0%', '0% - 10%'],
+  EBITDA: ['< 0%', '0% - 10%'],
   Employees: ['0 - 10', '10 - 50']
 }
 
@@ -8561,10 +8558,10 @@ const Dashboard = ({ apiData }) => {
       <Grid item xs={12}>
         {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
         Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card>
+          <Card sx={{ paddingBottom: '0rem' }}>
             <CardContent sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
               {Object.entries(chipData).map(([key, value]) => (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, my: 2 }} key={key}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }} key={key}>
                   {Array.isArray(value)
                     ? value.length > 0 && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
