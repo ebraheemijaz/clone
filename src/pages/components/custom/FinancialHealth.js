@@ -71,12 +71,12 @@ function FinancialHealth() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
-      padding: {
-        left: 5,
-        right: 0,
-        bottom: -14
-      }
+      show: false
+      // padding: {
+      //   left: 5,
+      //   right: 0,
+      //   bottom: -14
+      // }
     },
     responsive: [
       {

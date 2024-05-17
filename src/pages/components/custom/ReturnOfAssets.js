@@ -69,11 +69,11 @@ function ReturnOfAssets() {
     },
     grid: {
       show: false,
-      padding: {
-        left: 0,
-        right: 0,
-        bottom: -14
-      }
+      // padding: {
+      //   left: 0,
+      //   right: 0,
+      //   bottom: -14
+      // }
     },
     responsive: [
       {

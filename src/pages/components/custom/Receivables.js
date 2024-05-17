@@ -48,7 +48,7 @@ function Receivables() {
       }
     },
     xaxis: {
-      categories: ['0', '2018', '2019', '2020', '2021', '2022'],
+      categories: ['2018', '2019', '2020', '2021', '2022'],
       axisTicks: { show: true },
       axisBorder: { show: true },
       tickPlacement: 'on',
@@ -67,12 +67,12 @@ function Receivables() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
-      padding: {
-        left: 0,
-        right: 0,
-        bottom: -14
-      }
+      show: false
+      // padding: {
+      //   left: 0,
+      //   right: 0,
+      //   bottom: -14
+      // }
     },
     responsive: [
       {
@@ -111,7 +111,12 @@ function Receivables() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={213} options={options} series={[{ name: 'Receivables Turnovers', data: [55, 32, 98, 78, 130] }]} />
+        <ReactApexcharts
+          type='bar'
+          height={213}
+          options={options}
+          series={[{ name: 'Receivables Turnovers', data: [55, 32, 98, 78, 130] }]}
+        />
       </CardContent>
     </Card>
   )
