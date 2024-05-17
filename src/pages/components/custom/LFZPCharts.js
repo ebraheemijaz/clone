@@ -73,7 +73,7 @@ const LFZPCharts = () => {
   return (
     <Card
       sx={{
-        height: { lg: '500px' }
+        height: { md: '500px', lg: 'auto' }
       }}
     >
       <CardContent>
