@@ -49,7 +49,7 @@ function ReturnOfEquity() {
       }
     },
     xaxis: {
-      categories: ['0', '2018', '2019', '2020', '2021', '2022'],
+      categories: ['2018', '2019', '2020', '2021', '2022'],
       axisTicks: { show: true },
       axisBorder: { show: true },
       tickPlacement: 'on',
@@ -68,12 +68,12 @@ function ReturnOfEquity() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
-      padding: {
-        left: 0,
-        right: 0,
-        bottom: -14
-      }
+      show: false
+      // padding: {
+      //   left: 0,
+      //   right: 0,
+      //   bottom: -14
+      // }
     },
     responsive: [
       {
