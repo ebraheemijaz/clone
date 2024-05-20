@@ -100,7 +100,7 @@ const EcommerceGeneratedLeads = () => {
         <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
           <Box sx={{ gap: 1.75, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <Typography variant='h6'>Domain Authoridty</Typography>
+              <Typography variant='h6'>Domain Authority</Typography>
               <Typography variant='body2'>
                 <small>Monthly Report</small>
               </Typography>

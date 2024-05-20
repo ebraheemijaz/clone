@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid'
@@ -8,7 +8,9 @@ import { useTheme } from '@mui/material/styles'
 
 // ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
-
+import { Popover } from '@mui/material'
+// ** Icon Imports
+import Icon from 'src/@core/components/icon'
 const data = [
   {
     title: 'Traffic',
@@ -18,11 +20,39 @@ const data = [
       Visits: '1000',
       'Response Time': '324',
       Country: 'Italy'
+    },
+    popoverText: {
+      'Daily Visitor':
+        'Daily Visitors refer to the number of unique individuals who access the site within a 24-hour period, providing insights into its popularity and audience engagement levels.',
+      Visits:
+        'Visits refers to the total count of instances where users access its content within a specified period, indicating its popularity and audience reach.',
+      'Response Time':
+        'Response Time measures the time it takes for a webpage to load and display content after a user initiates a request, reflecting website performance and user experience.',
+      Country:
+        'Traffic Country refers to the primary geographic locations from which visitors access a website, indicating the dominant countries contributing to its traffic and audience demographics.'
     }
   }
 ]
 
 const Slides = ({ theme }) => {
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [selectedPopoverText, setSelectedPopoverText] = useState('')
+  const [selectedTitle, setSelectedTitle] = useState('')
+
+  const handleClick = (event, title, text) => {
+    setAnchorEl(event.currentTarget)
+    setSelectedPopoverText(text)
+    setSelectedTitle(title)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setSelectedPopoverText('')
+    setSelectedTitle('')
+  }
+
+  const open = Boolean(anchorEl)
+  const id = open ? 'simple-popover' : undefined
   return (
     <>
       {data.map((slide, index) => {
@@ -44,7 +74,8 @@ const Slides = ({ theme }) => {
                   {slide.title}
                 </Typography>
                 <Grid container spacing={4.5}>
-                  {Object.keys(slide.details).map((key, index) => {
+                  {Object.entries(slide.details).map(([key, value], index) => {
+                    console.log(Object.entries(slide.details))
                     return (
                       <Grid item key={index} xs={6}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -60,9 +91,31 @@ const Slides = ({ theme }) => {
                               backgroundColor: 'primary.dark'
                             }}
                           >
-                            {slide.details[key]}
+                            {value}
                           </CustomAvatar>
-                          <Typography noWrap>{key}</Typography>
+                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Typography noWrap>{key}</Typography>
+                            <Icon
+                              icon='tabler:exclamation-circle'
+                              aria-describedby={open && 'Domain-Authority'}
+                              onClick={event => handleClick(event, key, slide.popoverText[key])} // Pass index to identify which item is clicked
+                              style={{ cursor: 'pointer', color: '#fff', fontSize: '1.25rem', marginLeft: '0.25rem' }}
+                            />
+                            <Popover
+                              id={key}
+                              open={open} // Use popoverOpen to control the individual popover state
+                              anchorEl={anchorEl}
+                              onClose={handleClose}
+                              anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right'
+                              }}
+                            >
+                              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                                {selectedPopoverText}
+                              </Typography>
+                            </Popover>
+                          </Box>
                         </Box>
                       </Grid>
                     )

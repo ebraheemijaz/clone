@@ -94,18 +94,20 @@ const data = [
 ]
 
 function DomainReferral() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
 
-  const handleClick = event => {
+  const handleClick = (event, index) => {
     setAnchorEl(event.currentTarget)
+    setOpenIndex(index) // Set the index of the clicked item
   }
 
   const handleClose = () => {
     setAnchorEl(null)
+    setOpenIndex(null) // Reset the openIndex when closing the popover
   }
 
   const open = Boolean(anchorEl)
-  const id = open ? 'simple-popover' : undefined
 
   return (
     <Card
@@ -124,6 +126,8 @@ function DomainReferral() {
       />
       <CardContent>
         {data.map((item, index) => {
+          const popoverOpen = openIndex === index // Check if the current index matches the openIndex state
+
           return (
             <Box
               key={index}
@@ -156,13 +160,13 @@ function DomainReferral() {
                   <Typography sx={{ mr: 4, color: 'text.secondary' }}>{item.amount}</Typography>
                   <Icon
                     icon={item.alertIcon}
-                    aria-describedby={id}
-                    onClick={handleClick}
+                    aria-describedby={item.title}
+                    onClick={event => handleClick(event, index)} // Pass index to identify which item is clicked
                     style={{ cursor: 'pointer' }}
                   />
                   <Popover
-                    id={id}
-                    open={open}
+                    id={item.title}
+                    open={popoverOpen} // Use popoverOpen to control the individual popover state
                     anchorEl={anchorEl}
                     onClose={handleClose}
                     anchorOrigin={{

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -16,35 +16,24 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
-import { CardHeader, Grid } from '@mui/material'
-import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGeneratedLeads'
-
-const seriesGood = [100, 80]
-const seriesBad = [100, 20]
+import { CardHeader, Grid, Popover } from '@mui/material'
 
 const GoodChart = () => {
   // ** Hook
   const theme = useTheme()
-
+  const series = [32, 41, 41, 70]
   const options = {
     colors: [
-      theme.palette.success.main
-
-      //   hexToRGBA(theme.palette.success.main, 0.7),
-      //   hexToRGBA(theme.palette.success.main, 0.5),
-      //   hexToRGBA(theme.palette.success.main, 0.16)
+      theme.palette.success.main,
+      hexToRGBA(theme.palette.success.main, 0.7),
+      hexToRGBA(theme.palette.success.main, 0.5),
+      hexToRGBA(theme.palette.success.main, 0.16)
     ],
-    padding: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    },
     stroke: { width: 0 },
     legend: { show: false },
     tooltip: { enabled: false },
     dataLabels: { enabled: false },
-    labels: ['Electronic'],
+    labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
     states: {
       hover: {
         filter: { type: 'none' }
@@ -53,95 +42,254 @@ const GoodChart = () => {
         filter: { type: 'none' }
       }
     },
+    grid: {
+      padding: {
+        top: -22,
+        bottom: -18
+      }
+    },
     plotOptions: {
       pie: {
-        customScale: 0.6,
+        customScale: 0.8,
         expandOnClick: false,
         donut: {
           size: '73%',
           labels: {
             show: true,
             name: {
-              offsetY: 25,
+              offsetY: 22,
               color: theme.palette.text.secondary,
               fontFamily: theme.typography.fontFamily
             },
             value: {
-              offsetY: -15,
+              offsetY: -17,
               fontWeight: 500,
               formatter: val => `${val}`,
               color: theme.palette.text.primary,
               fontFamily: theme.typography.fontFamily,
-              fontSize: theme.typography.h5.fontSize
+              fontSize: theme.typography.h2.fontSize
             },
             total: {
               show: true,
               label: 'Total',
               color: theme.palette.text.secondary,
               fontFamily: theme.typography.fontFamily,
-              fontSize: theme.typography.h6.fontSize
+              fontSize: theme.typography.h5.fontSize
             }
           }
         }
       }
-    }
+    },
+    responsive: [
+      {
+        breakpoint: theme.breakpoints.values.lg,
+        options: {
+          chart: { width: 200, height: 249 }
+        }
+      },
+      {
+        breakpoint: theme.breakpoints.values.md,
+        options: {
+          chart: { width: 150, height: 199 }
+        }
+      }
+    ]
   }
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
   return (
-    <Card sx={{ height: '100%' }}>
-      <CardContent sx={{ padding: 3, height: '100%', paddingBottom: '0 !important' }} id='jkn'>
-        <Box
-          sx={{
-            display: 'flex',
-
-            // flex:1,
-            flexDirection: 'column',
-
-            // alignItems: 'stretch',
-            // justifyContent: 'space-between',
-            width: '100%',
-
-            // height: '100%',
-            padding: '0px'
-          }}
-        >
-          {/* <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}> */}
-          {/* <div> */}
-          <Typography variant='h5' sx={{ mb: 0.75 }}>
-            Domain Authority
-          </Typography>
-          <Typography variant='body2'>Monthly Report</Typography>
-          {/* </div> */}
-          {/* <div> */}
-          {/* </div> */}
-          {/* </Box> */}
-        </Box>
-        <Box
-
-        // style={{
-        //   // height: '100%',
-        //   // marginTop: '10px',
-        //   display: 'flex',
-        //   flexDirection: 'row'
-        // }}
-        >
-          <Typography variant='h4'>Good</Typography>
-          <div
-
-          // style={{
-          //   // maxHeight: '100%',
-          //   backgroundColor: 'blue',
-          //   // width: '100%',
-          //   display: 'flex',
-          //   justifyContent: 'center',
-          //   alignItems: 'center',
-          //   flex: '1'
-          // }}
-          >
+    <Card>
+      <CardContent>
+        <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
+          <Box sx={{ gap: 1.75, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <ReactApexcharts type='donut' series={seriesGood} options={options} />
+              <Typography variant='h6'>
+                Domain Authority
+                <Icon
+                  icon='tabler:exclamation-circle'
+                  aria-describedby={open && 'Domain-Authority'}
+                  onClick={event => handleClick(event, 'Domain-Authority')}
+                  style={{ cursor: 'pointer', fontSize: '1rem', paddingLeft: 2 }}
+                />
+                <Popover
+                  id='Domain-Authority'
+                  open={open && openIndex === 'Domain-Authority'}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  placement='top-start'
+                  modifiers={[
+                    {
+                      name: 'offset',
+                      options: {
+                        offset: [0, 10]
+                      }
+                    }
+                  ]}
+                >
+                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                    Domain Authority is a metric developed by Moz that predicts a website's ranking potential on search
+                    engine results pages based on various factors like link profile and quality. In general, the closer
+                    the indicator is to 100, the more likely the domain has a good domain authority.
+                  </Typography>
+                </Popover>
+              </Typography>
+              <Typography variant='body2'>Monthly Report</Typography>
             </div>
-          </div>
+            <div>
+              <Typography variant='h4'>Good</Typography>
+            </div>
+          </Box>
+          <ReactApexcharts type='donut' width={150} height={165} series={series} options={options} />
+        </Box>
+      </CardContent>
+    </Card>
+  )
+}
+
+const BadChart = () => {
+  // ** Hook
+  const theme = useTheme()
+  const series = [32, 41, 41, 70]
+  const options = {
+    colors: [
+      theme.palette.error.main,
+      hexToRGBA(theme.palette.error.main, 0.7),
+      hexToRGBA(theme.palette.error.main, 0.5),
+      hexToRGBA(theme.palette.error.main, 0.16)
+    ],
+    stroke: { width: 0 },
+    legend: { show: false },
+    tooltip: { enabled: false },
+    dataLabels: { enabled: false },
+    labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
+    states: {
+      hover: {
+        filter: { type: 'none' }
+      },
+      active: {
+        filter: { type: 'none' }
+      }
+    },
+    grid: {
+      padding: {
+        top: -22,
+        bottom: -18
+      }
+    },
+    plotOptions: {
+      pie: {
+        customScale: 0.8,
+        expandOnClick: false,
+        donut: {
+          size: '73%',
+          labels: {
+            show: true,
+            name: {
+              offsetY: 22,
+              color: theme.palette.text.secondary,
+              fontFamily: theme.typography.fontFamily
+            },
+            value: {
+              offsetY: -17,
+              fontWeight: 500,
+              formatter: val => `${val}`,
+              color: theme.palette.text.primary,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: theme.typography.h2.fontSize
+            },
+            total: {
+              show: true,
+              label: 'Total',
+              color: theme.palette.text.secondary,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: theme.typography.h5.fontSize
+            }
+          }
+        }
+      }
+    },
+    responsive: [
+      {
+        breakpoint: theme.breakpoints.values.lg,
+        options: {
+          chart: { width: 200, height: 249 }
+        }
+      },
+      {
+        breakpoint: theme.breakpoints.values.md,
+        options: {
+          chart: { width: 150, height: 199 }
+        }
+      }
+    ]
+  }
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
+  return (
+    <Card>
+      <CardContent>
+        <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
+          <Box sx={{ gap: 1.75, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <Typography variant='h6'>
+                Spam Score
+                <Icon
+                  icon='tabler:exclamation-circle'
+                  aria-describedby={open && 'Spam-Score'}
+                  onClick={event => handleClick(event, 'Spam-Score')}
+                  style={{ cursor: 'pointer', fontSize: '1rem', paddingLeft: 2 }}
+                />
+                <Popover
+                  id='Spam-Score'
+                  open={open && openIndex === 'Spam-Score'}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  placement='top-start'
+                  modifiers={[
+                    {
+                      name: 'offset',
+                      options: {
+                        offset: [0, 10]
+                      }
+                    }
+                  ]}
+                >
+                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                    Spam score is a metric developed to evaluate the likelihood of a website being penalized or
+                    considered spammy by search engines, based on factors like backlink quality.
+                  </Typography>
+                </Popover>
+              </Typography>
+              <Typography variant='body2'>Monthly Report</Typography>
+            </div>
+            <div>
+              <Typography variant='h4'>Bad</Typography>
+            </div>
+          </Box>
+          <ReactApexcharts type='donut' width={150} height={165} series={series} options={options} />
         </Box>
       </CardContent>
     </Card>
@@ -211,6 +359,21 @@ const MainCard = () => {
 }
 
 const TrafficSources = () => {
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, index) => {
+    setAnchorEl(event.currentTarget)
+    setOpenIndex(index) // Set the index of the clicked item
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null) // Reset the openIndex when closing the popover
+  }
+
+  const open = Boolean(anchorEl)
+
   return (
     <Card
       sx={{
@@ -224,9 +387,37 @@ const TrafficSources = () => {
           padding: '1rem'
         }}
       >
-        <Typography variant='h5' sx={{ mb: 0.75 }}>
-          Traffic Sources
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 4 }}>
+          <Typography variant='h5' sx={{ mb: 0.75 }}>
+            Traffic Sources
+          </Typography>
+          <Icon
+            icon='tabler:exclamation-circle'
+            aria-describedby={open && 'Traffic-Sources'}
+            onClick={event => handleClick(event, 'Traffic-Sources')}
+            style={{ cursor: 'pointer', marginRight: '2rem' }}
+          />
+          <Popover
+            id='Traffic-Sources'
+            open={open && openIndex === 'Traffic-Sources'}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            placement='top-start'
+            modifiers={[
+              {
+                name: 'offset',
+                options: {
+                  offset: [0, 10]
+                }
+              }
+            ]}
+          >
+            <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+              Traffic Source refer to the proportions of website traffic originating from direct visits, search engines,
+              display ads, referrals, social media, and email campaigns.
+            </Typography>
+          </Popover>
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -265,8 +456,8 @@ const TrafficSources = () => {
               padding: '0.25rem'
             }}
           >
-            <EcommerceGeneratedLeads />
-            <EcommerceGeneratedLeads />
+            <GoodChart />
+            <BadChart />
             {/* <div style={{ flex: 1 }}>
               <GoodChart />
             </div>
