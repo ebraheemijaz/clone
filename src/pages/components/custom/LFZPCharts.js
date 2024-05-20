@@ -13,8 +13,9 @@ import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
-import { CardHeader, Divider, Grid } from '@mui/material'
+import { CardHeader, Divider, Grid, Popover } from '@mui/material'
 import { width } from '@mui/system'
+import { useState } from 'react'
 
 const donutColors = {
   series1: '#fdd835',
@@ -27,6 +28,20 @@ const donutColors = {
 const LFZPCharts = () => {
   // ** Hook
   const theme = useTheme()
+
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
 
   const options = {
     stroke: { width: 0 },
@@ -96,7 +111,35 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Links</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography variant='h5'>Links</Typography>
+              <Icon
+                icon='tabler:exclamation-circle'
+                aria-describedby={open && 'Links'}
+                onClick={event => handleClick(event, 'Links')}
+                style={{ cursor: 'pointer', marginRight: '2rem' }}
+              />
+              <Popover
+                id='Links'
+                open={open && openIndex === 'Links'}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                placement='top-start'
+                modifiers={[
+                  {
+                    name: 'offset',
+                    options: {
+                      offset: [0, 10]
+                    }
+                  }
+                ]}
+              >
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  Links represent the various categories or types of backlinks pointing to a specific webpage or
+                  website, including dofollow, nofollow, contextual, image, or redirect links.
+                </Typography>
+              </Popover>
+            </Box>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
           <Grid
@@ -112,7 +155,35 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Flags</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography variant='h5'>Flags</Typography>
+              <Icon
+                icon='tabler:exclamation-circle'
+                aria-describedby={open && 'Flags'}
+                onClick={event => handleClick(event, 'Flags')}
+                style={{ cursor: 'pointer', marginRight: '2rem' }}
+              />
+              <Popover
+                id='Flags'
+                open={open && openIndex === 'Flags'}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                placement='top-start'
+                modifiers={[
+                  {
+                    name: 'offset',
+                    options: {
+                      offset: [0, 10]
+                    }
+                  }
+                ]}
+              >
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  Flags indicate specific attributes or characteristics associated with backlinks pointing to a webpage
+                  or website, such as "nofollow," "dofollow," or "sponsored," influencing their impact and credibility.
+                </Typography>
+              </Popover>
+            </Box>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
@@ -131,7 +202,35 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Zones</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography variant='h5'>Zones</Typography>
+              <Icon
+                icon='tabler:exclamation-circle'
+                aria-describedby={open && 'Zones'}
+                onClick={event => handleClick(event, 'Zones')}
+                style={{ cursor: 'pointer', marginRight: '2rem' }}
+              />
+              <Popover
+                id='Zones'
+                open={open && openIndex === 'Zones'}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                placement='top-start'
+                modifiers={[
+                  {
+                    name: 'offset',
+                    options: {
+                      offset: [0, 10]
+                    }
+                  }
+                ]}
+              >
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  Zones represent the geographic regions or countries from which backlinks originate, providing insights
+                  into the global distribution and diversity of referring sources linking to a webpage or website.
+                </Typography>
+              </Popover>
+            </Box>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
           <Grid
@@ -147,7 +246,35 @@ const LFZPCharts = () => {
               justifyContent: 'center'
             }}
           >
-            <Typography variant='h5'>Platforms</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography variant='h5'>Platforms</Typography>
+              <Icon
+                icon='tabler:exclamation-circle'
+                aria-describedby={open && 'Platforms'}
+                onClick={event => handleClick(event, 'Platforms')}
+                style={{ cursor: 'pointer', marginRight: '2rem' }}
+              />
+              <Popover
+                id='Platforms'
+                open={open && openIndex === 'Platforms'}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                placement='top-start'
+                modifiers={[
+                  {
+                    name: 'offset',
+                    options: {
+                      offset: [0, 10]
+                    }
+                  }
+                ]}
+              >
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  Platforms categorize the types of platforms or websites from which backlinks originate, such as social
+                  media, forums, blogs, directories, or news sites, indicating diverse referral sources.
+                </Typography>
+              </Popover>
+            </Box>
             <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
           </Grid>
         </Grid>
