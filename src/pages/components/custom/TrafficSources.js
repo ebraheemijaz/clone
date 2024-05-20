@@ -22,6 +22,7 @@ const GoodChart = () => {
   // ** Hook
   const theme = useTheme()
   const series = [32, 41, 41, 70]
+
   const options = {
     colors: [
       theme.palette.success.main,
@@ -109,7 +110,8 @@ const GoodChart = () => {
     setOpenIndex(null)
   }
   const open = Boolean(anchorEl)
-  return (
+  
+return (
     <Card>
       <CardContent>
         <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
@@ -162,6 +164,7 @@ const BadChart = () => {
   // ** Hook
   const theme = useTheme()
   const series = [32, 41, 41, 70]
+
   const options = {
     colors: [
       theme.palette.error.main,
@@ -248,7 +251,8 @@ const BadChart = () => {
     setOpenIndex(null)
   }
   const open = Boolean(anchorEl)
-  return (
+  
+return (
     <Card>
       <CardContent>
         <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
