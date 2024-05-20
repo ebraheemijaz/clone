@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -48,7 +48,7 @@ function Ebit() {
       }
     },
     xaxis: {
-      categories: [ '2018', '2019', '2020', '2021', '2022'],
+      categories: ['2018', '2019', '2020', '2021', '2022'],
       axisTicks: { show: true },
       axisBorder: { show: true },
       tickPlacement: 'on',
@@ -67,7 +67,7 @@ function Ebit() {
       tickPlacement: 'on'
     },
     grid: {
-      show: false,
+      show: false
 
       // padding: {
       //   left: 0,
@@ -99,6 +99,20 @@ function Ebit() {
     ]
   }
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
+
   return (
     <Card>
       <CardHeader
@@ -107,7 +121,33 @@ function Ebit() {
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
               EBIT (%)
             </Typography>
-            <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
+            <Icon
+              icon='tabler:exclamation-circle'
+              aria-describedby={open && 'EBIT'}
+              onClick={event => handleClick(event, 'EBIT')}
+              style={{ cursor: 'pointer' }}
+              fontSize={28}
+            />
+            <Popover
+              id='EBIT'
+              open={open && openIndex === 'EBIT'}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              placement='top-start'
+              modifiers={[
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 10]
+                  }
+                }
+              ]}
+            >
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+                EBIT is the abbreviation of Earnings Before Interest and Taxes, and represents a company's operating
+                profit before deducting interest and taxes from revenue.
+              </Typography>
+            </Popover>
           </div>
         }
       />

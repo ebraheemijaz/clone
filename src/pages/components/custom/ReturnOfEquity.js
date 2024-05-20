@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -100,6 +100,20 @@ function ReturnOfEquity() {
     ]
   }
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
+
   return (
     <Card>
       <CardHeader
@@ -108,7 +122,33 @@ function ReturnOfEquity() {
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
               Return Of Equity (%)
             </Typography>
-            <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
+            <Icon
+              icon='tabler:exclamation-circle'
+              aria-describedby={open && 'ROE'}
+              onClick={event => handleClick(event, 'ROE')}
+              style={{ cursor: 'pointer' }}
+              fontSize={28}
+            />
+            <Popover
+              id='ROE'
+              open={open && openIndex === 'ROE'}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              placement='top-start'
+              modifiers={[
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 10]
+                  }
+                }
+              ]}
+            >
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+                Return on Equity assesses profitability concerning shareholders' equity, revealing how effectively
+                shareholder investments generate profits.
+              </Typography>
+            </Popover>
           </div>
         }
       />

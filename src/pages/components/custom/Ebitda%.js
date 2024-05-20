@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -98,6 +98,19 @@ function Ebitda() {
       }
     ]
   }
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
 
   return (
     <Card>
@@ -107,7 +120,33 @@ function Ebitda() {
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
               EBITDA (%)
             </Typography>
-            <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
+            <Icon
+              icon='tabler:exclamation-circle'
+              aria-describedby={open && 'EBITDA'}
+              onClick={event => handleClick(event, 'EBITDA')}
+              style={{ cursor: 'pointer' }}
+              fontSize={28}
+            />
+            <Popover
+              id='EBITDA'
+              open={open && openIndex === 'EBITDA'}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              placement='top-start'
+              modifiers={[
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 10]
+                  }
+                }
+              ]}
+            >
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+                EBITDA is the abbreviation of Earnings Before Interest, Taxes, Depreciation, and Amortization. The term
+                defines a company's profitability excluding non-operating expenses like depreciation and amortization.
+              </Typography>
+            </Popover>
           </div>
         }
       />

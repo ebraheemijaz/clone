@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -15,6 +15,20 @@ function FinancialHealth() {
   // ** Hooks
   const theme = useTheme()
   const bgColors = UseBgColor()
+
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
 
   const options = {
     chart: {
@@ -111,7 +125,35 @@ function FinancialHealth() {
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
               Financial Health
             </Typography>
-            <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
+            <Icon
+              icon='tabler:exclamation-circle'
+              aria-describedby={open && 'Financial-Health'}
+              onClick={event => handleClick(event, 'Financial-Health')}
+              style={{ cursor: 'pointer' }}
+              fontSize={28}
+            />
+            <Popover
+              id='Financial-Health'
+              open={open && openIndex === 'Financial-Health'}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              placement='top-start'
+              modifiers={[
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 10]
+                  }
+                }
+              ]}
+            >
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                Financial health assesses the likelihood of a company facing financial distress or bankruptcy calculated
+                using the Altman Z-Score. The Altman Z-Score is a predictive model that calculates a numerical score
+                based on a combination of financial ratios derived from a company's financial statements. These ratios
+                typically include measures of liquidity, profitability, leverage, solvency, and efficiency.
+              </Typography>
+            </Popover>
           </div>
         }
       />
