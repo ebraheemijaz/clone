@@ -74,7 +74,7 @@ const data = [
   },
   {
     icon: 'tabler:star',
-    title: 'Referring Ips',
+    title: 'Referring IPs',
     amount: '4893',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Referring  IPs represent the number of unique IP addresses from which 
