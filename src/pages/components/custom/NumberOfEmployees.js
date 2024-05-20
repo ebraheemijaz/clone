@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -100,6 +100,20 @@ function NumberOfEmployees() {
     ]
   }
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = (event, id) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+    setOpenIndex(id)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenIndex(null)
+  }
+  const open = Boolean(anchorEl)
+
   return (
     <Card>
       <CardHeader
@@ -108,7 +122,33 @@ function NumberOfEmployees() {
             <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
               Number Of Employees
             </Typography>
-            <Icon icon='tabler:exclamation-circle' fontSize={28} style={{ cursor: 'pointer' }} />
+            <Icon
+              icon='tabler:exclamation-circle'
+              aria-describedby={open && 'Employees'}
+              onClick={event => handleClick(event, 'Employees')}
+              style={{ cursor: 'pointer' }}
+              fontSize={28}
+            />
+            <Popover
+              id='Employees'
+              open={open && openIndex === 'Employees'}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              placement='top-start'
+              modifiers={[
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [0, 10]
+                  }
+                }
+              ]}
+            >
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+                Number of employees measures the total workforce within a company, reflecting its scale and capacity for
+                operations and growth.
+              </Typography>
+            </Popover>
           </div>
         }
       />
