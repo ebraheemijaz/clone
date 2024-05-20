@@ -4,6 +4,7 @@ import Card from '@mui/material/Card'
 import { useTheme } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
+import { styled } from '@mui/material/styles'
 
 // ** Icons Imports
 import Icon from 'src/@core/components/icon'
@@ -24,6 +25,10 @@ const donutColors = {
   series4: '#1FD5EB',
   series5: '#ffa1a1'
 }
+
+const Images = styled('img')(({ theme }) => ({
+  width: '80%'
+}))
 
 const LFZPCharts = () => {
   // ** Hook
@@ -106,8 +111,6 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-
-              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -140,7 +143,13 @@ const LFZPCharts = () => {
                 </Typography>
               </Popover>
             </Box>
-            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            {options ? (
+              <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            ) : (
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Images alt='chart_placeholder' src='/images/chart_placeholder.png' />
+              </Box>
+            )}
           </Grid>
           <Grid
             item
@@ -150,8 +159,6 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-
-              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -184,7 +191,13 @@ const LFZPCharts = () => {
                 </Typography>
               </Popover>
             </Box>
-            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            {options ? (
+              <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            ) : (
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Images alt='chart_placeholder' src='/images/chart_placeholder.png' />
+              </Box>
+            )}
           </Grid>
         </Grid>
         <Divider variant='middle' sx={{ my: 8 }} />
@@ -197,8 +210,6 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-
-              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -231,7 +242,13 @@ const LFZPCharts = () => {
                 </Typography>
               </Popover>
             </Box>
-            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            {!options ? (
+              <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            ) : (
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Images alt='chart_placeholder' src='/images/chart_placeholder.png' />
+              </Box>
+            )}
           </Grid>
           <Grid
             item
@@ -241,8 +258,6 @@ const LFZPCharts = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-
-              // alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -275,7 +290,13 @@ const LFZPCharts = () => {
                 </Typography>
               </Popover>
             </Box>
-            <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            {options ? (
+              <ReactApexcharts type='donut' options={options} series={[85, 16, 50, 50]} />
+            ) : (
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Images alt='chart_placeholder' src='/images/chart_placeholder.png' />
+              </Box>
+            )}
           </Grid>
         </Grid>
       </CardContent>
