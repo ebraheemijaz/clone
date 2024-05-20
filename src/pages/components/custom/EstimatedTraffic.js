@@ -9,8 +9,10 @@ import { useTheme } from '@mui/material/styles'
 // ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import { Popover } from '@mui/material'
+
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+
 const data = [
   {
     title: 'Traffic',
@@ -53,7 +55,8 @@ const Slides = ({ theme }) => {
 
   const open = Boolean(anchorEl)
   const id = open ? 'simple-popover' : undefined
-  return (
+  
+return (
     <>
       {data.map((slide, index) => {
         return (
@@ -76,7 +79,8 @@ const Slides = ({ theme }) => {
                 <Grid container spacing={4.5}>
                   {Object.entries(slide.details).map(([key, value], index) => {
                     console.log(Object.entries(slide.details))
-                    return (
+                    
+return (
                       <Grid item key={index} xs={6}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <CustomAvatar

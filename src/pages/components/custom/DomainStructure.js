@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
+
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
@@ -88,7 +89,8 @@ function DomainStructure() {
   }
 
   const open = Boolean(anchorEl)
-  return (
+  
+return (
     <Card
       sx={{
         height: { md: '500px', lg: '510px', xl: '550px' }
