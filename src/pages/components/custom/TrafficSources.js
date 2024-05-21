@@ -110,8 +110,8 @@ const GoodChart = () => {
     setOpenIndex(null)
   }
   const open = Boolean(anchorEl)
-  
-return (
+
+  return (
     <Card>
       <CardContent>
         <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
@@ -251,8 +251,8 @@ const BadChart = () => {
     setOpenIndex(null)
   }
   const open = Boolean(anchorEl)
-  
-return (
+
+  return (
     <Card>
       <CardContent>
         <Box sx={{ gap: 2, display: 'flex', alignItems: 'stretch', justifyContent: 'space-between' }}>
@@ -315,7 +315,7 @@ const MainCard = () => {
   const options = {
     stroke: { width: 0 },
     labels: ['Display', 'Referral', 'Search', 'Direct'],
-    colors: [donutColors.series1, donutColors.series5, donutColors.series3, donutColors.series2],
+    colors: ['#FF9F43', '#28C76F', '#00BAD1', '#7367F0'],
     dataLabels: {
       enabled: true,
       formatter: val => `${parseInt(val, 10)}%`

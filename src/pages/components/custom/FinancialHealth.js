@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -10,6 +10,8 @@ import UseBgColor from 'src/@core/hooks/useBgColor'
 
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
+import { useSettings } from 'src/@core/hooks/useSettings'
+import { LoaderIcon } from 'react-hot-toast'
 
 function FinancialHealth() {
   // ** Hooks
@@ -18,6 +20,16 @@ function FinancialHealth() {
 
   const [anchorEl, setAnchorEl] = useState(null)
   const [openIndex, setOpenIndex] = useState(null)
+
+  const [loading, setLoaing] = useState(false)
+  const { settings } = useSettings()
+
+  useEffect(() => {
+    setLoaing(true)
+    setTimeout(() => {
+      setLoaing(false)
+    }, 600)
+  }, [settings.navCollapsed])
 
   const handleClick = (event, id) => {
     setAnchorEl(anchorEl ? null : event.currentTarget)
@@ -158,7 +170,10 @@ function FinancialHealth() {
         }
       />
       <CardContent>
-        <ReactApexcharts type='bar' height={265} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
+        {!loading && (
+          <ReactApexcharts type='bar' height={265} options={options} series={[{ data: [3.7, 4.4, 3.8, 4.1, 4.8] }]} />
+        )}
+        {loading && <LoaderIcon />}
       </CardContent>
     </Card>
   )
