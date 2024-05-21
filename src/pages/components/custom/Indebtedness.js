@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, Popover, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from 'src/@core/components/icon'
 
 import { useTheme } from '@mui/material/styles'
@@ -10,6 +10,8 @@ import UseBgColor from 'src/@core/hooks/useBgColor'
 
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
+import { useSettings } from 'src/@core/hooks/useSettings'
+import { LoaderIcon } from 'react-hot-toast'
 
 function Indebtedness() {
   // ** Hooks
@@ -102,6 +104,16 @@ function Indebtedness() {
   const [anchorEl, setAnchorEl] = useState(null)
   const [openIndex, setOpenIndex] = useState(null)
 
+  const [loading, setLoaing] = useState(false)
+  const { settings } = useSettings()
+
+  useEffect(() => {
+    setLoaing(true)
+    setTimeout(() => {
+      setLoaing(false)
+    }, 600)
+  }, [settings.navCollapsed])
+
   const handleClick = (event, id) => {
     setAnchorEl(anchorEl ? null : event.currentTarget)
     setOpenIndex(id)
@@ -152,12 +164,15 @@ function Indebtedness() {
         }
       />
       <CardContent>
-        <ReactApexcharts
-          type='bar'
-          height={213}
-          options={options}
-          series={[{ name: 'Indebtedness', data: [2, 4, 7, 9, 10] }]}
-        />
+        {!loading && (
+          <ReactApexcharts
+            type='bar'
+            height={213}
+            options={options}
+            series={[{ name: 'Indebtedness', data: [2, 4, 7, 9, 10] }]}
+          />
+        )}
+        {loading && <LoaderIcon />}
       </CardContent>
     </Card>
   )
