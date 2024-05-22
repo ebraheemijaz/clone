@@ -235,7 +235,6 @@ const desktopColumns = [
           skin='light'
           size='small'
           label={row.attributes.tunover_level_filter}
-
           // label={row.status}
 
           // color={userStatusObj[row.status]}
@@ -256,7 +255,6 @@ const desktopColumns = [
       const { attributes } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -8560,7 +8558,12 @@ const Dashboard = ({ apiData }) => {
       <Grid item xs={12}>
         {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
         Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card sx={{ '& .MuiCardContent-root': { padding: '0.5rem', paddingBottom: '0.5rem' } }}>
+          <Card
+            sx={{
+              '& .MuiCardContent-root': { padding: '0.5rem !important', paddingBottom: '0.5rem !important' },
+              paddingBottom: '0 !important'
+            }}
+          >
             <CardContent
               sx={{
                 display: 'flex',

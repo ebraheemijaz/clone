@@ -156,7 +156,7 @@ function ReturnOfAssets() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Return on Assets evaluates a company's profitability relative to its total assets, indicating how
                 efficiently assets generate earnings.
               </Typography>

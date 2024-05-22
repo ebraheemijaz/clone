@@ -137,7 +137,7 @@ const LFZPCharts = () => {
                   }
                 ]}
               >
-                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                   Links represent the various categories or types of backlinks pointing to a specific webpage or
                   website, including dofollow, nofollow, contextual, image, or redirect links.
                 </Typography>
@@ -185,7 +185,7 @@ const LFZPCharts = () => {
                   }
                 ]}
               >
-                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                   Flags indicate specific attributes or characteristics associated with backlinks pointing to a webpage
                   or website, such as "nofollow," "dofollow," or "sponsored," influencing their impact and credibility.
                 </Typography>
@@ -236,7 +236,7 @@ const LFZPCharts = () => {
                   }
                 ]}
               >
-                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                   Zones represent the geographic regions or countries from which backlinks originate, providing insights
                   into the global distribution and diversity of referring sources linking to a webpage or website.
                 </Typography>
@@ -284,7 +284,7 @@ const LFZPCharts = () => {
                   }
                 ]}
               >
-                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                   Platforms categorize the types of platforms or websites from which backlinks originate, such as social
                   media, forums, blogs, directories, or news sites, indicating diverse referral sources.
                 </Typography>

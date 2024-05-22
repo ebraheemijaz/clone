@@ -156,7 +156,7 @@ function ReturnOfEquity() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Return on Equity assesses profitability concerning shareholders' equity, revealing how effectively
                 shareholder investments generate profits.
               </Typography>

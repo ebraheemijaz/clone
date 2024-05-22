@@ -8180,7 +8180,12 @@ const Domain = ({ apiData }) => {
       <Grid item xs={12}>
         {Object.values(chipData).some(value => Array.isArray(value) && value.length > 0) ||
         Object.values(chipData).some(value => typeof value === 'string' && value.trim() !== '') ? (
-          <Card sx={{ '& .MuiCardContent-root': { padding: '0.5rem', paddingBottom: '0.5rem' } }}>
+          <Card
+            sx={{
+              '& .MuiCardContent-root': { padding: '0.5rem !important', paddingBottom: '0.5rem !important' },
+              paddingBottom: '0 !important'
+            }}
+          >
             <CardContent
               sx={{
                 display: 'flex',

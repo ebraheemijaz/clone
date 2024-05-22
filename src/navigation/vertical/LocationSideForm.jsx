@@ -68,7 +68,7 @@ export default function LocationForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -99,7 +99,7 @@ export default function LocationForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-community' /> City</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:building-community' /> City</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -130,7 +130,7 @@ export default function LocationForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:businessplan' /> Business</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:businessplan' /> Business</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -161,7 +161,7 @@ export default function LocationForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:category' /> Category</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:category' /> Category</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -173,10 +173,10 @@ export default function LocationForm() {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
                 }}
-                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' }, '& .MuiInputLabel-root': { fontSize: '0.7rem', marginTop: '4px' } }}
               >
                 {['category1', 'category2'].map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -190,10 +190,10 @@ export default function LocationForm() {
                 SelectProps={{
                   MenuProps, multiple: true, value: filter.category, onChange: handleFilterChange
                 }}
-                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
+                sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' }, '& .MuiInputLabel-root': { fontSize: '0.7rem', marginTop: '4px' } }}
               >
                 {['category1', 'category2'].map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -214,7 +214,7 @@ export default function LocationForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:file-search' /> Search</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:file-search' /> Search</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField

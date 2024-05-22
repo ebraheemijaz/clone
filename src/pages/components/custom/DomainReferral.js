@@ -117,12 +117,12 @@ function DomainReferral() {
     >
       <CardHeader
         title='Domain Referrals'
-        action={
-          <OptionsMenu
-            options={['Last Week', 'Last Month', 'Last Year']}
-            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-          />
-        }
+        // action={
+        //   <OptionsMenu
+        //     options={['Last Week', 'Last Month', 'Last Year']}
+        //     iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+        //   />
+        // }
       />
       <CardContent>
         {data.map((item, index) => {
@@ -174,7 +174,11 @@ function DomainReferral() {
                       horizontal: 'right'
                     }}
                   >
-                    <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>{item.tooltipText}</Typography>
+                    <Typography
+                      sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                    >
+                      {item.tooltipText}
+                    </Typography>
                   </Popover>
                 </Box>
               </Box>

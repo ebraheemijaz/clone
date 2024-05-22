@@ -159,7 +159,7 @@ function FinancialHealth() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Financial health assesses the likelihood of a company facing financial distress or bankruptcy calculated
                 using the Altman Z-Score. The Altman Z-Score is a predictive model that calculates a numerical score
                 based on a combination of financial ratios derived from a company's financial statements. These ratios

@@ -66,7 +66,9 @@ const DomainStructureCharts = () => {
                     }
                   ]}
                 >
-                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  <Typography
+                    sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                  >
                     Alexa Rank is a metric provided by Alexa Internet that ranks websites based on their popularity
                     relative to other sites on the internet, using a combination of traffic data and user engagement
                     metrics.
@@ -171,7 +173,9 @@ const DomainStructureCharts = () => {
                     }
                   ]}
                 >
-                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  <Typography
+                    sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                  >
                     Open Page Rank is a free Google PageRank replacement based on the Open Source data consisting of
                     about 3 Bn. Web pages. It is a good measurement of a website’s backlink strength.
                   </Typography>
@@ -275,7 +279,9 @@ const DomainStructureCharts = () => {
                     }
                   ]}
                 >
-                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  <Typography
+                    sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                  >
                     Majestic Rank is a metric provided by Majestic SEO that measures the relative authority or
                     popularity of a website compared to other websites on the internet based on backlink data.
                   </Typography>

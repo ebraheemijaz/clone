@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles'
 
 // ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
-import { Popover } from '@mui/material'
+import { Popover, useMediaQuery } from '@mui/material'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
@@ -55,8 +55,8 @@ const Slides = ({ theme }) => {
 
   const open = Boolean(anchorEl)
   const id = open ? 'simple-popover' : undefined
-  
-return (
+
+  return (
     <>
       {data.map((slide, index) => {
         return (
@@ -76,12 +76,12 @@ return (
                 <Typography variant='h6' sx={{ mb: 4.5 }}>
                   {slide.title}
                 </Typography>
-                <Grid container spacing={4.5}>
+                <Grid container columnSpacing={12} rowSpacing={4.5}>
                   {Object.entries(slide.details).map(([key, value], index) => {
                     console.log(Object.entries(slide.details))
-                    
-return (
-                      <Grid item key={index} xs={6}>
+
+                    return (
+                      <Grid item key={index} xs={12} sm={6}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <CustomAvatar
                             color='primary'
@@ -115,7 +115,15 @@ return (
                                 horizontal: 'right'
                               }}
                             >
-                              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                              <Typography
+                                sx={{
+                                  p: 2,
+                                  width: '250px',
+                                  maxHeight: '350px',
+                                  fontSize: '0.7rem',
+                                  textAlign: 'justify'
+                                }}
+                              >
                                 {selectedPopoverText}
                               </Typography>
                             </Popover>
@@ -158,13 +166,14 @@ return (
 const EstimatedTraffic = () => {
   // ** Hook
   const theme = useTheme()
+  const isLargeScreenOrAbove = useMediaQuery(theme => theme.breakpoints.up('lg'))
 
   return (
     <Card
       sx={{
         position: 'relative',
         backgroundColor: 'primary.main',
-        height: '350px',
+        height: isLargeScreenOrAbove ? '350px' : 'auto',
         display: 'flex',
         alignItems: 'center'
       }}

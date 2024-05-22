@@ -156,7 +156,7 @@ function NumberOfEmployees() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Number of employees measures the total workforce within a company, reflecting its scale and capacity for
                 operations and growth.
               </Typography>

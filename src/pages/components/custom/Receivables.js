@@ -155,7 +155,7 @@ function Receivables() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Receivables Turnover calculates the average number of days it takes for a company to collect its
                 accounts receivable.
               </Typography>
