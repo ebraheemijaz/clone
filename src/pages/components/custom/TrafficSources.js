@@ -140,7 +140,9 @@ const GoodChart = () => {
                     }
                   ]}
                 >
-                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  <Typography
+                    sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                  >
                     Domain Authority is a metric developed by Moz that predicts a website's ranking potential on search
                     engine results pages based on various factors like link profile and quality. In general, the closer
                     the indicator is to 100, the more likely the domain has a good domain authority.
@@ -281,7 +283,9 @@ const BadChart = () => {
                     }
                   ]}
                 >
-                  <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+                  <Typography
+                    sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                  >
                     Spam score is a metric developed to evaluate the likelihood of a website being penalized or
                     considered spammy by search engines, based on factors like backlink quality.
                   </Typography>
@@ -416,7 +420,7 @@ const TrafficSources = () => {
               }
             ]}
           >
-            <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>
+            <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
               Traffic Source refer to the proportions of website traffic originating from direct visits, search engines,
               display ads, referrals, social media, and email campaigns.
             </Typography>

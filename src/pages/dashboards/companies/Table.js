@@ -246,7 +246,7 @@ const desktopColumns = [
           size='small'
           label={row.tunover_level_filter}
           color={getRevenueColor(row.tunover_level_filter)}
-          sx={{ textTransform: 'capitalize', fontSize: '13px' }}
+          sx={{ textTransform: 'capitalize', fontSize: '11px' }}
         />
       )
     }
@@ -272,7 +272,6 @@ const desktopColumns = [
       const { nr_sal_an5 } = row
 
       return (
-
         // '.MuiDataGrid-cell--textRight': { textAlign: 'right' }
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>

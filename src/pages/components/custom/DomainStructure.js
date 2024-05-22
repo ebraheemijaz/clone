@@ -89,8 +89,8 @@ function DomainStructure() {
   }
 
   const open = Boolean(anchorEl)
-  
-return (
+
+  return (
     <Card
       sx={{
         height: { md: '500px', lg: '510px', xl: '550px' }
@@ -98,12 +98,12 @@ return (
     >
       <CardHeader
         title='Domain Structure'
-        action={
-          <OptionsMenu
-            options={['Last Week', 'Last Month', 'Last Year']}
-            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-          />
-        }
+        // action={
+        //   <OptionsMenu
+        //     options={['Last Week', 'Last Month', 'Last Year']}
+        //     iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+        //   />
+        // }
       />
       <CardContent>
         {data.map((item, index) => {
@@ -155,7 +155,11 @@ return (
                       horizontal: 'right'
                     }}
                   >
-                    <Typography sx={{ p: 2, width: '250px', maxHeight: '350px' }}>{item.tooltipText}</Typography>
+                    <Typography
+                      sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}
+                    >
+                      {item.tooltipText}
+                    </Typography>
                   </Popover>
                 </Box>
               </Box>

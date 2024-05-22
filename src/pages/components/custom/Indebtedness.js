@@ -155,7 +155,7 @@ function Indebtedness() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 Indebtedness measures a company's reliance on debt financing, indicating the proportion of its assets
                 funded by borrowed money.
               </Typography>

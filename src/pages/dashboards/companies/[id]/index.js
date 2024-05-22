@@ -75,6 +75,7 @@ const Div = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between'
 }))
+const currentYear = new Date().getFullYear()
 
 function Company() {
   return (
@@ -209,7 +210,7 @@ function Company() {
             <CardHeader
               title={
                 <Typography variant='h4' sx={{ fontWeight: 'medium' }}>
-                  Financial Year (2023)
+                  Financial Year ({currentYear - 1})
                 </Typography>
               }
             />

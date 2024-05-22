@@ -154,7 +154,7 @@ function Ebitda() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 EBITDA is the abbreviation of Earnings Before Interest, Taxes, Depreciation, and Amortization. The term
                 defines a company's profitability excluding non-operating expenses like depreciation and amortization.
               </Typography>

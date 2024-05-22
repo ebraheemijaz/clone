@@ -85,7 +85,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:world-pin' /> Country</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -115,7 +115,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-skyscraper' /> Company</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:building-skyscraper' /> Company</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -146,7 +146,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:building-factory-2' /> Industry</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:building-factory-2' /> Industry</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -162,9 +162,9 @@ export default function CompanyForm() {
                 }}
                 sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
-                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value=''>Industry</MenuItem>
-                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type1'>Industry 1</MenuItem>
-                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} value='type2'>Industry 2</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} value=''>Industry</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} value='type1'>Industry 1</MenuItem>
+                <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} value='type2'>Industry 2</MenuItem>
               </CustomTextField>
             </AccordionDetails>
           </Accordion>
@@ -177,7 +177,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up-2' /> Revenue</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up-2' /> Revenue</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -191,7 +191,7 @@ export default function CompanyForm() {
                 sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {revenue.map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -207,7 +207,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up' /> Revenue Growth</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:trending-up' /> Revenue Growth</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -220,7 +220,7 @@ export default function CompanyForm() {
               >
                 {
                   revenuegrowth.map(name => (
-                    <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                    <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                       {name}
                     </MenuItem>
                   ))
@@ -237,7 +237,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBIT %</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBIT %</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -249,7 +249,7 @@ export default function CompanyForm() {
                 sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {ebit.map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -265,7 +265,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBITDA %</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:wallet' /> EBITDA %</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -277,7 +277,7 @@ export default function CompanyForm() {
                 sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {ebit.map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
@@ -293,7 +293,7 @@ export default function CompanyForm() {
               expandIcon={<Icon fontSize='0.85rem' icon='tabler:chevron-down' />}
               sx={{ height: '36px', minHeight: '36px', margin: '0rem', '& .MuiAccordionSummary-content': { margin: '0 !important' } }}
             >
-              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.85rem' }}><Icon fontSize='0.85rem' icon='tabler:users' /> Employees</Typography>
+              <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, fontSize: '0.7rem' }}><Icon fontSize='0.85rem' icon='tabler:users' /> Employees</Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ padding: '0.35rem' }}>
               <CustomTextField
@@ -305,7 +305,7 @@ export default function CompanyForm() {
                 sx={{ '& .MuiInputBase-input': { fontSize: '0.6375rem', lineHeight: '1.375em', padding: '0.25rem !important' } }}
               >
                 {noOfEmployees.map(name => (
-                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25' }} key={name} value={name}>
+                  <MenuItem sx={{ fontSize: '0.7375rem', lineHeight: '0.8rem', padding: '0.25rem', margin: '0.25', marginBottom: '0' }} key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}

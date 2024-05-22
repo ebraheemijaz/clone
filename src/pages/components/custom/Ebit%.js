@@ -155,7 +155,7 @@ function Ebit() {
                 }
               ]}
             >
-              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', textAlign: 'justify' }}>
+              <Typography sx={{ p: 2, width: '250px', maxHeight: '350px', fontSize: '0.7rem', textAlign: 'justify' }}>
                 EBIT is the abbreviation of Earnings Before Interest and Taxes, and represents a company's operating
                 profit before deducting interest and taxes from revenue.
               </Typography>

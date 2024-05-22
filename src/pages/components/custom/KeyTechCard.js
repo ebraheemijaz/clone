@@ -22,21 +22,21 @@ const CustomSubtitle = ({ subtitle }) => {
     setShowMore(!showMore)
   }
 
-  const truncatedSubtitle = subtitle.slice(0, 50) // Limit to 50 characters
+  const truncatedSubtitle = subtitle.slice(0, 30) // Limit to 50 characters
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', height: '80px' }}>
       {showMore ? (
-        <Typography sx={{ textAlign: 'justify' }}>
+        <Typography>
           {subtitle}
           <Button onClick={toggleShowMore} variant='text'>
             See less
           </Button>
         </Typography>
       ) : (
-        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'wrap', textAlign: 'justify' }}>
+        <Typography sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'wrap' }}>
           {truncatedSubtitle} ...
-          {subtitle.length > 50 && ( // Check if characters exceed 50
+          {subtitle.length > 30 && ( // Check if characters exceed 50
             <Button onClick={toggleShowMore} variant='text'>
               See more
             </Button>
