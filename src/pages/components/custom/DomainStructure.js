@@ -17,56 +17,56 @@ import { useState } from 'react'
 
 const data = [
   {
-    icon: 'tabler:shadow',
+    icon: 'tabler:external-link',
     title: 'Ongoing Link',
     amount: '61',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Outgoing Links refers to the number of hyperlinks present on a webpage that direct users to external websites or resources, enhancing navigation and providing additional information.`
   },
   {
-    icon: 'tabler:globe',
+    icon: 'tabler:link',
     title: 'Internal Link',
     amount: '60',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Internal Links are the hyperlinks embedded within a webpage that direct users to other pages within the same website, facilitating navigation and promoting user engagement and exploration.`
   },
   {
-    icon: 'tabler:mail',
+    icon: 'tabler:circles-relation',
     title: 'External Link',
     amount: '1',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `External Links refers to hyperlinks on a webpage that lead users to other websites or external resources outside the domain, providing supplementary information and enhancing user experience.`
   },
   {
-    icon: 'tabler:external-link',
+    icon: 'tabler:photo-plus',
     title: 'Total Image',
     amount: 'Minimal',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Total Images refer to the aggregate number of visual elements, such as photos, illustrations, icons, or graphics, embedded within the content of a webpage or website.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:image-in-picture',
     title: 'Image on Page',
     amount: 'Minimal',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Images on Page represents the quantity of visual content, including photos, illustrations, or graphics, directly embedded within the content of a specific webpage on a website.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:code',
     title: 'HTML Site',
     amount: 'Extensive',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `HTML size on page measures the total size of the HTML code comprising the content, structure, and formatting elements of a specific webpage, influencing page loading speed and user experience.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:device-ipad-code',
     title: 'Text/HTML',
     amount: 'Minimal',
     alertIcon: 'tabler:exclamation-circle',
     tooltipText: `Text/HTML ratio quantifies the proportion of text-based content compared to HTML markup within a webpage, indicating the textual richness and semantic relevance of the page's content.`
   },
   {
-    icon: 'tabler:discount-2',
+    icon: 'tabler:vocabulary',
     title: 'Words on Page',
     amount: 'Extensive',
     alertIcon: 'tabler:exclamation-circle',
