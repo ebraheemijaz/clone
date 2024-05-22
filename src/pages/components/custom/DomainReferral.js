@@ -18,7 +18,7 @@ import OptionsMenu from 'src/@core/components/option-menu'
 
 const data = [
   {
-    icon: 'tabler:shadow',
+    icon: 'tabler:browser-check',
     title: 'Domain Authority',
     amount: '0',
     alertIcon: 'tabler:exclamation-circle',
@@ -28,7 +28,7 @@ const data = [
     likely the domain has a good domain authority.`
   },
   {
-    icon: 'tabler:globe',
+    icon: 'tabler:database',
     title: 'Content Volume',
     amount: 'Giant',
     alertIcon: 'tabler:exclamation-circle',
@@ -37,7 +37,7 @@ const data = [
     crawling process.`
   },
   {
-    icon: 'tabler:mail',
+    icon: 'tabler:layers-linked',
     title: 'Backlinks',
     amount: '2,625,468',
     alertIcon: 'tabler:exclamation-circle',
@@ -46,7 +46,7 @@ const data = [
     website authority.`
   },
   {
-    icon: 'tabler:external-link',
+    icon: 'tabler:alert-circle',
     title: 'Spam Score',
     amount: '1',
     alertIcon: 'tabler:exclamation-circle',
@@ -55,7 +55,7 @@ const data = [
     impact of inbound links.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:sitemap',
     title: 'Ref Subdomains',
     amount: '11,773',
     alertIcon: 'tabler:exclamation-circle',
@@ -64,7 +64,7 @@ const data = [
     webpage or website.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:world-www',
     title: 'Referring Domains',
     amount: '9415',
     alertIcon: 'tabler:exclamation-circle',
@@ -73,7 +73,7 @@ const data = [
     pass authority to the linked webpage.`
   },
   {
-    icon: 'tabler:star',
+    icon: 'tabler:network',
     title: 'Referring IPs',
     amount: '4893',
     alertIcon: 'tabler:exclamation-circle',
@@ -82,7 +82,7 @@ const data = [
     specific webpage or website.`
   },
   {
-    icon: 'tabler:discount-2',
+    icon: 'tabler:git-branch',
     title: 'Referring Subnets',
     amount: '2572',
     alertIcon: 'tabler:exclamation-circle',
