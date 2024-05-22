@@ -43,6 +43,7 @@ import ReactHotToast from 'src/@core/styles/libs/react-hot-toast'
 // ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
 import GoogleCaptchaWrapper from 'src/recaptcha/GoogleCaptchaWrapper'
+
 // ** Prismjs Styles
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
@@ -96,7 +97,8 @@ const App = props => {
   const authGuard = Component.authGuard ?? true
   const guestGuard = Component.guestGuard ?? false
   const aclAbilities = Component.acl ?? defaultACLObj
-  return (
+  
+return (
     <Provider store={store}>
       <GoogleCaptchaWrapper>
         <CacheProvider value={emotionCache}>

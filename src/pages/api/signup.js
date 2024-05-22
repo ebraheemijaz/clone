@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   if (validateRecaptcha(req.body.code)) {
     try {
       req.body.username = req.body.email
+
       const config = {
         method: 'post',
         maxBodyLength: Infinity,

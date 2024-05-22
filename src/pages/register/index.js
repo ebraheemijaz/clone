@@ -112,10 +112,12 @@ const Register = () => {
   const onSubmit = async data => {
     if (!executeRecaptcha) {
       console.log('not available to execute recaptcha')
-      return
+      
+return
     }
 
     const gRecaptchaToken = await executeRecaptcha('inquirySubmit')
+
     // send this to backend
     data.code = gRecaptchaToken
     await auth.signup(data)

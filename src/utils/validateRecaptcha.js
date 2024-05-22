@@ -16,7 +16,8 @@ export const validateRecaptcha = async gRecaptchaToken => {
 
   if (res && res.data?.success && res.data?.score > 0.5) {
     console.log('res.data?.score:', res.data?.score)
-    return true
+    
+return true
   } else {
     return false
   }

@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
         // setLoading(true)
         setUser(JSON.parse(window.localStorage.getItem('userData')))
         setLoading(false)
+
         // await axios
         //   .get(authConfig.meEndpoint, {
         //     headers: {
@@ -71,12 +72,15 @@ const AuthProvider = ({ children }) => {
       .then(async response => {
         console.log('This is response data of login', response.data)
         params.rememberMe ? window.localStorage.setItem('accessToken', response.data.jwt) : null
+
         // const returnUrl = router.query.returnUrl;
         const _user = { ...response.data.user, role: 'admin' }
         setUser(_user)
+
         // console.log('Users data',user)
         console.log('User', user)
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(_user)) : null
+
         // const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
         // console.log('redirect URL', redirectURL)
         router.replace('/dashboards/companies')

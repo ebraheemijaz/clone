@@ -6,6 +6,7 @@ export async function middleware(request) {
   } else {
     console.log(await request.json())
     console.log(await request.json())
+
     // const requestHeaders = new Headers(request.headers)
     // if (!requestHeaders.get('Authorization')) {
     //   return Response.json({ success: false, message: 'authentication failed' }, { status: 401 })

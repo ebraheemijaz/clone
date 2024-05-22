@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   if (validateRecaptcha(req.body.code)) {
     try {
       req.body.identifier = req.body.email
+
       const config = {
         method: 'post',
         url: `${process.env.STRAPI_URL}/api/auth/local`,
@@ -19,6 +20,7 @@ export default async function handler(req, res) {
         user: { id: response.data.user.id, name: response.data.user.name, email: response.data.user.email },
         jwt: encrypt(response.data.jwt)
       })
+
       // console.log(JSON.stringify(response.data.jwt))
       // console.log(response.data)
       // console.log('Backend', req.body)
